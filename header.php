@@ -13,7 +13,7 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<?php if ( Whitebox_Settings::get( 'favicon' ) ) { ?>
-	<link rel="shortcut icon" href="<?php echo esc_url( Whitebox_Settings::get( 'favicon' ) ); ?>" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php echo Whitebox_Settings::get( 'favicon' ); ?>" type="image/x-icon" />
 	<?php } ?>
 
 	<?php wp_head(); ?>
