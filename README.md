@@ -1,4 +1,3 @@
-whitebox
-========
+# Whitebox
 
 Whitebox theme for Wordpress
