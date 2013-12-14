@@ -5,9 +5,12 @@
 
 
 /* Paths to Framework Functions */
-define('INC', get_template_directory() . '/inc');
-define('FRAMEWORK_INC', get_template_directory() . '/inc/framework'); /* Required */
-define('FRAMEWORK_URI', get_template_directory_uri() . '/inc/framework'); /* Required */
+//define('INC', get_template_directory() . '/inc'); /* Required */
+//define('FRAMEWORK_INC', INC . '/framework'); /* Required */
+//define('FRAMEWORK_URI', get_template_directory_uri() . '/inc/framework'); /* Required */
+
+/* Framework Core */
+require_once get_template_directory() . '/inc/framework/init.php';
 
 /* Paths to Theme Assets */
 define('THEME_ASSETS', get_template_directory_uri() . '/assets');
@@ -16,12 +19,9 @@ define('THEME_CSS', THEME_ASSETS . '/css');
 
 define('THEME_DOMAIN', strtolower(wp_get_theme(get_template())->Name));
 
-/* Framework Core */
-require_once FRAMEWORK_INC . '/init.php';
-
 /* Theme Components */
-require_once INC . '/sidebars.php';
-require_once INC . '/menus.php';
+require_once get_template_directory() . '/inc/sidebars.php';
+require_once get_template_directory() . '/inc/menus.php';
 
 /* Include jQuery and dependent scripts */
 if (!is_admin()) add_action('wp_enqueue_scripts', 'whitebox_jquery_enqueue', 10);
