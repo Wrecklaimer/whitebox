@@ -15,8 +15,8 @@
 			'format'    => '?paged=%#%',
 			'current'   => max( 1, get_query_var('paged') ),
 			'total'     => $wp_query->max_num_pages,
-			'prev_text' => _e('Previous', THEME_DOMAIN),
-			'next_text' => _e('Next', THEME_DOMAIN)
+			'prev_text' => __( 'Previous', THEME_DOMAIN ),
+			'next_text' => __( 'Next', THEME_DOMAIN )
 		 ) );
 	?>
 </div>
