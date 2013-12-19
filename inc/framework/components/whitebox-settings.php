@@ -4,8 +4,8 @@
  */
 
 // Define in functions.php to override
-if (!defined('SETTINGS_NAME'))
-	define('SETTINGS_NAME', strtolower(wp_get_theme(get_stylesheet())->Name) . '_settings');
+if ( !defined( 'SETTINGS_NAME' ) )
+	define( 'SETTINGS_NAME', strtolower( wp_get_theme(get_stylesheet())->Name ) . '_settings' );
 
 class Whitebox_Settings {
 
@@ -39,7 +39,7 @@ class Whitebox_Settings {
 			$section_name = str_replace( ' ', '_', strtolower( $name ) ).'_section';
 			add_settings_section( $section_name, $name, array(__CLASS__, 'display_section'), self::$settings_name );
 
-			if ( isset($name[1]) && $name[1] != '' ) {
+			if ( isset( $name[1]) && $name[1] != '' ) {
 				foreach ( $options as $option ) {
 					add_settings_field( $option['id'], $option['name'], array(__CLASS__, 'display_field'), self::$settings_name, $section_name, $option);
 				}
@@ -91,8 +91,8 @@ class Whitebox_Settings {
 	public static function set_defaults( $evoOptions ) {
 		$defaults = array();
 
-		foreach ($evoOptions as $name => $options) {
-			if ( isset($name[1]) && $name[1] != '' ) {
+		foreach ( $evoOptions as $name => $options ) {
+			if ( isset( $name[1]) && $name[1] != '' ) {
 				foreach ( $options as $option ) {
 					$defaults[$option['id']] = $option['std'];
 				}
@@ -114,7 +114,7 @@ class Whitebox_Settings {
 		$type = '';
 
 		foreach ( $evoOptions as $name => $options ) {
-			if ( isset($name[1]) && $name[1] != '' ) {
+			if ( isset( $name[1]) && $name[1] != '' ) {
 				foreach ( $options as $option ) {
 					if ( $option['id'] == $setting_id ) {
 						return $option['type'];
@@ -242,7 +242,7 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<input type="text" id="'.$id.'" class="regular-text" autocomplete="off" name="'.$name.'" value="'.$val.'" />';
-		if ( isset($desc) && !is_null($desc) && $desc != '' )
+		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
@@ -259,7 +259,7 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<textarea type="textarea" id="'.$id.'" class="large-text" name="'.$name.'" >'.$val.'</textarea>';
-		if ( isset($desc) && !is_null($desc) && $desc != '' )
+		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
@@ -276,7 +276,7 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<input type="checkbox" id="'.$id.'" name="'.$name.'" value="1" '.checked( 1, $val, false ).' />';
-		if ( isset($desc) && !is_null($desc) && $desc != '' )
+		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
@@ -293,11 +293,11 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<select id="'.$id.'" name="'.$name.'">';
-		foreach ($options as $option) {
-			echo '<option value="'.$option.'" '.selected( $val, $option, false).'>'.$option.'</option>';
+		foreach ( $options as $option ) {
+			echo '<option value="'.$option.'" '.selected( $val, $option, false ).'>'.$option.'</option>';
 		}
 		echo '</select>';
-		if ( isset($desc) && !is_null($desc) && $desc != '' )
+		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
@@ -316,7 +316,7 @@ class Whitebox_Settings {
 		echo '<span class="upload">';
 		echo '<input type="text" id="'.$id.'" class="regular-text text-upload" autocomplete="off" name="'.$name.'" value="'.esc_url( $val ).'" />';
 		echo '<input type="button" class="button button-upload" value="Upload" />';
-		if ( isset($desc) && !is_null($desc) && $desc != '' )
+		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
 		echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload"/>';
 		echo '</span>';

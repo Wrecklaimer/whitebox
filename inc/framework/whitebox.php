@@ -60,7 +60,7 @@ class Whitebox {
 	 * @return string
 	 */
 	public static function get_root_dir() {
-		return dirname(__FILE__);
+		return dirname( __FILE__ );
 	}
 
 
@@ -72,10 +72,10 @@ class Whitebox {
 		global $wp_version;
 
 		$debug = '# DEBUG<br/>';
-		$debug .= str_replace(' ', '&nbsp;', 'Theme Name:        ' . self::$themeName . '<br/>');
-		$debug .= str_replace(' ', '&nbsp;', 'Theme Version:     ' . self::$themeVersion . '<br/>');
-		$debug .= str_replace(' ', '&nbsp;', 'Framework Version: ' . self::$frameworkVersion . '<br/>');
-		$debug .= str_replace(' ', '&nbsp;', 'Wordpress Version: ' . $wp_version . '<br/>');
+		$debug .= str_replace( ' ', '&nbsp;', 'Theme Name:        ' . self::$themeName . '<br/>' );
+		$debug .= str_replace( ' ', '&nbsp;', 'Theme Version:     ' . self::$themeVersion . '<br/>' );
+		$debug .= str_replace( ' ', '&nbsp;', 'Framework Version: ' . self::$frameworkVersion . '<br/>' );
+		$debug .= str_replace( ' ', '&nbsp;', 'Wordpress Version: ' . $wp_version . '<br/>' );
 		$debug .= '# END DEBUG';
 
 		echo $debug;
