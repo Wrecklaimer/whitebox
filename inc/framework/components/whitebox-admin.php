@@ -20,10 +20,10 @@ class Whitebox_Admin {
 	 * Register custom menus for wp-admin
 	 */
 	function register_admin_pages() {
-		add_object_page( 'Whitebox Theme', 'Whitebox', 'manage_options','whitebox_settings', array(__CLASS__, 'admin_page') );
+		add_object_page( 'Whitebox Theme', 'Whitebox', 'edit_theme_options','whitebox_settings', array(__CLASS__, 'admin_page') );
 
-		add_submenu_page( 'whitebox_settings', 'Whitebox Settings', 'Settings', 'manage_options', 'whitebox_settings', array(__CLASS__, 'admin_page') );
-		//add_submenu_page( 'whitebox_settings', 'Whitebox About', 'About', 'manage_options', 'whitebox_about', array(__CLASS__, 'about_page') );
+		add_submenu_page( 'whitebox_settings', 'Whitebox Settings', 'Settings', 'edit_theme_options', 'whitebox_settings', array(__CLASS__, 'admin_page') );
+		//add_submenu_page( 'whitebox_settings', 'Whitebox About', 'About', 'edit_theme_options', 'whitebox_about', array(__CLASS__, 'about_page') );
 	}
 
 
