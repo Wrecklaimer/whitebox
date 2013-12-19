@@ -9,7 +9,7 @@
 $template = get_post_meta($post->ID, 'post_template', true); ?>
 
 	<div id="main">
-		<div id="post">
+		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<?php wp_reset_query();
 

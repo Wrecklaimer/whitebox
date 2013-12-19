@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 
 	<div id="main">
-		<div id="page">
+		<div id="page-<?php the_ID(); ?>" class="page">
 
 			<?php wp_reset_query();
 
