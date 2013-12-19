@@ -28,7 +28,7 @@ $template = get_post_meta($post->ID, 'post_template', true); ?>
 					<?php if ( Whitebox_Settings::get( 'show_post_date' ) ) { ?>
 					<span class="post-date"><?php _e(' on ', THEME_DOMAIN); the_date(); ?> <?php the_time(); ?></span>
 					<?php } ?>
-					<?php if ( Whitebox_Settings::get( 'show_post_categories' ) ) { ?>
+					<?php if ( Whitebox_Settings::get( 'show_post_category' ) ) { ?>
 					<span class="post-categories"><?php _e(' on ', THEME_DOMAIN); the_category(', '); ?></span>
 					<?php } ?>
 					<?php edit_post_link( __('EDIT', THEME_DOMAIN), ' | ', ''); ?>

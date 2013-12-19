@@ -242,7 +242,8 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<input type="text" id="'.$id.'" class="regular-text" autocomplete="off" name="'.$name.'" value="'.$val.'" />';
-		echo ( $desc != '' ) ? '<br /><span class="description">'.$desc.'</span>' : '';
+		if ( isset($desc) && !is_null($desc) && $desc != '' )
+			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
 
@@ -258,7 +259,8 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<textarea type="textarea" id="'.$id.'" class="large-text" name="'.$name.'" >'.$val.'</textarea>';
-		echo ( $desc != '' ) ? '<br /><span class="description">'.$desc.'</span>' : '';
+		if ( isset($desc) && !is_null($desc) && $desc != '' )
+			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
 
@@ -274,7 +276,8 @@ class Whitebox_Settings {
 		$val = $settings[$id];
 
 		echo '<input type="checkbox" id="'.$id.'" name="'.$name.'" value="1" '.checked( 1, $val, false ).' />';
-		echo ( $desc != '' ) ? '<br /><span class="description">'.$desc.'</span>' : '';
+		if ( isset($desc) && !is_null($desc) && $desc != '' )
+			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
 
@@ -294,7 +297,8 @@ class Whitebox_Settings {
 			echo '<option value="'.$option.'" '.selected( $val, $option, false).'>'.$option.'</option>';
 		}
 		echo '</select>';
-		echo ( $desc != '' ) ? '<br /><span class="description">'.$desc.'</span>' : '';
+		if ( isset($desc) && !is_null($desc) && $desc != '' )
+			echo '<br /><span class="description">'.$desc.'</span>';
 	}
 
 
@@ -312,7 +316,8 @@ class Whitebox_Settings {
 		echo '<span class="upload">';
 		echo '<input type="text" id="'.$id.'" class="regular-text text-upload" autocomplete="off" name="'.$name.'" value="'.esc_url( $val ).'" />';
 		echo '<input type="button" class="button button-upload" value="Upload" />';
-		echo ( $desc != '' ) ? '<br /><span class="description">'.$desc.'</span>' : '';
+		if ( isset($desc) && !is_null($desc) && $desc != '' )
+			echo '<br /><span class="description">'.$desc.'</span>';
 		echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload"/>';
 		echo '</span>';
 	}
