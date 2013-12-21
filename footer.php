@@ -9,35 +9,32 @@
 
 		<div id="footer-wrap" class="wrap">
 
+			<?php
+			if ( is_active_sidebar( 'sidebar-footer-1' )
+				|| is_active_sidebar( 'sidebar-footer-2' )
+				|| is_active_sidebar( 'sidebar-footer-3' )
+				|| is_active_sidebar( 'sidebar-footer-4' )
+			){ ?>
 			<div id="pre-footer" class="row four-column cf">
 				<div class="column first">
-					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('Footer: Column 1'); ?>
+					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('sidebar-footer-1'); ?>
 				</div>
 				<div class="column">
-					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('Footer: Column 2'); ?>
+					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('sidebar-footer-2'); ?>
 				</div>
 				<div class="column">
-					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('Footer: Column 3'); ?>
+					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('sidebar-footer-3'); ?>
 				</div>
 				<div class="column last">
-					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('Footer: Column 4'); ?>
+					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('sidebar-footer-4'); ?>
 				</div>
 			</div><!-- / #preFooter -->
+			<?php } ?>
 
 			<div id="footer" class="row cf">
 				<span class="copy">&copy; <?php Whitebox_Utils::copyright_year( true ); ?> <a href="
-				<?php
-				if ( Whitebox_Settings::get( 'copyright_link' ) != '' )
-					Whitebox_Settings::get( 'copyright_link', true );
-				else
-					echo home_url();
-				?>">
-				<?php
-				if ( Whitebox_Settings::get( 'copyright_text' ) != '' )
-					Whitebox_Settings::get( 'copyright_text', true );
-				else
-					bloginfo( 'name' );
-				?>
+				<?php echo Whitebox_Settings::get( 'copyright_link' ) != '' ? Whitebox_Settings::get( 'copyright_link' ) : home_url(); ?>">
+				<?php Whitebox_Settings::get( 'copyright_text' ) != '' ? Whitebox_Settings::get( 'copyright_text', true ) : bloginfo( 'name' ); ?>
 				</a></span>
 
 				<div id="footer-menu-wrap">

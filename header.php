@@ -1,3 +1,9 @@
+<?php
+/**
+ * Header section
+ */
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head>
@@ -13,7 +19,7 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<?php if ( Whitebox_Settings::get( 'favicon' ) ) { ?>
-	<link rel="shortcut icon" href="<?php echo Whitebox_Settings::get( 'favicon' ); ?>" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
 	<?php } ?>
 
 	<?php wp_head(); ?>
@@ -28,13 +34,13 @@
 			<div id="header" class="row cf">
 
 				<div id="pre-menu-wrap">
-					<?php wp_nav_menu( array('container' => 'nav', 'container_id' => 'top-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'top', 'fallback_cb' => 'false' ) ); ?>
+					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'top-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'top', 'fallback_cb' => 'false' ) ); ?>
 				</div><!-- / #pre-menu-wrap -->
 
 				<div id="logo">
 					<?php if ( Whitebox_Settings::get( 'header_logo' ) ) { ?>
 					<a href="<?php echo home_url(); ?>" >
-						<img src="<?php echo esc_url( Whitebox_Settings::get( 'header_logo' ) ); ?>" alt="<?php bloginfo('name'); ?>" />
+						<img src="<?php esc_url( Whitebox_Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
 					</a><?php
 					}
 					else { ?>
@@ -49,7 +55,7 @@
 
 				<div id="menu-button"><a href="#">Menu</a></div>
 				<div id="menu-wrap">
-					<?php wp_nav_menu( array('container' => 'nav', 'container_id' => 'primary-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'primary' ) ); ?>
+					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'primary-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'primary' ) ); ?>
 					<script>
 						jQuery(function ($) {
 							$('#primary-nav').responsivenav();
@@ -60,10 +66,11 @@
 			</div><!-- / #header -->
 		</div><!-- / #header-wrap -->
 
-		<?php if ( is_home() && $paged < 2 ) { ?>
+		<?php
+		if ( is_active_sidebar( 'sidebar-pre-content' ) && is_home() && $paged < 2 ) { ?>
 			<div id="pre-content-wrap" class="wrap">
 				<div id="pre-content" class="row">
-				<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('Pre Content'); ?>
+				<?php if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( 'sidebar-pre-content' ); ?>
 				</div><!-- / #pre-content -->
 			</div><!-- / #pre-content-wrap -->
 		<?php } ?>
