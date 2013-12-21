@@ -331,7 +331,7 @@ class Whitebox_Settings {
 		wp_enqueue_style( 'thickbox' );
 		wp_enqueue_script( 'thickbox' );
 		wp_enqueue_script( 'media-upload' );
-		wp_enqueue_script( 'whitebox-upload', FRAMEWORK_URI . '/assets/js/whitebox-upload.js', array( 'thickbox', 'media-upload' ), null );
+		wp_enqueue_script( 'whitebox-upload', FRAMEWORK_JS . '/whitebox-upload.js', array( 'thickbox', 'media-upload' ), null );
 	}
 
 
