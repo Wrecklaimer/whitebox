@@ -37,7 +37,7 @@ class Whitebox {
 		self::$themePath        = get_template_directory();
 
 		if ( function_exists( 'wp_get_theme' ) ) {
-			self::$themeData    = wp_get_theme( get_template() );
+			self::$themeData    = wp_get_theme( get_stylesheet() );
 			self::$themeVersion = self::$themeData->Version;
 			self::$themeName    = self::$themeData->Name;
 			self::$themeDomain  = self::$themeData->TextDomain;
