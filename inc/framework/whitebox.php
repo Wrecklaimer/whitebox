@@ -43,11 +43,6 @@ class Whitebox {
 			self::$themeDomain  = self::$themeData->TextDomain;
 			if ( self::$themeDomain == '' )
 				self::$themeDomain = strtolower( self::$themeName );
-		} else {
-			self::$themeData    = get_theme_data( get_template_directory() . '/style.css' );
-			self::$themeVersion = self::$themeData['Version'];
-			self::$themeName    = self::$themeData['Name'];
-			self::$themeDomain  = strtolower( self::$themeName );
 		}
 		self::$theme_raw_name = basename( get_template_directory() );
 	}
