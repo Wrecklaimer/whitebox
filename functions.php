@@ -31,6 +31,10 @@ function whitebox_jquery_enqueue() {
 	wp_enqueue_script( 'responsivenav', THEME_JS . '/jquery.responsivenav.min.js', false, null );
 }
 
+if ( !isset( $content_width ) ) $content_width = 960;
+
+add_theme_support( 'automatic-feed-links' );
+
 /* WP Caption Width Fix */
 add_filter( 'img_caption_shortcode', 'wpse14305_img_caption', 10, 3 );
 

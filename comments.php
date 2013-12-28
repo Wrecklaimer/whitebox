@@ -58,10 +58,10 @@ if ( post_password_required() ) { ?>
 	$aria_req = ( $req ? " aria-required='true' required" : '' );
 
 	$comments_args = array(
-		'title_reply'         => __( 'Leave a Comment' ),
-		'title_reply_to'      => __( 'Reply to %s' ),
-		'cancel_reply_link'   => __( 'Cancel Reply' ),
-		'label_submit'        => __( 'Add Comment' ),
+		'title_reply'         => __( 'Leave a Comment', THEME_DOMAIN ),
+		'title_reply_to'      => __( 'Reply to %s', THEME_DOMAIN ),
+		'cancel_reply_link'   => __( 'Cancel Reply', THEME_DOMAIN ),
+		'label_submit'        => __( 'Add Comment', THEME_DOMAIN ),
 		'fields'              => apply_filters( 'comment_form_default_fields', array(
 			'author' =>
 				'<p class="comment-form-author">' .
