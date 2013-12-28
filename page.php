@@ -1,43 +1,23 @@
 <?php
 /**
- * Page
+ * The template for displaying all pages
  */
 ?>
 
 <?php get_header(); ?>
 
 	<div id="main">
-		<div id="page-<?php the_ID(); ?>" class="page">
+		<?php if ( have_posts() ) :
+			// Start the Loop
+			while ( have_posts() ) : the_post();
 
-			<?php wp_reset_query();
+				get_template_part( 'content', 'page' );
 
-			if ( have_posts() ) :
-
-				while ( have_posts() ) :
-
-					the_post(); ?>
-
-					<h1 class="post-title"><?php the_title(); ?></h1>
-					<p class="post-metadata"><?php edit_post_link( __('EDIT', THEME_DOMAIN ), '', ''); ?></p>
-
-					<div class="post-content">
-						<?php
-						the_content();
-
-						wp_link_pages( array( 'before' => '<p class="post-pagination"><span class="pagination-label">'.__('Pages', THEME_DOMAIN ).':</span> ', 'after' => '</p>', 'next_or_number' => 'number' ) );
-						?>
-					</div> <!-- / .post-content -->
-					<?php
-
-				endwhile;
-
-			else:
-
-				?><p><?php _e('Sorry, no posts matched your criteria.', THEME_DOMAIN ); ?></p><?php
-
-			endif; ?>
-
-		</div> <!-- / #page -->
+			endwhile;
+		else: ?>
+			<p><?php _e( 'Sorry, no pages matched your criteria.', THEME_DOMAIN ); ?></p>
+			<?php
+		endif; ?>
 	</div> <!-- / #main -->
 
 	<?php get_sidebar(); ?>
