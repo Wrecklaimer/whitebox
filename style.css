@@ -458,24 +458,20 @@ input#s:focus {
 	margin-bottom: 15px;
 }
 
-#main .posts .post-content p {
-	line-height: 1.25;
-}
-
-.post-title {
+.entry-title {
 	line-height: 1.1;
 	margin-bottom: 0.25em;
 }
 
-.post-title a {
+.entry-title a {
 	display: block;
 }
 
-.post-title a:hover {
+.entry-title a:hover {
 	text-decoration: none;
 }
 
-.post-metadata {
+.entry-meta {
 	margin: 0 0 10px;
 	color: #777;
 	text-transform: uppercase;
@@ -483,33 +479,33 @@ input#s:focus {
 	display: block;
 }
 
-.post-content p {
+.entry-content p {
 	line-height: 1.45;
 }
 
-.post-content blockquote {
+.entry-content blockquote {
 	font-style: italic;
 	font-size: 16px;
 	margin: 1em;
 	color: #696969;
 }
 
-.post-content blockquote p {
+.entry-content blockquote p {
 	line-height: 1.25;
 }
 
-.post-content blockquote.pullquote {
+.entry-content blockquote.pullquote {
 	float: right;
 	width: 33%;
 	margin: 0.25em 0.25em 0.25em 1em;
 }
 
-.post-content blockquote.pullquote p {
+.entry-content blockquote.pullquote p {
 	margin: 0.5em 0;
 }
 
-.post-content .wp-caption-text,
-.post-content .gallery-caption {
+.entry-content .wp-caption-text,
+.entry-content .gallery-caption {
 	color: #777;
 	font-size: 12px;
 	line-height: 1.2;

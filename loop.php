@@ -31,16 +31,16 @@ if ( have_posts() ) :
 			} ?>
 
 				<div class="content">
-					<h2 class="post-title">
+					<h2 class="entry-title">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 					</h2>
-					<span class="post-metadata"><?php
+					<span class="entry-meta"><?php
 						_e('By ', THEME_DOMAIN ); the_author_posts_link();
 						_e(' on ', THEME_DOMAIN ); the_date(); echo ' '; the_time(); ?>
 					</span>
 
-					<div class="post-content">
-					<?php the_excerpt(); ?>
+					<div class="entry-summary">
+						<?php the_excerpt(); ?>
 					</div>
 
 				</div> <!-- / .content -->

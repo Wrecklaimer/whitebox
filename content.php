@@ -6,20 +6,21 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<h1 class="post-title"><?php the_title(); ?></h1>
+	<h1 class="entry-title"><?php the_title(); ?></h1>
 
-	<span class="post-metadata">
+	<span class="entry-meta">
 		<?php whitebox_post_meta(); ?>
 	</span>
 
-	<div class="post-content">
-		<?php the_content();
+	<div class="entry-content">
+		<?php
+		the_content();
 
 		whitebox_entry_pagination();
 
 		whitebox_entry_tags();
 		?>
-	</div><!-- / .post-content -->
+	</div><!-- / .entry-content -->
 
 	<?php if ( comments_open() || get_comments_number() ) {
 		comments_template();
