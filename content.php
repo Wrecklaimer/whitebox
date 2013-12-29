@@ -9,24 +9,15 @@
 	<h1 class="post-title"><?php the_title(); ?></h1>
 
 	<span class="post-metadata">
-		<?php if ( Whitebox_Settings::get( 'show_post_author' ) ) { ?>
-		<span class="post-author"><?php _e( 'By ', THEME_DOMAIN); the_author_posts_link(); ?></span>
-		<?php } ?>
-		<?php if ( Whitebox_Settings::get( 'show_post_date' ) ) { ?>
-		<span class="post-date"><?php _e( ' on ', THEME_DOMAIN ); the_date(); ?> <?php the_time(); ?></span>
-		<?php } ?>
-		<?php if ( Whitebox_Settings::get( 'show_post_category' ) ) { ?>
-		<span class="post-categories"><?php _e(' on ', THEME_DOMAIN ); the_category( ', ' ); ?></span>
-		<?php } ?>
-		<?php edit_post_link( __( 'Edit', THEME_DOMAIN), ' | ', '' ); ?>
+		<?php whitebox_post_meta(); ?>
 	</span>
 
 	<div class="post-content">
 		<?php the_content();
 
-		wp_link_pages( array( 'before' => '<p class="post-pagination"><span class="pagination-label">' . __('Pages', THEME_DOMAIN) . ':</span> ', 'after' => '</p>', 'next_or_number' => 'number' ) );
+		whitebox_entry_pagination();
 
-		the_tags( '<p class="tags"><span class="tags-label">' . __( 'Tags', THEME_DOMAIN ) . ':</span> ', ', ', '</p>' );
+		whitebox_entry_tags();
 		?>
 	</div><!-- / .post-content -->
 

@@ -15,7 +15,7 @@
 	<div class="post-content">
 		<?php the_content();
 
-		wp_link_pages( array( 'before' => '<p class="post-pagination"><span class="pagination-label">'.__('Pages', THEME_DOMAIN ).':</span> ', 'after' => '</p>', 'next_or_number' => 'number' ) );
+		whitebox_entry_pagination();
 		?>
 	</div> <!-- / .post-content -->
 
