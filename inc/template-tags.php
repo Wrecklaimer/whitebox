@@ -9,23 +9,30 @@
  */
 if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
+	// Post author
 	if ( Whitebox_Settings::get( 'show_post_author' ) ) {
 		echo '<span class="post-author">' . __( 'By ', THEME_DOMAIN);
 		the_author_posts_link();
 		echo '</span>';
 	}
+	// Post date
 	if ( Whitebox_Settings::get( 'show_post_date' ) ) {
 		echo '<span class="post-date">' . __( ' on ', THEME_DOMAIN );
 		the_date();
+		echo ' ';
 		the_time();
 		echo '</span>';
 	}
-	if ( Whitebox_Settings::get( 'show_post_category' ) ) {
+	// Post categories
+	if ( is_single() && Whitebox_Settings::get( 'show_post_category' ) ) {
 		echo '<span class="post-categories">' . __(' on ', THEME_DOMAIN );
 		the_category( ', ' );
 		echo '</span>';
 	}
-	edit_post_link( __( 'Edit', THEME_DOMAIN), ' | ', '' );
+	// Post edit link
+	if ( is_single() ) {
+		edit_post_link( __( 'Edit', THEME_DOMAIN), ' | ', '' );
+	}
 }
 endif;
 
