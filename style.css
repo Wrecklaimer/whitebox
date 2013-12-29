@@ -676,7 +676,7 @@ input#s:focus {
 	margin-top: 4%;
 }
 
-#main .posts-list li .cover {
+#main .posts-list li .entry-image {
 	float: left;
 	margin-right: 2%;
 	max-width: 48%;
@@ -696,7 +696,7 @@ input#s:focus {
 	width: 100%;
 }
 
-#main.wide .posts-list li .cover {
+#main.wide .posts-list li .entry-image {
 	max-width: 31.25%;
 }
 

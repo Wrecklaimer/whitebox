@@ -5,6 +5,35 @@
 
 
 /**
+ * Display post thumbnail (featured image)
+ */
+if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
+function whitebox_post_thumbnail() {
+	if ( !has_post_thumbnail() )
+		return;
+
+	if ( is_singular() ) :
+		// Posts and pages
+		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
+			<div class="entry-image">
+				<?php the_post_thumbnail(); ?>
+			</div><?php
+		endif;
+	else :
+		// Elsewhere
+		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
+			<div class="entry-image">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<?php the_post_thumbnail(); ?>
+				</a>
+			</div><?php
+		endif;
+	endif;
+}
+endif;
+
+
+/**
  * Display post meta
  */
 if ( !function_exists( 'whitebox_post_meta' ) ) :

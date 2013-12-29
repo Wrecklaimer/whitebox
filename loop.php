@@ -15,13 +15,7 @@ if ( have_posts() ) : ?>
 
 			<li id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?>>
 
-			<?php if ( Whitebox_Settings::get( 'show_post_thumbnails' ) && has_post_thumbnail() ) { ?>
-				<div class="cover">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php the_post_thumbnail(); ?>
-					</a>
-				</div><?php
-			} ?>
+				<?php whitebox_post_thumbnail(); ?>
 
 				<div class="content">
 

@@ -39,6 +39,10 @@ if ( !is_admin() ) add_action( 'wp_enqueue_scripts', 'whitebox_jquery_enqueue', 
 if ( !isset( $content_width ) ) $content_width = 960;
 
 
+/* Add featured images to posts and pages */
+add_theme_support( 'post-thumbnails' );
+
+
 /* Add RSS feed links for posts and comments */
 add_theme_support( 'automatic-feed-links' );
 

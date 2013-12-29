@@ -6,10 +6,12 @@
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+	<?php whitebox_post_thumbnail(); ?>
+
 	<h1 class="entry-title"><?php the_title(); ?></h1>
 
 	<span class="entry-meta">
-		<?php edit_post_link( __( 'EDIT', THEME_DOMAIN ), '', ''); ?>
+		<?php edit_post_link( __( 'Edit', THEME_DOMAIN ), '', '' ); ?>
 	</span>
 
 	<div class="entry-content">
