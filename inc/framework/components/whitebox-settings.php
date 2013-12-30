@@ -92,7 +92,7 @@ class Whitebox_Settings {
 		$defaults = array();
 
 		foreach ( $evoOptions as $name => $options ) {
-			if ( isset( $name[1]) && $name[1] != '' ) {
+			if ( isset( $name[1] ) && $name[1] != '' ) {
 				foreach ( $options as $option ) {
 					$defaults[$option['id']] = $option['std'];
 				}
@@ -114,7 +114,7 @@ class Whitebox_Settings {
 		$type = '';
 
 		foreach ( $evoOptions as $name => $options ) {
-			if ( isset( $name[1]) && $name[1] != '' ) {
+			if ( isset( $name[1] ) && $name[1] != '' ) {
 				foreach ( $options as $option ) {
 					if ( $option['id'] == $setting_id ) {
 						return $option['type'];
@@ -275,6 +275,8 @@ class Whitebox_Settings {
 		$settings = get_option( self::$settings_name );
 		$val = $settings[$id];
 
+		// The hidden field’s value gets submitted when the checkbox is left unchecked
+		echo '<input type="hidden" name="'.$name.'" value="0" />';
 		echo '<input type="checkbox" id="'.$id.'" name="'.$name.'" value="1" '.checked( 1, $val, false ).' />';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
@@ -358,10 +360,10 @@ class Whitebox_Settings {
 	 */
 	function replace_thickbox_text( $translated_text, $text, $domain ) {
 		if ( $text == 'Insert into Post' ) {
-				$referer = strpos( wp_get_referer(), 'whitebox_settings' );
-				if ( $referer != '' ) {
-						return 'Use this image';
-				}
+			$referer = strpos( wp_get_referer(), 'whitebox_settings' );
+			if ( $referer != '' ) {
+					return 'Use this image';
+			}
 		}
 		return $translated_text;
 	}
