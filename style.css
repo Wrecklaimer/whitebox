@@ -147,6 +147,7 @@ pre {
 	content: '';
 	display: table;
 	visibility: hidden;
+	line-height: 0;
 }
 
 .cf:after {
@@ -517,6 +518,18 @@ input#s:focus {
 /**
  * Comments
  */
+
+.bypostauthor .comment-body {
+	background: #f8f8f8;
+}
+
+.comment-body {
+	margin-bottom: 10px;
+}
+
+.comment .children {
+	margin-left: 5%;
+}
 
 
 /*
