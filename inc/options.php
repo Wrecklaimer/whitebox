@@ -16,10 +16,10 @@
 			'std'  => ''
 		),
 		array(
-			'name' => 'Show Site Description',
-			'desc' => 'Displays the site description in the header.',
+			'name' => 'Site Description',
 			'id'   => 'show_site_description',
 			'type' => 'checkbox',
+			'label' => 'Display the site description in the header',
 			'std'  => '1'
 		),
 		array(
@@ -39,44 +39,48 @@
 	),
 	"Homepage" => array(
 		array(
-			'name' => 'Display Recent Posts',
-			'desc' => 'Shows the most recent posts on the homepage.',
+			'name' => 'Recent Posts',
 			'id'   => 'show_recent_posts',
 			'type' => 'checkbox',
+			'label' => 'Show the most recent posts on the homepage',
 			'std'  => '1'
 		),
 		array(
-			'name' => 'Show Sidebar',
-			'desc' => 'Shows the sidebar on the homepage.',
+			'name' => 'Sidebar',
 			'id'   => 'show_homepage_sidebar',
 			'type' => 'checkbox',
+			'label' => 'Show the sidebar on the homepage',
 			'std'  => '0'
 		)
 	),
 	"Posts" => array(
 		array(
-			'name' => 'Show Thumbnails',
+			'name' => 'Thumbnails',
 			'id'   => 'show_post_thumbnails',
 			'type' => 'checkbox',
+			'label' => 'Show post thumbnails',
 			'std'  => '1'
 		),
 		array(
-			'name' => 'Display Author',
+			'name' => 'Post Meta',
 			'id'   => 'show_post_author',
 			'type' => 'checkbox',
+			'label' => 'Show post author',
 			'std'  => '1'
 		),
 		array(
-			'name' => 'Display Date/Time',
+			'name' => '',
 			'desc' => '<strong>Date/Time format</strong> can be changed <a href="options-general.php" target="_blank">here</a>.',
 			'id'   => 'show_post_date',
 			'type' => 'checkbox',
+			'label' => 'Show post date',
 			'std'  => '1'
 		),
 		array(
-			'name' => 'Display Category',
+			'name' => '',
 			'id'   => 'show_post_category',
 			'type' => 'checkbox',
+			'label' => 'Show post category',
 			'std'  => '1'
 		)
 	)

@@ -162,6 +162,7 @@ class Whitebox_Settings {
 
 			if ( ! isset( $wp_settings_fields ) || !isset( $wp_settings_fields[$page] ) || !isset( $wp_settings_fields[$page][$section['id']] ) )
 				continue;
+
 			echo '<table class="form-table">';
 			do_settings_fields( $page, $section['id'] );
 			echo '</table>';
@@ -293,9 +294,13 @@ class Whitebox_Settings {
 		$settings = get_option( self::$settings_name );
 		$val = $settings[$id];
 
+		echo '<label for=".$name.">';
 		// The hidden field’s value gets submitted when the checkbox is left unchecked
 		echo '<input type="hidden" name="'.$name.'" value="0" />';
 		echo '<input type="checkbox" id="'.$id.'" name="'.$name.'" value="1" '.checked( 1, $val, false ).' />';
+		if ( isset( $label ) && !is_null( $label ) && $label != '' )
+			echo $label;
+		echo '</label>';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
 	}

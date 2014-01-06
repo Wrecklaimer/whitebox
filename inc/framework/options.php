@@ -2,10 +2,11 @@
 
 	"SEO" => array(
 		array(
-			'name' => 'Enable SEO Settings',
+			'name' => 'SEO Settings',
 			'desc' => 'Disable this if you want to use a 3rd party SEO Plugin.',
 			'id'   => 'enable_seo',
 			'type' => 'checkbox',
+			'label' => 'Enable SEO',
 			'std'  => '1'
 		),
 		array(
