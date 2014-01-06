@@ -39,44 +39,45 @@
 	),
 	"Homepage" => array(
 		array(
-			"name" => "Display Recent Posts",
-			"desc" => "Shows the most recent posts on the homepage.",
-			"id"   => "show_recent_posts",
-			"type" => "checkbox",
-			"std"  => "1"
+			'name' => 'Display Recent Posts',
+			'desc' => 'Shows the most recent posts on the homepage.',
+			'id'   => 'show_recent_posts',
+			'type' => 'checkbox',
+			'std'  => '1'
 		),
 		array(
-			"name" => "Show Sidebar",
-			"desc" => "Shows the sidebar on the homepage.",
-			"id"   => "show_homepage_sidebar",
-			"type" => "checkbox"
+			'name' => 'Show Sidebar',
+			'desc' => 'Shows the sidebar on the homepage.',
+			'id'   => 'show_homepage_sidebar',
+			'type' => 'checkbox',
+			'std'  => '0'
 		)
 	),
 	"Posts" => array(
 		array(
 			'name' => 'Show Thumbnails',
 			'id'   => 'show_post_thumbnails',
-			'std'  => '1',
-			'type' => 'checkbox'
+			'type' => 'checkbox',
+			'std'  => '1'
 		),
 		array(
 			'name' => 'Display Author',
 			'id'   => 'show_post_author',
-			'std'  => '1',
-			'type' => 'checkbox'
+			'type' => 'checkbox',
+			'std'  => '1'
 		),
 		array(
 			'name' => 'Display Date/Time',
 			'desc' => '<strong>Date/Time format</strong> can be changed <a href="options-general.php" target="_blank">here</a>.',
 			'id'   => 'show_post_date',
-			'std'  => '1',
-			'type' => 'checkbox'
+			'type' => 'checkbox',
+			'std'  => '1'
 		),
 		array(
 			'name' => 'Display Category',
 			'id'   => 'show_post_category',
-			'std'  => '1',
-			'type' => 'checkbox'
+			'type' => 'checkbox',
+			'std'  => '1'
 		)
 	)
 

@@ -39,7 +39,7 @@ class Whitebox_Settings {
 			$section_name = str_replace( ' ', '_', strtolower( $name ) ).'_section';
 			add_settings_section( $section_name, $name, array(__CLASS__, 'display_section'), self::$settings_name );
 
-			if ( isset( $name[1]) && $name[1] != '' ) {
+			if ( isset( $name[1] ) && $name[1] != '' ) {
 				foreach ( $options as $option ) {
 					add_settings_field( $option['id'], $option['name'], array(__CLASS__, 'display_field'), self::$settings_name, $section_name, $option);
 				}
@@ -83,12 +83,11 @@ class Whitebox_Settings {
 
 
 	/**
-	 * Set Defaults
-	 * Set options to defaults
-	 *
-	 * @param array $evoOptions
+	 * Get Defaults
+	 * Get option defaults
 	 */
-	public static function set_defaults( $evoOptions ) {
+	public static function get_defaults() {
+		$evoOptions = self::load_options();
 		$defaults = array();
 
 		foreach ( $evoOptions as $name => $options ) {
@@ -98,6 +97,17 @@ class Whitebox_Settings {
 				}
 			}
 		}
+
+		return $defaults;
+	}
+
+
+	/**
+	 * Set Defaults
+	 * Set options to defaults
+	 */
+	public static function set_defaults() {
+		$defaults = self::get_defaults();
 
 		update_option( self::$settings_name, $defaults );
 	}
@@ -170,6 +180,14 @@ class Whitebox_Settings {
 	function validate_settings( $input ) {
 		$output = array();
 
+		// Reset settings to defaults
+		if ( !empty( $input['reset'] ) ) {
+			$output = self::get_defaults();
+			add_settings_error( null, 'settings_reset', 'Settings reset to defaults.', 'updated' );
+			return $output;
+		}
+
+		// Validate inputs
 		foreach ( $input as $name => $value ) {
 			if ( isset( $input[$name] ) ) {
 				switch ( self::get_setting_type( $name ) ) {
