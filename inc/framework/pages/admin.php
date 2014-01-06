@@ -26,4 +26,14 @@ if ( !current_user_can( 'edit_theme_options' ) ) {
 		</form>
 	</div><!-- / #admin-form -->
 
+	<script type="text/javascript">
+	jQuery(function ($) {
+		$('input[value="Reset"]').click(function(e) {
+			if (!confirm("Settings will be reset back to their defaults and all current settings will be lost. This cannot be undnone.")) {
+				e.preventDefault();
+			}
+		});
+	});
+	</script>
+
 </div><!-- / #admin-wrap -->
