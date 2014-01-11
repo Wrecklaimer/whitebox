@@ -21,19 +21,21 @@ if ( !current_user_can( 'edit_theme_options' ) ) {
 			Whitebox_Settings::display_settings_sections( Whitebox_Settings::$settings_name );
 			?>
 			<p class="submit">
-				<?php submit_button('Save Settings', 'primary', 'submit', false ); ?> <?php submit_button( 'Reset', 'secondary', Whitebox_Settings::$settings_name.'[reset]', false ); ?>
+				<?php submit_button('Save Settings', 'primary', 'submit', false ); ?> <?php submit_button( 'Reset', 'secondary', Whitebox_Settings::$settings_name.'[reset]', false, array( 'id' => 'reset' ) ); ?>
 			</p>
 		</form>
 	</div><!-- / #admin-form -->
 
 	<script type="text/javascript">
-	jQuery(function ($) {
-		$('input[value="Reset"]').click(function(e) {
-			if (!confirm("Settings will be reset back to their defaults and all current settings will be lost. This cannot be undnone.")) {
-				e.preventDefault();
-			}
+		jQuery(function ($) {
+			$(document).ready(function() {
+				$('input[id="reset"]').click(function(e) {
+					if (!confirm("Settings will be reset back to their defaults and all current settings will be lost. This cannot be undnone.")) {
+						e.preventDefault();
+					}
+				});
+			});
 		});
-	});
 	</script>
 
 </div><!-- / #admin-wrap -->
