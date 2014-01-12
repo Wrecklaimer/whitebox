@@ -528,6 +528,15 @@ input#s:focus {
 	margin-bottom: 10px;
 }
 
+.comment-avatar {
+	float: left;
+	margin-right: 2%;
+}
+
+.comment-author {
+	font-weight: bold;
+}
+
 .comment .children {
 	margin-left: 5%;
 }
