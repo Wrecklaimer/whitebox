@@ -1,4 +1,4 @@
-/*!****************************************************************************
+/*****************************************************************************
 
 Theme Name: Whitebox
 Theme URI: http://github.com/Wrecklaimer/whitebox
@@ -232,13 +232,10 @@ input#s {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
-	-webkit-border-radius: 2px;
-	-moz-border-radius:    2px;
-	border-radius:         2px;
 	border: 1px solid #cfcfcf;
 	line-height: inherit;
 	font-family: inherit;
-	padding: 3px;
+	padding: 4px;
 	margin-bottom: .5em;
 	max-width: 100%;
 }
@@ -459,6 +456,10 @@ input#s:focus {
 	margin-bottom: 15px;
 }
 
+.single-post .entry-image {
+	margin-bottom: 5px;
+}
+
 .entry-title {
 	line-height: 1.1;
 	margin-bottom: 0.25em;
@@ -529,6 +530,24 @@ input#s:focus {
 
 .comment .children {
 	margin-left: 5%;
+}
+
+.comment-navigation .nav-previous > a,
+.comment-navigation .nav-next > a {
+	display: inline-block;
+	padding: 5px 0;
+}
+
+.comment-navigation {
+	margin-bottom: 5px;
+}
+
+.comment-navigation .nav-previous {
+	float: left;
+}
+
+.comment-navigation .nav-next {
+	float: right;
 }
 
 
