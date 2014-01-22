@@ -27,8 +27,6 @@ html, body, div {
 body {
 	font: 14px/1.25 Arial, Helvetica, sans-serif;
 	text-align: left;
-	background-color: #fff;
-	color: #000;
 	letter-spacing: 0;
 }
 
@@ -322,17 +320,25 @@ input#s:focus {
  * Menus
  */
 
-#menu-button {
+#primary-nav-button {
 	text-align: center;
 	clear: left;
-}
-
-#menu-button a {
-	display: block;
+	display: none;
 	padding: 10px;
 	text-decoration: none;
 	color: #333;
 	font-weight: bold;
+	font-size: 0;
+}
+
+#primary-nav-button.mobile {
+	display: block;
+}
+
+#primary-nav-button:before {
+	content: '☰';
+	font-size: 20px;
+	line-height: 1;
 }
 
 .menu {
@@ -362,6 +368,12 @@ input#s:focus {
 }
 
 #primary-nav {
+	display: inline-block;
+	position: relative;
+	width: auto;
+}
+
+#primary-nav.mobile {
 	display: none;
 	position: absolute;
 	background: #fff;
@@ -372,24 +384,49 @@ input#s:focus {
 #primary-nav li {
 	font-size: 16px;
 	font-weight: bold;
-	float: none;
+	float: left;
 	margin: 0;
+}
+
+#primary-nav.mobile li {
+	float: none;
 }
 
 #primary-nav li a {
 	color: #696969;
-	padding: 5%;
+	padding: 10px;
 	text-decoration: none;
+}
+
+#primary-nav.mobile li a {
+	padding: 5%;
 }
 
 #primary-nav li > a:hover,
 #primary-nav li.selected > a,
 #primary-nav li.current-menu-item > a {
-	background: #eee;
 	color: #363636;
 }
 
-#primary-nav .menu,
+#primary-nav.mobile li > a:hover,
+#primary-nav.mobile li.selected > a,
+#primary-nav.mobile li.current-menu-item > a {
+	background: #eee;
+}
+
+#primary-nav .sub-menu li > a:hover,
+#primary-nav .sub-menu li.selected > a,
+#primary-nav .sub-menu li.current-menu-item > a {
+	background: #eee;
+}
+
+#primary-nav.mobile .sub-menu li > a:hover,
+#primary-nav.mobile .sub-menu li.selected > a,
+#primary-nav.mobile .sub-menu li.current-menu-item > a {
+	background: none;
+}
+
+#primary-nav.mobile .menu,
 .menu .sub-menu {
 	background: #f8f8f8;
 }
@@ -402,19 +439,26 @@ input#s:focus {
 	z-index: 200;
 }
 
+#primary-nav .sub-menu {
+	position: absolute;
+}
+
+#primary-nav.mobile .sub-menu {
+	position: relative;
+}
+
 .menu .sub-menu li {
 	width: 100%;
 }
 
 .downarrow {
-	background: none;
+	position: relative;
 	display: inline-block;
-	padding: 0;
 	text-align: center;
 	min-width: 3px;
 }
 
-.downarrow,
+#primary-nav.mobile .downarrow,
 .sub-menu .downarrow {
 	position: absolute;
 	right: 0;
@@ -430,6 +474,14 @@ input#s:focus {
 	line-height: 1.1;
 	width: 1em;
 	height: 1em;
+}
+
+.sub-menu .downarrow:before {
+	content: '\25b8';
+}
+
+#primary-nav.mobile .sub-menu .downarrow:before {
+	content: '\25be';
 }
 
 
@@ -619,61 +671,8 @@ input#s:focus {
 	max-width: 960px;
 }
 
-#menu-button {
-	display: none;
-}
-
 #menu-wrap {
 	float: left;
-}
-
-#primary-nav {
-	display: inline-block;
-	position: relative;
-	background: none;
-	width: auto;
-}
-
-#primary-nav .menu {
-	background: none;
-}
-
-#primary-nav li {
-	float: left;
-}
-
-#primary-nav li a {
-	padding: 10px;
-}
-
-#primary-nav li > a:hover,
-#primary-nav li.selected > a,
-#primary-nav li.current-menu-item > a {
-	background: none;
-}
-
-#primary-nav .sub-menu li > a:hover,
-#primary-nav .sub-menu li.selected > a,
-#primary-nav .sub-menu li.current-menu-item > a {
-	background: #eee;
-}
-
-#primary-nav .sub-menu {
-	position: absolute;
-}
-
-.downarrow {
-	position: relative;
-	right: auto;
-}
-
-.downarrow,
-.sub-menu .downarrow {
-	padding-right: 0;
-}
-
-#primary-nav .sub-menu .downarrow:before {
-	content: '\25b8';
 }
 
 #footer .copy {

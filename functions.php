@@ -30,7 +30,7 @@ require get_template_directory() . '/inc/template-tags.php';
 /* Include jQuery and dependent scripts */
 function whitebox_jquery_enqueue() {
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'responsivenav', THEME_JS . '/jquery.responsivenav.min.js', false, null );
+	wp_enqueue_script( 'responsive-menu', THEME_JS . '/jquery.responsive-menu.min.js', false, null );
 }
 if ( !is_admin() ) add_action( 'wp_enqueue_scripts', 'whitebox_jquery_enqueue', 10 );
 
