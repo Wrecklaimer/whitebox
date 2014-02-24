@@ -766,12 +766,12 @@ input#s:focus {
 
 #pre-footer.four-column .column {
 	width: 23.5%;
-	margin-right: 2%;
+	margin-right: 2% !important;
 	margin-top: 0 !important;
 }
 
 #pre-footer.four-column .column:nth-child(4n) {
-	margin-right: 0;
+	margin-right: 0 !important;
 }
 
 }
