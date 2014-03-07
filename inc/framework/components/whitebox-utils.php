@@ -65,7 +65,7 @@ class Whitebox_Utils {
 	 * @param bool $echo
 	 */
 	public static function copyright_year( $echo = false ) {
-		$args = array( 'numberposts' => '1' );
+		$args = array( 'numberposts' => '1', 'post_status' => 'publish' );
 		$recent_posts = wp_get_recent_posts( $args );
 		$output = mysql2date( 'Y', $recent_posts[0]['post_date'] );
 
