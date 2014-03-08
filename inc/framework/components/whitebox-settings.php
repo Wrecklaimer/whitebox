@@ -5,7 +5,7 @@
 
 // Define in functions.php to override
 if ( !defined( 'SETTINGS_NAME' ) )
-	define( 'SETTINGS_NAME', strtolower( wp_get_theme( get_stylesheet())->Name ) . '_settings' );
+	define( 'SETTINGS_NAME', Whitebox::$themeDomain . '_settings' );
 
 class Whitebox_Settings {
 
