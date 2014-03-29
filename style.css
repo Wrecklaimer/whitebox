@@ -194,10 +194,13 @@ pre {
  * Input and Forms
  */
 
+/* Buttons */
 #submit,
 input[type="submit"],
 input[type="reset"],
 input.button,
+button[type="submit"],
+button.button,
 a.button {
 	background: #363636;
 	color: #fff;
@@ -217,11 +220,14 @@ a.button {
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input.button:hover,
+button[type="submit"]:hover,
+button.button:hover,
 a.button:hover {
 	background: #128fed;
 	text-decoration: none;
 }
 
+/* Text Inputs */
 input[type="text"],
 input[type="password"],
 input[type="file"],
@@ -545,11 +551,39 @@ input#s:focus {
 	line-height: 1.45;
 }
 
+.entry-content ul,
+.entry-content ol {
+	padding: 0 0 0 1.5em;
+	margin: .5em 0;
+}
+
+.entry-content ul {
+	list-style-type: disc;
+}
+
+.entry-content ul ul {
+	list-style-type: circle;
+}
+
+.entry-content ul ul ul {
+	list-style-type: square;
+}
+
+.entry-content ol {
+	list-style-type: decimal;
+}
+
 .entry-content blockquote {
 	font-style: italic;
 	font-size: 16px;
 	margin: 1em;
 	color: #696969;
+}
+
+.entry-content blockquote cite {
+	font-size: 85%;
+	font-style: normal;
+	display: inline-block;
 }
 
 .entry-content blockquote p {
@@ -584,12 +618,12 @@ input#s:focus {
  * Comments
  */
 
-.bypostauthor .comment-body {
-	background: #f8f8f8;
-}
-
 .comment-body {
 	margin-bottom: 10px;
+}
+
+.bypostauthor .comment-body {
+	background: #f8f8f8;
 }
 
 .comment-avatar {
@@ -599,6 +633,10 @@ input#s:focus {
 
 .comment-author {
 	font-weight: bold;
+}
+
+.bypostauthor .comment-content {
+	padding: 0 5px 5px;
 }
 
 .comment .children {
