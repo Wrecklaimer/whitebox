@@ -51,7 +51,9 @@ if ( post_password_required() ) { ?>
 <?php
 $commenter = wp_get_current_commenter();
 $req = get_option( 'require_name_email' );
+$req_text = '(required)';
 $aria_req = ( $req ? " aria-required='true' required" : '' );
+$size = 35;
 
 $comments_args = array(
 	'title_reply'         => __( 'Leave a Comment', THEME_DOMAIN ),
@@ -60,24 +62,29 @@ $comments_args = array(
 	'label_submit'        => __( 'Add Comment', THEME_DOMAIN ),
 	'fields'              => apply_filters( 'comment_form_default_fields', array(
 		'author' =>
-			'<p class="comment-form-author">' .
-			'<label for="author">' . __( 'Name', THEME_DOMAIN ) . '</label> ' .
-			( $req ? '<span class="required">*</span>' : '' ) .
-			'<br/><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-			'" size="30" tabindex="1"' . $aria_req . ' /></p>',
+			'<div class="comment-form-author">' .
+			'<label for="author">' . __( 'Name', THEME_DOMAIN ) . ( $req ? ' <span class="required">' . $req_text . '</span>' : '' ) . '</label>' .
+			'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+			'" size="' . $size . '" tabindex="1"' . $aria_req . ' />' .
+			'</div>',
 		'email' =>
-			'<p class="comment-form-email"><label for="email">' . __( 'Email', THEME_DOMAIN ) . '</label> ' .
-			( $req ? '<span class="required">*</span>' : '' ) .
-			'<br/><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-			'" size="30" tabindex="2"' . $aria_req . ' /></p>',
+			'<div class="comment-form-email">
+			<label for="email">' . __( 'Email', THEME_DOMAIN ) . ( $req ? ' <span class="required">' . $req_text . '</span>' : '' ) . '</label>' .
+			'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+			'" size="' . $size . '" tabindex="2"' . $aria_req . ' />' .
+			'</div>',
 		'url' =>
-			'<p class="comment-form-url"><label for="url">' .
-			__( 'Website', THEME_DOMAIN ) . '</label>' .
-			'<br/><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
-			'" size="30" tabindex="3" /></p>'
+			'<div class="comment-form-url">' .
+			'<label for="url">' . __( 'Website', THEME_DOMAIN ) . '</label>' .
+			'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+			'" size="' . $size . '" tabindex="3" />' .
+			'</div>'
 		)
 	),
-	'comment_field'       => '<p class="comment-form-comment"><textarea id="comment" name="comment" tabindex="4" cols="100" rows="4" aria-required="true"></textarea></p>',
+	'comment_field'       =>
+		'<div class="comment-form-comment"><label for="comment">' . __( 'Comment', THEME_DOMAIN ) . '</label>' .
+		'<textarea id="comment" name="comment" tabindex="4" cols="100" rows="4" aria-required="true"></textarea>' .
+		'</div>',
 	'comment_notes_after' => '',0
 );
 
