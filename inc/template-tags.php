@@ -5,7 +5,10 @@
 
 
 /**
+ * Whitebox Post Thumbnail
  * Display post thumbnail (featured image)
+ *
+ * @param string $size
  */
 if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
 function whitebox_post_thumbnail( $size = null ) {
@@ -34,6 +37,7 @@ endif;
 
 
 /**
+ * Whitebox Post Meta
  * Display post meta
  */
 if ( !function_exists( 'whitebox_post_meta' ) ) :
@@ -67,7 +71,8 @@ endif;
 
 
 /**
- * Display entry page navigation
+ * Whitebox Entry Pagination
+ * Display post page navigation
  */
 if ( !function_exists( 'whitebox_entry_pagination' ) ) :
 function whitebox_entry_pagination() {
@@ -83,7 +88,8 @@ endif;
 
 
 /**
- * Display entry page navigation
+ * Whitebox Entry Tags
+ * Display post tags
  */
 if ( !function_exists( 'whitebox_entry_tags' ) ) :
 function whitebox_entry_tags() {
@@ -97,6 +103,7 @@ endif;
 
 
 /**
+ * Whitebpx Comment
  * Display a single comment
  * Custom comment callback for wp_list_comments()
  *
