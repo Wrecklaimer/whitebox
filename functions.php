@@ -42,6 +42,8 @@ if ( !isset( $content_width ) ) $content_width = 960;
 /* Add featured images to posts and pages */
 add_theme_support( 'post-thumbnails' );
 
+add_image_size( 'whitebox-homepage-thumb', 540, 999 );
+
 
 /* Add RSS feed links for posts and comments */
 add_theme_support( 'automatic-feed-links' );

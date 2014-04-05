@@ -15,7 +15,7 @@ if ( have_posts() ) : ?>
 
 			<li id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?>>
 
-				<?php whitebox_post_thumbnail(); ?>
+				<?php whitebox_post_thumbnail( 'whitebox-homepage-thumb' ); ?>
 
 				<div class="content">
 

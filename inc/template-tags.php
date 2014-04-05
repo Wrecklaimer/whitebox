@@ -8,7 +8,7 @@
  * Display post thumbnail (featured image)
  */
 if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
-function whitebox_post_thumbnail() {
+function whitebox_post_thumbnail( $size = null ) {
 	if ( !has_post_thumbnail() )
 		return;
 
@@ -16,7 +16,7 @@ function whitebox_post_thumbnail() {
 		// Posts and pages
 		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
 			<div class="entry-image">
-				<?php the_post_thumbnail(); ?>
+				<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
 			</div><?php
 		endif;
 	else :
@@ -24,7 +24,7 @@ function whitebox_post_thumbnail() {
 		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
 			<div class="entry-image">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); ?>
+					<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
 				</a>
 			</div><?php
 		endif;
