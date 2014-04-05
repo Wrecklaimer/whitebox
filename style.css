@@ -300,9 +300,8 @@ input#s:focus {
 }
 
 #logo {
-	float: left;
+	text-align: center;
 	padding: 5px 0;
-	display: inline;
 }
 
 #site-title {
@@ -733,6 +732,12 @@ input#s:focus {
 
 .row {
 	max-width: 960px;
+}
+
+#logo {
+	float: left;
+	display: inline;
+	text-align: left;
 }
 
 #menu-wrap {
