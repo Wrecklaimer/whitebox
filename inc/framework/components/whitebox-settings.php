@@ -343,7 +343,8 @@ class Whitebox_Settings {
 		echo '<input type="button" class="button button-upload" value="Upload" />';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
-		echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload"/>';
+		if ( isset( $val ) && !is_null( $val ) && $val != '' )
+			echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload" />';
 		echo '</span>';
 	}
 
