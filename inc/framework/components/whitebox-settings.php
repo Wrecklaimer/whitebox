@@ -294,7 +294,7 @@ class Whitebox_Settings {
 		$settings = get_option( self::$settings_name );
 		$val = $settings[$id];
 
-		echo '<label for=".$name.">';
+		echo '<label for="'.$id.'">';
 		// The hidden field’s value gets submitted when the checkbox is left unchecked
 		echo '<input type="hidden" name="'.$name.'" value="0" />';
 		echo '<input type="checkbox" id="'.$id.'" name="'.$name.'" value="1" '.checked( 1, $val, false ).' />';
