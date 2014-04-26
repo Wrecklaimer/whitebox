@@ -8,7 +8,7 @@ Description: Whitebox theme for Wordpress
 Version: 1.0b
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, right-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, featured-images, theme-options
+Tags: one-column, two-columns, right-sidebar, fluid-layout, responsive-layout, custom-menu, featured-images, theme-options
 Text Domain: whitebox
 
 ******************************************************************************/
@@ -17,38 +17,6 @@ Text Domain: whitebox
 /**
  * Elements
  */
-
-html, body, div {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-}
-
-body {
-	font: 14px/1.25 Arial, Helvetica, sans-serif;
-	text-align: left;
-	letter-spacing: 0;
-}
-
-ul, ol {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-img {
-	vertical-align: top;
-	max-width: 100%;
-	height: auto;
-}
-
-iframe, object, embed {
-	max-width: 100%;
-}
-
-em {
-	font-style: italic;
-}
 
 a {
 	text-decoration: none;
@@ -59,11 +27,32 @@ a:hover {
 	text-decoration: underline;
 }
 
+em {
+	font-style: italic;
+}
+
+img,
+iframe,
+object,
+embed {
+	max-width: 100%;
+}
+
+img {
+	vertical-align: top;
+	height: auto;
+}
+
 a img {
 	border: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: bold;
 	margin: 0 0 .5em;
 	padding: 0;
@@ -102,21 +91,22 @@ h6 {
 
 hr {
 	display: block;
-	height: 1px;
+	height: 0;
 	border: 0;
 	border-top: 1px solid #cfcfcf;
 	margin: 1em 0;
 	padding: 0;
 }
 
-p {
-	margin: 1em 0;
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
+	border-color: #cfcfcf;
 }
 
 textarea {
@@ -194,75 +184,80 @@ pre {
  * Input and Forms
  */
 
-/* Buttons */
-#submit,
-input[type="submit"],
-input[type="reset"],
-input.button,
-button[type="submit"],
-button.button,
-a.button {
-	background: #363636;
-	color: #fff;
-	border: none;
+input,
+button,
+textarea,
+select,
+.button {
+	font-family: inherit;
 	-webkit-border-radius: 0;
 	-moz-border-radius:    0;
 	border-radius:         0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+/* Buttons */
+input[type=button],
+input[type=submit],
+input[type=reset],
+button,
+.button {
+	background: #363636;
+	color: #fff;
+	border: none;
 	padding: 5px;
-	font-size: 14px;
 	font-weight: bold;
-	font-family: inherit;
 	cursor: pointer;
 	width: auto;
 }
 
-#submit:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input.button:hover,
-button[type="submit"]:hover,
-button.button:hover,
-a.button:hover {
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+button:hover,
+.button:hover {
 	background: #128fed;
 	text-decoration: none;
 }
 
 /* Text Inputs */
-input[type="text"],
-input[type="password"],
-input[type="file"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
+input[type=text],
+input[type=password],
+input[type=file],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=url],
 textarea,
-input#s {
+select {
 	background-color: #fff;
 	color: #696969;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing:    border-box;
-	box-sizing:         border-box;
 	border: 1px solid #cfcfcf;
 	line-height: inherit;
-	font-family: inherit;
 	padding: 4px;
 	margin-bottom: .5em;
 	max-width: 100%;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="file"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=file]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=url]:focus,
 textarea:focus,
-input#s:focus {
+select:focus {
 	border-color: #9c9c9c;
 	color: #363636;
+}
+
+select {
+	padding: 2px;
 }
 
 
@@ -275,10 +270,12 @@ input#s:focus {
 	min-height: 200px;
 	margin: 0 auto;
 	color: #333;
+	font: 0.875em/1.25 Arial, Helvetica, sans-serif; /* 14px */
+	text-align: left;
+	letter-spacing: 0;
 }
 
 .wrap {
-	text-align: center;
 	overflow: hidden;
 }
 
@@ -286,8 +283,7 @@ input#s:focus {
 	margin: 0 auto;
 	width: 96%;
 	max-width: 660px;
-	text-align: left;
-	padding: 0;
+	padding: 10px 0;
 }
 
 
@@ -299,6 +295,10 @@ input#s:focus {
 	overflow: visible;
 }
 
+#header {
+	padding: 0;
+}
+
 #logo {
 	text-align: center;
 	padding: 5px 0;
@@ -306,8 +306,6 @@ input#s:focus {
 
 #site-title {
 	font-size: 48px;
-	line-height: 50px;
-	font-weight: bold;
 	margin: 0;
 }
 
@@ -502,11 +500,6 @@ input#s:focus {
  * Content
  */
 
-#pre-content,
-#content {
-	padding: 10px 0;
-}
-
 
 /*
  * Main
@@ -517,17 +510,23 @@ input#s:focus {
  * Posts and Pages
  */
 
-#main .posts-list li {
-	margin-bottom: 15px;
+#main ul.posts {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
-.single-post .entry-image {
-	margin-bottom: 5px;
+#main .posts-list .post {
+	margin-bottom: 1em;
+}
+
+.entry-image {
+	margin-bottom: .5em;
 }
 
 .entry-title {
 	line-height: 1.1;
-	margin-bottom: 0.25em;
+	margin-bottom: .25em;
 }
 
 .entry-title a {
@@ -539,7 +538,7 @@ input#s:focus {
 }
 
 .entry-meta {
-	margin: 0 0 10px;
+	margin: 0 0 .8em;
 	color: #777;
 	text-transform: uppercase;
 	font-size: 12px;
@@ -663,7 +662,7 @@ input#s:focus {
 
 .comment-form label {
 	display: block;
-	margin-bottom: 0.25em;
+	margin-bottom: .25em;
 	font-weight: bold;
 	color: #363636;
 }
@@ -680,11 +679,11 @@ input#s:focus {
  */
 
 #sidebar {
-	padding-top: 20px;
+	padding-top: 1.5em;
 }
 
 #sidebar .widget {
-	margin-top: 20px;
+	margin-top: 1.5em;
 }
 
 #sidebar .widget:first-child {
@@ -696,12 +695,8 @@ input#s:focus {
  * Footer
  */
 
-#pre-footer {
-	padding: 10px 0;
-}
-
 #pre-footer .column {
-	margin-top: 20px;
+	margin-top: 1.5em;
 }
 
 #pre-footer .column:first-child {
@@ -788,6 +783,7 @@ input#s:focus {
 #main .posts-list li .entry-image {
 	float: left;
 	margin-right: 2%;
+	margin-bottom: 0;
 	max-width: 48%;
 }
 
@@ -820,7 +816,7 @@ input#s:focus {
 	display: block;
 	width: auto;
 	margin-right: 0;
-	margin-top: 20px !important;
+	margin-top: 1.5em !important;
 	font-size: inherit;
 }
 
