@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom template tags for Twenty Fourteen
+ * Custom template tags for Whitebox
  */
 
 
