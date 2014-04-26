@@ -27,6 +27,13 @@ require_once get_template_directory() . '/inc/menus.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 
+/* Use minified theme stylesheet instead */
+add_filter( 'stylesheet_uri', 'min_stylesheet_uri', 10, 2 );
+function min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+	return $stylesheet_dir_uri.'/style.min.css';
+}
+
+
 /* Include jQuery and dependent scripts */
 function whitebox_jquery_enqueue() {
 	wp_enqueue_script( 'jquery' );
