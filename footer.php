@@ -14,7 +14,7 @@
 				|| is_active_sidebar( 'sidebar-footer-2' )
 				|| is_active_sidebar( 'sidebar-footer-3' )
 				|| is_active_sidebar( 'sidebar-footer-4' )
-			){ ?>
+			) : ?>
 			<div id="pre-footer" class="row four-column cf">
 				<div class="column first">
 					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('sidebar-footer-1'); ?>
@@ -29,7 +29,7 @@
 					<?php if ( function_exists('dynamic_sidebar') ) dynamic_sidebar('sidebar-footer-4'); ?>
 				</div>
 			</div><!-- / #preFooter -->
-			<?php } ?>
+			<?php endif; ?>
 
 			<div id="footer" class="row cf">
 				<span class="copy">&copy; <?php Whitebox_Utils::copyright_year( true ); ?> <a href="

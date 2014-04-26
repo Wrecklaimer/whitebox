@@ -24,8 +24,9 @@
 		?>
 	</div><!-- / .entry-content -->
 
-	<?php if ( comments_open() || get_comments_number() ) {
+	<?php
+	if ( comments_open() || get_comments_number() ) :
 		comments_template();
-	} ?>
+	endif; ?>
 
 </div> <!-- / #post-## -->
