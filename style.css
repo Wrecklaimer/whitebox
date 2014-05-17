@@ -105,14 +105,6 @@ ol {
 	margin: 0;
 }
 
-fieldset {
-	border-color: #cfcfcf;
-}
-
-textarea {
-	resize: vertical;
-}
-
 dt {
 	font-weight: bold;
 }
@@ -209,7 +201,6 @@ button,
 	border: none;
 	padding: 5px;
 	font-weight: bold;
-	cursor: pointer;
 	width: auto;
 }
 
@@ -237,7 +228,7 @@ select {
 	color: #696969;
 	border: 1px solid #cfcfcf;
 	line-height: inherit;
-	padding: 4px;
+	padding: .3125em;
 	margin-bottom: .5em;
 	max-width: 100%;
 }
@@ -256,8 +247,27 @@ select:focus {
 	color: #363636;
 }
 
+textarea {
+	resize: vertical;
+}
+
 select {
-	padding: 2px;
+	padding: 3px;
+}
+
+input[type=checkbox],
+input[type=radio] {
+	margin-bottom: 0.5em;
+}
+
+input[type=checkbox] + label,
+input[type=radio] + label {
+	margin-left: 0.25em;
+}
+
+fieldset {
+	border-color: #cfcfcf;
+	margin-bottom: 0.5em;
 }
 
 

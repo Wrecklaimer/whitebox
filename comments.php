@@ -83,7 +83,7 @@ $comments_args = array(
 	),
 	'comment_field'       =>
 		'<div class="comment-form-comment"><label for="comment">' . __( 'Comment', THEME_DOMAIN ) . '</label>' .
-		'<textarea id="comment" name="comment" tabindex="4" cols="100" rows="4" aria-required="true"></textarea>' .
+		'<textarea id="comment" name="comment" tabindex="4" cols="80" rows="4" aria-required="true"></textarea>' .
 		'</div>',
 	'comment_notes_after' => '',0
 );
