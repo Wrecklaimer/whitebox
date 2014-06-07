@@ -35,7 +35,7 @@ if ( have_posts() ) : ?>
 		<?php
 		endwhile; ?>
 	</ul>
-	<?php get_template_part('pagination' );
+	<?php get_template_part( 'pagination' );
 else : ?>
 	<p class="title"><?php _e( 'There are no posts to display', THEME_DOMAIN ); ?></p>
 <?php

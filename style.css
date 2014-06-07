@@ -700,6 +700,44 @@ fieldset {
 
 
 /*
+ * Search form
+ */
+
+.search-form {
+  display: table;
+  width: 100%;
+}
+
+.page-404-not-found .search-form,
+.page-search-results .search-form {
+	max-width: 400px;
+}
+
+.search-form > span {
+  display: table-cell;
+}
+
+.search-form > span:last-child {
+  width: 1px;
+}
+
+.search-form .search-label {
+	display: none;
+}
+
+.search-form .search-field {
+  width: 100%;
+  margin: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.search-form .search-submit {
+	margin-left: 5px;
+}
+
+
+/*
  * Footer
  */
 
@@ -768,6 +806,10 @@ fieldset {
 	font-size: 0.1px;
 }
 
+#sidebar {
+	padding-top: 20px;
+}
+
 #pre-footer.four-column .column,
 #sidebar .widget {
 	display: inline-block;
@@ -775,6 +817,7 @@ fieldset {
 	margin-right: 4%;
 	margin-top: 0;
 	vertical-align: top;
+	font-size: 1rem;
 	font-size: 14px;
 }
 
