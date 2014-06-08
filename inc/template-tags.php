@@ -1,14 +1,17 @@
 <?php
 /**
- * Custom template tags for Twenty Fourteen
+ * Custom template tags for Whitebox
  */
 
 
 /**
+ * Whitebox Post Thumbnail
  * Display post thumbnail (featured image)
+ *
+ * @param string $size
  */
 if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
-function whitebox_post_thumbnail() {
+function whitebox_post_thumbnail( $size = null ) {
 	if ( !has_post_thumbnail() )
 		return;
 
@@ -16,7 +19,7 @@ function whitebox_post_thumbnail() {
 		// Posts and pages
 		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
 			<div class="entry-image">
-				<?php the_post_thumbnail(); ?>
+				<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
 			</div><?php
 		endif;
 	else :
@@ -24,7 +27,7 @@ function whitebox_post_thumbnail() {
 		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
 			<div class="entry-image">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); ?>
+					<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
 				</a>
 			</div><?php
 		endif;
@@ -34,6 +37,7 @@ endif;
 
 
 /**
+ * Whitebox Post Meta
  * Display post meta
  */
 if ( !function_exists( 'whitebox_post_meta' ) ) :
@@ -67,7 +71,8 @@ endif;
 
 
 /**
- * Display entry page navigation
+ * Whitebox Entry Pagination
+ * Display post page navigation
  */
 if ( !function_exists( 'whitebox_entry_pagination' ) ) :
 function whitebox_entry_pagination() {
@@ -83,7 +88,8 @@ endif;
 
 
 /**
- * Display entry page navigation
+ * Whitebox Entry Tags
+ * Display post tags
  */
 if ( !function_exists( 'whitebox_entry_tags' ) ) :
 function whitebox_entry_tags() {
@@ -97,6 +103,7 @@ endif;
 
 
 /**
+ * Whitebpx Comment
  * Display a single comment
  * Custom comment callback for wp_list_comments()
  *

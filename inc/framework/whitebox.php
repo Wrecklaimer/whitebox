@@ -31,7 +31,7 @@ class Whitebox {
 	 * Loads theme data and configs
 	 */
 	private static function load_theme_data() {
-		self::$frameworkVersion = '1a';
+		self::$frameworkVersion = '1.0b';
 		self::$frameworkPath    = self::get_root_dir();
 		self::$assetsPath       = self::$frameworkPath . '/assets';
 		self::$themePath        = get_template_directory();
@@ -42,7 +42,7 @@ class Whitebox {
 			self::$themeName    = self::$themeData->Name;
 			self::$themeDomain  = self::$themeData->TextDomain;
 			if ( self::$themeDomain == '' )
-				self::$themeDomain = strtolower( self::$themeName );
+				self::$themeDomain = strtolower( str_replace( ' ', '', self::$themeName ) );
 		}
 		self::$theme_raw_name = basename( get_template_directory() );
 	}

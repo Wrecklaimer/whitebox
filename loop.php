@@ -7,15 +7,13 @@
 <?php wp_reset_query();
 
 if ( have_posts() ) : ?>
-
 	<ul class="posts posts-list">
-
 		<?php
 		while ( have_posts() ) : the_post(); ?>
 
 			<li id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?>>
 
-				<?php whitebox_post_thumbnail(); ?>
+				<?php whitebox_post_thumbnail( 'whitebox-homepage-thumb' ); ?>
 
 				<div class="content">
 
@@ -33,18 +31,12 @@ if ( have_posts() ) : ?>
 				</div> <!-- / .content -->
 
 			</li> <!-- / #post-## -->
-			<?php
 
+		<?php
 		endwhile; ?>
-
 	</ul>
-
-	<?php
-
-	get_template_part('pagination' );
-
-else :
-
-	?><p class="title"><?php _e( 'There are no posts to display', THEME_DOMAIN ); ?></p><?php
-
+	<?php get_template_part( 'pagination' );
+else : ?>
+	<p class="title"><?php _e( 'There are no posts to display', THEME_DOMAIN ); ?></p>
+<?php
 endif; ?>

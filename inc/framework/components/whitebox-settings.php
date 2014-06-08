@@ -5,7 +5,7 @@
 
 // Define in functions.php to override
 if ( !defined( 'SETTINGS_NAME' ) )
-	define( 'SETTINGS_NAME', strtolower( wp_get_theme( get_stylesheet())->Name ) . '_settings' );
+	define( 'SETTINGS_NAME', Whitebox::$themeDomain . '_settings' );
 
 class Whitebox_Settings {
 
@@ -294,7 +294,7 @@ class Whitebox_Settings {
 		$settings = get_option( self::$settings_name );
 		$val = $settings[$id];
 
-		echo '<label for=".$name.">';
+		echo '<label for="'.$id.'">';
 		// The hidden field’s value gets submitted when the checkbox is left unchecked
 		echo '<input type="hidden" name="'.$name.'" value="0" />';
 		echo '<input type="checkbox" id="'.$id.'" name="'.$name.'" value="1" '.checked( 1, $val, false ).' />';
@@ -343,7 +343,8 @@ class Whitebox_Settings {
 		echo '<input type="button" class="button button-upload" value="Upload" />';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
 			echo '<br /><span class="description">'.$desc.'</span>';
-		echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload"/>';
+		if ( isset( $val ) && !is_null( $val ) && $val != '' )
+			echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload" />';
 		echo '</span>';
 	}
 

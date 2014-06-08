@@ -1,4 +1,8 @@
-<?php $template = get_post_meta($post->ID, 'post_template', true); ?>
+<?php
+/*
+ * Primary sidebar
+ */
+?>
 
 <div id="sidebar" class="sidebar-right">
 

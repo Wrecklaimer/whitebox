@@ -27,6 +27,13 @@ require_once get_template_directory() . '/inc/menus.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 
+/* Use minified theme stylesheet instead */
+add_filter( 'stylesheet_uri', 'min_stylesheet_uri', 10, 2 );
+function min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+	return $stylesheet_dir_uri.'/style.min.css';
+}
+
+
 /* Include jQuery and dependent scripts */
 function whitebox_jquery_enqueue() {
 	wp_enqueue_script( 'jquery' );
@@ -41,6 +48,8 @@ if ( !isset( $content_width ) ) $content_width = 960;
 
 /* Add featured images to posts and pages */
 add_theme_support( 'post-thumbnails' );
+
+add_image_size( 'whitebox-homepage-thumb', 540, 999 );
 
 
 /* Add RSS feed links for posts and comments */

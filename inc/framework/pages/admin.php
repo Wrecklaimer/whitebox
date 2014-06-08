@@ -30,7 +30,7 @@ if ( !current_user_can( 'edit_theme_options' ) ) {
 		jQuery(function ($) {
 			$(document).ready(function() {
 				$('input[id="reset"]').click(function(e) {
-					if (!confirm("Settings will be reset back to their defaults and all current settings will be lost. This cannot be undnone.")) {
+					if (!confirm("Settings will be reset back to their defaults, and all current settings will be lost.\n\nThis cannot be undone.")) {
 						e.preventDefault();
 					}
 				});

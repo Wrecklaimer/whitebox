@@ -18,9 +18,9 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<?php if ( Whitebox_Settings::get( 'favicon' ) ) { ?>
+	<?php if ( Whitebox_Settings::get( 'favicon' ) ) : ?>
 	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
-	<?php } ?>
+	<?php endif; ?>
 
 	<?php wp_head(); ?>
 
@@ -38,19 +38,21 @@
 				</div><!-- / #pre-menu-wrap -->
 
 				<div id="logo">
-					<?php if ( Whitebox_Settings::get( 'header_logo' ) ) { ?>
+					<?php
+					if ( Whitebox_Settings::get( 'header_logo' ) ) : ?>
 					<a href="<?php echo home_url(); ?>" >
 						<img src="<?php esc_url( Whitebox_Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
-					</a><?php
-					}
-					else { ?>
+					</a>
+					<?php
+					else : ?>
 					<h1 id="site-title">
 						<a href="<?php echo home_url(); ?>" ><?php bloginfo('name'); ?></a>
 					</h1>
-					<?php } ?>
-					<?php if ( Whitebox_Settings::get( 'show_site_description' ) ) { ?>
+					<?php endif; ?>
+					<?php
+					if ( Whitebox_Settings::get( 'show_site_description' ) ) : ?>
 					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
-					<?php } ?>
+					<?php endif; ?>
 				</div><!-- / #logo -->
 
 				<a id="primary-nav-button" href="#">Menu</a>
@@ -67,13 +69,13 @@
 		</div><!-- / #header-wrap -->
 
 		<?php
-		if ( is_active_sidebar( 'sidebar-pre-content' ) && is_home() && $paged < 2 ) { ?>
-			<div id="pre-content-wrap" class="wrap">
-				<div id="pre-content" class="row">
-				<?php if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( 'sidebar-pre-content' ); ?>
-				</div><!-- / #pre-content -->
-			</div><!-- / #pre-content-wrap -->
-		<?php } ?>
+		if ( is_active_sidebar( 'sidebar-pre-content' ) && is_home() && $paged < 2 ) : ?>
+		<div id="pre-content-wrap" class="wrap">
+			<div id="pre-content" class="row">
+			<?php if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( 'sidebar-pre-content' ); ?>
+			</div><!-- / #pre-content -->
+		</div><!-- / #pre-content-wrap -->
+		<?php endif; ?>
 
 		<div id="content-wrap" class="wrap">
 			<div id="content" class="row cf">
