@@ -6,12 +6,23 @@
 
 <?php get_header(); ?>
 
-	<div id="main" <?php echo ( Whitebox_Settings::get( 'show_homepage_sidebar' ) ) ? '' : 'class="wide"' ?> role="main">
+	<?php
+	if ( is_active_sidebar( 'sidebar-pre-content' ) && is_home() && $paged < 2 ) : ?>
+	<div id="pre-content-wrap" class="wrap">
+		<div id="pre-content" class="row">
+		<?php if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( 'sidebar-pre-content' ); ?>
+		</div><!-- / #pre-content -->
+	</div><!-- / #pre-content-wrap -->
+	<?php endif; ?>
 
-		<?php if ( Whitebox_Settings::get( 'show_recent_posts' ) ) get_template_part('loop'); ?>
+	<?php get_template_part( 'content', 'start' ); ?>
 
-	</div><!-- end #main -->
+		<div id="main" <?php echo ( Whitebox_Settings::get( 'show_homepage_sidebar' ) ) ? '' : 'class="wide"' ?> role="main">
+			<?php if ( Whitebox_Settings::get( 'show_recent_posts' ) ) get_template_part('loop'); ?>
+		</div><!-- end #main -->
 
-	<?php if ( Whitebox_Settings::get( 'show_homepage_sidebar' ) ) get_sidebar(); ?>
+		<?php if ( Whitebox_Settings::get( 'show_homepage_sidebar' ) ) get_sidebar(); ?>
+
+	<?php get_template_part( 'content', 'end' ); ?>
 
 <?php get_footer(); ?>

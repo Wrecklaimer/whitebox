@@ -4,9 +4,6 @@
  */
 ?>
 
-			</div><!-- / #content -->
-		</div><!-- / #content-wrap -->
-
 		<div id="footer-wrap" class="wrap">
 
 			<?php
