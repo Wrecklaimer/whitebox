@@ -30,7 +30,12 @@ require get_template_directory() . '/inc/template-tags.php';
 /* Use minified theme stylesheet instead */
 add_filter( 'stylesheet_uri', 'min_stylesheet_uri', 10, 2 );
 function min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
-	return $stylesheet_dir_uri.'/style.min.css';
+	$min_stylesheet_uri = $stylesheet_dir_uri.'/style.min.css';
+
+	if ( file_exists( get_template_directory() . '/style.min.css' ) )
+		return $min_stylesheet_uri;
+	else
+		return $stylesheet_uri;
 }
 
 
