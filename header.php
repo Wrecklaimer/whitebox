@@ -18,7 +18,7 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<?php whitebox_favicon(); ?>
+	<?php if ( Whitebox_Settings::get( 'favicon' ) ) whitebox_favicon(); ?>
 
 	<?php wp_head(); ?>
 
