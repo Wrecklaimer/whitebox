@@ -37,16 +37,11 @@
 
 				<div id="logo">
 					<?php
-					if ( Whitebox_Settings::get( 'header_logo' ) ) : ?>
-					<a href="<?php echo home_url(); ?>" >
-						<img src="<?php esc_url( Whitebox_Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
-					</a>
-					<?php
-					else : ?>
-					<h1 id="site-title">
-						<a href="<?php echo home_url(); ?>" ><?php bloginfo('name'); ?></a>
-					</h1>
-					<?php endif; ?>
+					if ( Whitebox_Settings::get( 'header_logo' ) ) :
+						whitebox_header_logo();
+					else :
+						whitebox_header_title();
+					endif; ?>
 					<?php
 					if ( Whitebox_Settings::get( 'show_site_description' ) ) : ?>
 					<h2 id="site-description"><?php bloginfo('description'); ?></h2>

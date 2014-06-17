@@ -18,6 +18,36 @@ endif;
 
 
 /**
+ * Whitebox Header Logo
+ * Output header logo image
+ */
+if ( !function_exists( 'whitebox_header_logo' ) ) :
+function whitebox_header_logo() {
+	?>
+	<a href="<?php echo home_url(); ?>" >
+		<img src="<?php esc_url( Whitebox_Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
+	</a>
+	<?php
+}
+endif;
+
+
+/**
+ * Whitebox Header Title
+ * Output header logo image
+ */
+if ( !function_exists( 'whitebox_header_title' ) ) :
+function whitebox_header_title() {
+	?>
+	<h1 id="site-title">
+		<a href="<?php echo home_url(); ?>" ><?php bloginfo('name'); ?></a>
+	</h1>
+	<?php
+}
+endif;
+
+
+/**
  * Whitebox Post Thumbnail
  * Display post thumbnail (featured image)
  *
