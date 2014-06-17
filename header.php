@@ -18,9 +18,7 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<?php if ( Whitebox_Settings::get( 'favicon' ) ) : ?>
-	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
-	<?php endif; ?>
+	<?php whitebox_favicon(); ?>
 
 	<?php wp_head(); ?>
 
