@@ -14,7 +14,11 @@ class Whitebox_Settings {
 
 	/**
 	 * Init
-	 * Initialize theme and framework settings
+	 * Initialize theme and framework settings.
+	 *
+	 * @see load_settings()
+	 * @see load_scripts()
+	 * @see set_upload_text()
 	 */
 	public static function init() {
 		self::load_settings();
@@ -25,7 +29,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Load Setttings
-	 * Load theme and framework settings
+	 * Load theme and framework settings.
+	 *
+	 * @see set_defaults()
 	 */
 	public static function load_settings() {
 		$evoOptions = self::load_options();
@@ -50,7 +56,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Load options
-	 * Return options array from files
+	 * Return options array from files.
+	 *
+	 * @return array Merged theme and framework options.
 	 */
 	function load_options() {
 		if ( file_exists( INC . '/options.php' ) )
@@ -63,10 +71,12 @@ class Whitebox_Settings {
 
 	/**
 	 * Get
-	 * Return or echo the value of the setting named
+	 * Return or echo the value of the setting named.
 	 *
-	 * @param string $name
-	 * @param bool $echo
+	 * @param string $name Name of setting to get.
+	 * @param bool $echo Optional. Output the result.
+	 *
+	 * @return object Setting value.
 	 */
 	public static function get( $name, $echo = false ) {
 		$options = get_option( self::$settings_name );
@@ -84,7 +94,11 @@ class Whitebox_Settings {
 
 	/**
 	 * Get Defaults
-	 * Get option defaults
+	 * Get option defaults.
+	 *
+	 * @see load_options()
+	 *
+	 * @return array Default options.
 	 */
 	public static function get_defaults() {
 		$evoOptions = self::load_options();
@@ -104,7 +118,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Set Defaults
-	 * Set options to defaults
+	 * Set options to defaults.
+	 *
+	 * @see get_defaults()
 	 */
 	public static function set_defaults() {
 		$defaults = self::get_defaults();
@@ -115,9 +131,10 @@ class Whitebox_Settings {
 
 	/**
 	 * Get Setting Type
-	 * Return setting type
+	 * Return setting type.
 	 *
-	 * @param string $name
+	 * @param string $setting_id Id of the setting to get the type for.
+	 * @return string Setting type.
 	 */
 	function get_setting_type( $setting_id ) {
 		$evoOptions = self::load_options();
@@ -139,11 +156,11 @@ class Whitebox_Settings {
 
 	/**
 	 * Display Settings Sections
-	 * Print out all settings sections added to the settings page
+	 * Output all settings sections added to the settings page.
 	 *
 	 * Modified from do_settings_sections() in wp-admin\includes\template.php
 	 *
-	 * @param string $page The slug name of the page whos settings sections you want to output
+	 * @param string $page The slug name of the page whos settings sections you want to output.
 	 */
 	function display_settings_sections( $page ) {
 		global $wp_settings_sections, $wp_settings_fields;
@@ -173,10 +190,14 @@ class Whitebox_Settings {
 
 	/**
 	 * Validate Settings
-	 * Sanitize and validate settings
+	 * Sanitize and validate settings.
 	 * register_setting() sanitize callback
 	 *
-	 * @param array $input
+	 * @see get_defaults()
+	 * @see get_setting_type()
+	 *
+	 * @param array $input Settings to validate.
+	 * @return array Validated settings.
 	 */
 	function validate_settings( $input ) {
 		$output = array();
@@ -212,17 +233,24 @@ class Whitebox_Settings {
 	 * Display Section
 	 * add_settings_section() callback
 	 *
-	 * @param array $section
+	 * @param array $section Settings section.
 	 */
 	function display_section( $section ) { }
 
 
 	/**
 	 * Display Field
+	 * Display a specific field type.
+	 * Call the appropriate field function by given field type.
 	 * add_settings_field() callback
-	 * Call the appropriate field function by given field type
 	 *
-	 * @param array $args
+	 * @see text_field()
+	 * @see textarea_field()
+	 * @see checkbox_filed()
+	 * @see select_field()
+	 * @see upload_field()
+	 *
+	 * @param array $args Settings field args.
 	 */
 	function display_field( $args ) {
 		$args['name'] = self::$settings_name.'['.$args['id'].']';
@@ -251,9 +279,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Text Field
-	 * Print out a settings text field
+	 * Output a settings text field.
 	 *
-	 * @param array $args
+	 * @param array $args Settings field args.
 	 */
 	function text_field( $args ) {
 		extract( $args );
@@ -268,9 +296,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Textarea Field
-	 * Print out a settings textarea field
+	 * Output a settings textarea field.
 	 *
-	 * @param array $args
+	 * @param array $args Settings field args.
 	 */
 	function textarea_field( $args ) {
 		extract( $args );
@@ -285,9 +313,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Checkbox Field
-	 * Print out a settings checkbox field
+	 * Output a settings checkbox field.
 	 *
-	 * @param array $args
+	 * @param array $args Settings field args.
 	 */
 	function checkbox_field( $args ) {
 		extract( $args );
@@ -308,9 +336,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Select Field
-	 * Print out a settings select field
+	 * Output a settings select field.
 	 *
-	 * @param array $args
+	 * @param array $args Settings field args.
 	 */
 	function select_field( $args ) {
 		extract( $args );
@@ -329,9 +357,9 @@ class Whitebox_Settings {
 
 	/**
 	 * Upload Field
-	 * Print out a settings upload field
+	 * Output a settings upload field.
 	 *
-	 * @param array $args
+	 * @param array $args Settings field args.
 	 */
 	function upload_field( $args ) {
 		extract( $args );
@@ -351,7 +379,7 @@ class Whitebox_Settings {
 
 	/**
 	 * Load Scripts
-	 * Add scripts used in settings page
+	 * Add scripts used in settings page.
 	 */
 	function load_scripts() {
 		wp_enqueue_style( 'thickbox' );
@@ -363,7 +391,7 @@ class Whitebox_Settings {
 
 	/**
 	 * Set Upload Text
-	 * Filter media uploader button text
+	 * Filter media uploader button text.
 	 */
 	function set_upload_text() {
 		global $pagenow;
@@ -376,17 +404,21 @@ class Whitebox_Settings {
 
 	/**
 	 * Replace Thickbox Text
-	 * Override Thickbox 'Insert into Post' button text
+	 * Override Thickbox 'Insert into Post' button text.
 	 *
-	 * @param string $translated_text
-	 * @param string $text
-	 * @param string $domain
+	 * @param string $translated_text Translated text.
+	 * @param string $text Original text.
+	 * @param string $domain Text domain.
+	 *
+	 * @return string Modified Thickbox text.
 	 */
 	function replace_thickbox_text( $translated_text, $text, $domain ) {
+		$replacement_text = 'Use This Image';
+
 		if ( $text == 'Insert into Post' ) {
 			$referer = strpos( wp_get_referer(), 'whitebox_settings' );
 			if ( $referer != '' ) {
-					return 'Use this image';
+					return $replacement_text;
 			}
 		}
 		return $translated_text;

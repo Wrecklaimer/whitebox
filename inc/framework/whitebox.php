@@ -5,7 +5,7 @@
 
 class Whitebox {
 
-	/* Class variables */
+	// Class variables
 	public static $frameworkVersion;
 	public static $frameworkPath;
 	public static $assetsPath;
@@ -19,7 +19,9 @@ class Whitebox {
 
 	/**
 	 * Init
-	 * Initializes framework
+	 * Initialize framework.
+	 *
+	 * @see load_theme_data()
 	 */
 	public static function init() {
 		self::load_theme_data();
@@ -28,7 +30,9 @@ class Whitebox {
 
 	/**
 	 * Load Theme Data
-	 * Loads theme data and configs
+	 * Load theme data and configs.
+	 *
+	 * @see get_root_dir()
 	 */
 	private static function load_theme_data() {
 		self::$frameworkVersion = '1.0b';
@@ -50,9 +54,9 @@ class Whitebox {
 
 	/**
 	 * Get Root Directory
-	 * Get framework root directory
+	 * Get framework root directory.
 	 *
-	 * @return string
+	 * @return string Root directory.
 	 */
 	public static function get_root_dir() {
 		return dirname( __FILE__ );
@@ -61,7 +65,7 @@ class Whitebox {
 
 	/**
 	 * Debug Out
-	 * Prints out framework debug info
+	 * Output framework debug info.
 	 */
 	public static function debug_out() {
 		global $wp_version;

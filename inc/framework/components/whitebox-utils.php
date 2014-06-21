@@ -7,7 +7,7 @@ class Whitebox_Utils {
 
 	/**
 	 * Title
-	 * Prints the formatted site title
+	 * Prints the formatted site title.
 	 */
 	public static function title() {
 		if ( !Whitebox_Settings::get( 'enable_seo' ) ) {
@@ -62,7 +62,7 @@ class Whitebox_Utils {
 	/**
 	 * Copyright Year
 	 *
-	 * @param bool $echo
+	 * @param bool $echo Optional. Output the result.
 	 */
 	public static function copyright_year( $echo = false ) {
 		$args = array( 'numberposts' => '1', 'post_status' => 'publish' );

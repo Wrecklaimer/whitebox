@@ -7,7 +7,7 @@ class Whitebox_Admin {
 
 	/**
 	 * Init
-	 * Initialize wp-admin options page
+	 * Initialize wp-admin options page.
 	 */
 	public static function init() {
 		add_action( 'admin_menu', array(__CLASS__, 'register_admin_pages') );
@@ -17,7 +17,7 @@ class Whitebox_Admin {
 
 	/**
 	 * Register Admin Pages
-	 * Register custom menus for wp-admin
+	 * Register custom menus for wp-admin.
 	 */
 	function register_admin_pages() {
 		add_theme_page( Whitebox::$themeName.' Settings', 'Theme Settings', 'edit_theme_options', Whitebox::$themeDomain.'-settings', array(__CLASS__, 'admin_page') );
@@ -26,7 +26,7 @@ class Whitebox_Admin {
 
 	/**
 	 * Admin Page
-	 * Outputs the framework admin page
+	 * Output the framework admin page.
 	 */
 	function admin_page() {
 		require_once(FRAMEWORK_INC . '/pages/admin.php');
