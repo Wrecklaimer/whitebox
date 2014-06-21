@@ -753,8 +753,7 @@ fieldset {
 	padding: 5px 0;
 }
 
-#footer .copy {
-	display: block;
+#footer .footer-text {
 	text-align: center;
 }
 
@@ -785,7 +784,7 @@ fieldset {
 	float: left;
 }
 
-#footer .copy {
+#footer .footer-text {
 	display: inline-block;
 	text-align: left;
 }

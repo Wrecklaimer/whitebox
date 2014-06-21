@@ -29,10 +29,9 @@
 			<?php endif; ?>
 
 			<div id="footer" class="row cf">
-				<span class="copy">&copy; <?php Whitebox_Utils::copyright_year( true ); ?> <a href="
-				<?php echo Whitebox_Settings::get( 'copyright_link' ) != '' ? Whitebox_Settings::get( 'copyright_link' ) : home_url(); ?>">
-				<?php Whitebox_Settings::get( 'copyright_text' ) != '' ? Whitebox_Settings::get( 'copyright_text', true ) : bloginfo( 'name' ); ?>
-				</a></span>
+				<div class="footer-text">
+					<?php whitebox_footer_text( true ); ?>
+				</div>
 
 				<div id="footer-menu-wrap">
 					<?php wp_nav_menu( array('container' => 'nav', 'container_id' => 'footer-nav', 'container_class' => 'nav cf', 'menu_class' => 'menu', 'sort_column' => 'menu_order', 'theme_location' => 'footer', 'fallback_cb' => 'false' ) ); ?>

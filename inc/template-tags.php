@@ -6,7 +6,7 @@
 
 /**
  * Whitebox Favicon
- * Output favicon link
+ * Output favicon link.
  */
 if ( !function_exists( 'whitebox_favicon' ) ) :
 function whitebox_favicon() {
@@ -19,7 +19,7 @@ endif;
 
 /**
  * Whitebox Header Logo
- * Output header logo image
+ * Output header logo image.
  */
 if ( !function_exists( 'whitebox_header_logo' ) ) :
 function whitebox_header_logo() {
@@ -34,7 +34,7 @@ endif;
 
 /**
  * Whitebox Header Title
- * Output header logo image
+ * Output header logo image.
  */
 if ( !function_exists( 'whitebox_header_title' ) ) :
 function whitebox_header_title() {
@@ -81,7 +81,7 @@ endif;
 
 /**
  * Whitebox Post Meta
- * Display post meta
+ * Display post meta.
  */
 if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
@@ -115,7 +115,9 @@ endif;
 
 /**
  * Whitebox Entry Pagination
- * Display post page navigation
+ * Display post page navigation.
+ *
+ * @see wp_link_pages()
  */
 if ( !function_exists( 'whitebox_entry_pagination' ) ) :
 function whitebox_entry_pagination() {
@@ -132,7 +134,9 @@ endif;
 
 /**
  * Whitebox Entry Tags
- * Display post tags
+ * Display post tags.
+ *
+ * @see the_tags()
  */
 if ( !function_exists( 'whitebox_entry_tags' ) ) :
 function whitebox_entry_tags() {
@@ -147,10 +151,14 @@ endif;
 
 /**
  * Whitebpx Comment
- * Display a single comment
- * Custom comment callback for wp_list_comments()
+ * Display a single comment.
+ * Custom comment callback for wp_list_comments().
  *
- * @see  wp-includes/comment-template.php comment()
+ * @see wp-includes/comment-template.php comment()
+ *
+ * @param object $comment Comment to display.
+ * @param array  $args    An array of arguments.
+ * @param int    $depth   Depth of comment.
  */
 if ( !function_exists( 'whitebox_comment' ) ) :
 function whitebox_comment( $comment, $args, $depth ) {
@@ -206,5 +214,30 @@ function whitebox_comment( $comment, $args, $depth ) {
 	<?php if ( 'div' != $args['style'] ) : ?>
 	</div><!-- / comment-body --><?php
 	endif;
+}
+endif;
+
+
+/**
+ * Whitebox Footer Text
+ * Output footer text.
+ *
+ * @param bool $echo Optional.
+ * @return string The footer text/markup.
+ */
+if ( !function_exists( 'whitebox_footer_text' ) ) :
+function whitebox_footer_text( $echo = false ) {
+	$copyright_year = Whitebox_Utils::copyright_year();
+	$copyright_link = Whitebox_Settings::get( 'copyright_link' ) != '' ? Whitebox_Settings::get( 'copyright_link' ) : home_url();
+	$copyright_text = Whitebox_Settings::get( 'copyright_text' ) != '' ? Whitebox_Settings::get( 'copyright_text' ) : get_bloginfo( 'name' );
+
+	$footer_text = '<span class="copy">&copy; ' . $copyright_year . ' <a href="' . $copyright_link .'">' . $copyright_text . '</a></span>';
+
+	$output = apply_filters('whitebox_footer_text', $footer_text);
+
+	if ( $echo )
+		echo $output;
+
+	return $output;
 }
 endif;
