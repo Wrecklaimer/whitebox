@@ -144,7 +144,8 @@ function whitebox_entry_tags() {
 	$sep    = ', ';
 	$after  = '</p>';
 
-	the_tags( $before, $sep, $after );
+	if ( is_single() && Whitebox_Settings::get( 'show_post_tags' ) )
+		the_tags( $before, $sep, $after );
 }
 endif;
 

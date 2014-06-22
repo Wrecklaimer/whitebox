@@ -39,49 +39,56 @@
 	),
 	"Homepage" => array(
 		array(
-			'name' => 'Recent Posts',
-			'id'   => 'show_recent_posts',
-			'type' => 'checkbox',
+			'name'  => 'Recent Posts',
+			'id'    => 'show_recent_posts',
+			'type'  => 'checkbox',
 			'label' => 'Show the most recent posts on the homepage',
-			'std'  => '1'
+			'std'   => '1'
 		),
 		array(
-			'name' => 'Sidebar',
-			'id'   => 'show_homepage_sidebar',
-			'type' => 'checkbox',
+			'name'  => 'Sidebar',
+			'id'    => 'show_homepage_sidebar',
+			'type'  => 'checkbox',
 			'label' => 'Show the sidebar on the homepage',
-			'std'  => '0'
+			'std'   => '0'
 		)
 	),
 	"Posts" => array(
 		array(
-			'name' => 'Thumbnails',
-			'id'   => 'show_post_thumbnails',
-			'type' => 'checkbox',
+			'name'  => 'Thumbnails',
+			'id'    => 'show_post_thumbnails',
+			'type'  => 'checkbox',
 			'label' => 'Show post thumbnails',
-			'std'  => '1'
+			'std'   => '1'
 		),
 		array(
-			'name' => 'Post Meta',
-			'id'   => 'show_post_author',
-			'type' => 'checkbox',
+			'name'  => 'Post Meta',
+			'id'    => 'show_post_author',
+			'type'  => 'checkbox',
 			'label' => 'Show post author',
-			'std'  => '1'
+			'std'   => '1'
 		),
 		array(
-			'name' => '',
-			'desc' => '<strong>Date/Time format</strong> can be changed <a href="options-general.php" target="_blank">here</a>.',
-			'id'   => 'show_post_date',
-			'type' => 'checkbox',
+			'name'  => '',
+			'desc'  => '<strong>Date/Time format</strong> can be changed <a href="options-general.php" target="_blank">here</a>.',
+			'id'    => 'show_post_date',
+			'type'  => 'checkbox',
 			'label' => 'Show post date',
-			'std'  => '1'
+			'std'   => '1'
 		),
 		array(
-			'name' => '',
-			'id'   => 'show_post_category',
-			'type' => 'checkbox',
+			'name'  => '',
+			'id'    => 'show_post_category',
+			'type'  => 'checkbox',
 			'label' => 'Show post category',
-			'std'  => '1'
+			'std'   => '1'
+		),
+		array(
+			'name'  => '',
+			'id'    => 'show_post_tags',
+			'type'  => 'checkbox',
+			'label' => 'Show post tags',
+			'std'   => '0'
 		)
 	)
 
