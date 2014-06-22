@@ -71,16 +71,23 @@ class Whitebox_Settings {
 
 	/**
 	 * Get
-	 * Return or echo the value of the setting named.
+	 * Return or output the value of the option named.
 	 *
-	 * @param string $name Name of setting to get.
+	 * @see get_default()
+	 *
+	 * @param string $name Name of option to get.
 	 * @param bool $echo Optional. Output the result.
 	 *
-	 * @return object Setting value.
+	 * @return object Option value.
 	 */
 	public static function get( $name, $echo = false ) {
 		$options = get_option( self::$settings_name );
-		$result = $options[$name];
+
+		// Get setting value, if it exists
+		if ( array_key_exists($name, $options) )
+			$result = $options[$name];
+		else
+			$result = self::get_default( $name );
 
 		if ( !$result )
 			return;
@@ -89,6 +96,22 @@ class Whitebox_Settings {
 			return $result;
 
 		echo $result;
+	}
+
+
+	/**
+	 * Get Default
+	 * Get option default.
+	 *
+	 * @see get_defaults()
+	 *
+	 * @param string $name Name of option to get.
+	 * @return object Default option.
+	 */
+	public static function get_default( $name ) {
+		$defaults = self::get_defaults();
+
+		return $defaults[$name];
 	}
 
 
@@ -132,6 +155,8 @@ class Whitebox_Settings {
 	/**
 	 * Get Setting Type
 	 * Return setting type.
+	 *
+	 * @see load_options()
 	 *
 	 * @param string $setting_id Id of the setting to get the type for.
 	 * @return string Setting type.
@@ -281,12 +306,13 @@ class Whitebox_Settings {
 	 * Text Field
 	 * Output a settings text field.
 	 *
+	 * @see get()
+	 *
 	 * @param array $args Settings field args.
 	 */
 	function text_field( $args ) {
 		extract( $args );
-		$settings = get_option( self::$settings_name );
-		$val = $settings[$id];
+		$val = self::get( $id );
 
 		echo '<input type="text" id="'.$id.'" class="regular-text" autocomplete="off" name="'.$name.'" value="'.$val.'" />';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
@@ -298,12 +324,13 @@ class Whitebox_Settings {
 	 * Textarea Field
 	 * Output a settings textarea field.
 	 *
+	 * @see get()
+	 *
 	 * @param array $args Settings field args.
 	 */
 	function textarea_field( $args ) {
 		extract( $args );
-		$settings = get_option( self::$settings_name );
-		$val = $settings[$id];
+		$val = self::get( $id );
 
 		echo '<textarea type="textarea" id="'.$id.'" class="large-text" name="'.$name.'" >'.$val.'</textarea>';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
@@ -315,12 +342,13 @@ class Whitebox_Settings {
 	 * Checkbox Field
 	 * Output a settings checkbox field.
 	 *
+	 * @see get()
+	 *
 	 * @param array $args Settings field args.
 	 */
 	function checkbox_field( $args ) {
 		extract( $args );
-		$settings = get_option( self::$settings_name );
-		$val = $settings[$id];
+		$val = self::get( $id );
 
 		echo '<label for="'.$id.'">';
 		// The hidden field’s value gets submitted when the checkbox is left unchecked
@@ -338,12 +366,13 @@ class Whitebox_Settings {
 	 * Select Field
 	 * Output a settings select field.
 	 *
+	 * @see get()
+	 *
 	 * @param array $args Settings field args.
 	 */
 	function select_field( $args ) {
 		extract( $args );
-		$settings = get_option( self::$settings_name );
-		$val = $settings[$id];
+		$val = self::get( $id );
 
 		echo '<select id="'.$id.'" name="'.$name.'">';
 		foreach ( $options as $option ) {
@@ -359,12 +388,13 @@ class Whitebox_Settings {
 	 * Upload Field
 	 * Output a settings upload field.
 	 *
+	 * @see get()
+	 *
 	 * @param array $args Settings field args.
 	 */
 	function upload_field( $args ) {
 		extract( $args );
-		$settings = get_option( self::$settings_name );
-		$val = $settings[$id];
+		$val = self::get( $id );
 
 		echo '<span class="upload">';
 		echo '<input type="text" id="'.$id.'" class="regular-text text-upload" autocomplete="off" name="'.$name.'" value="'.esc_url( $val ).'" />';
