@@ -18,7 +18,7 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<?php if ( Whitebox_Settings::get( 'favicon' ) ) whitebox_favicon(); ?>
+	<?php whitebox_favicon(); ?>
 
 	<?php wp_head(); ?>
 
@@ -31,9 +31,11 @@
 		<div id="header-wrap" class="wrap">
 			<div id="header" class="row cf">
 
+				<?php if ( has_nav_menu( 'top' ) ) : ?>
 				<div id="pre-menu-wrap">
 					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'top-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'top', 'fallback_cb' => 'false' ) ); ?>
 				</div><!-- / #pre-menu-wrap -->
+				<?php endif; ?>
 
 				<div id="logo">
 					<?php

@@ -10,9 +10,9 @@
  */
 if ( !function_exists( 'whitebox_favicon' ) ) :
 function whitebox_favicon() {
-	?>
+	if ( Whitebox_Settings::get( 'favicon' ) ) : ?>
 	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
-	<?php
+	<?php endif;
 }
 endif;
 
@@ -49,9 +49,9 @@ endif;
 
 /**
  * Whitebox Post Thumbnail
- * Display post thumbnail (featured image)
+ * Display post thumbnail (featured image).
  *
- * @param string $size
+ * @param string $size Optional. Image size.
  */
 if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
 function whitebox_post_thumbnail( $size = null ) {
