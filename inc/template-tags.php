@@ -3,6 +3,8 @@
  * Custom template tags for Whitebox
  */
 
+class_alias('Whitebox_Settings', 'Settings');
+
 
 /**
  * Whitebox Favicon
@@ -10,8 +12,8 @@
  */
 if ( !function_exists( 'whitebox_favicon' ) ) :
 function whitebox_favicon() {
-	if ( Whitebox_Settings::get( 'favicon' ) ) : ?>
-	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
+	if ( Settings::get( 'favicon' ) ) : ?>
+	<link rel="shortcut icon" href="<?php Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
 	<?php endif;
 }
 endif;
@@ -25,7 +27,7 @@ if ( !function_exists( 'whitebox_header_logo' ) ) :
 function whitebox_header_logo() {
 	?>
 	<a href="<?php echo home_url(); ?>" >
-		<img src="<?php esc_url( Whitebox_Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
+		<img src="<?php esc_url( Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
 	</a>
 	<?php
 }
@@ -55,26 +57,20 @@ endif;
  */
 if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
 function whitebox_post_thumbnail( $size = null ) {
-	if ( !has_post_thumbnail() )
+	if ( !has_post_thumbnail() || !Settings::get( 'show_post_thumbnails' ) )
 		return;
 
-	if ( is_singular() ) :
-		// Posts and pages
-		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
-			<div class="entry-image">
-				<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
-			</div><?php
-		endif;
-	else :
-		// Elsewhere
-		if ( Whitebox_Settings::get( 'show_post_thumbnails' ) ) : ?>
-			<div class="entry-image">
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
-				</a>
-			</div><?php
-		endif;
-	endif;
+	?>
+	<div class="entry-image"><?php
+	if ( is_singular() ) : // Posts and pages
+		is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size );
+	else : // Elsewhere ?>
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			<?php is_null( $size ) ? the_post_thumbnail() : the_post_thumbnail( $size ); ?>
+		</a>
+		<?php
+	endif; ?>
+	</div><?php
 }
 endif;
 
@@ -86,13 +82,13 @@ endif;
 if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
 	// Post author
-	if ( Whitebox_Settings::get( 'show_post_author' ) ) {
+	if ( Settings::get( 'show_post_author' ) ) {
 		echo '<span class="post-author">' . __( 'By ', THEME_DOMAIN);
 		the_author_posts_link();
 		echo '</span>';
 	}
 	// Post date
-	if ( Whitebox_Settings::get( 'show_post_date' ) ) {
+	if ( Settings::get( 'show_post_date' ) ) {
 		echo '<span class="post-date">' . __( ' on ', THEME_DOMAIN );
 		the_date();
 		echo ' ';
@@ -100,7 +96,7 @@ function whitebox_post_meta() {
 		echo '</span>';
 	}
 	// Post categories
-	if ( is_single() && Whitebox_Settings::get( 'show_post_category' ) ) {
+	if ( is_single() && Settings::get( 'show_post_category' ) ) {
 		echo '<span class="post-categories">' . __(' on ', THEME_DOMAIN );
 		the_category( ', ' );
 		echo '</span>';
@@ -144,7 +140,7 @@ function whitebox_entry_tags() {
 	$sep    = ', ';
 	$after  = '</p>';
 
-	if ( is_single() && Whitebox_Settings::get( 'show_post_tags' ) )
+	if ( is_single() && Settings::get( 'show_post_tags' ) )
 		the_tags( $before, $sep, $after );
 }
 endif;
@@ -229,8 +225,8 @@ endif;
 if ( !function_exists( 'whitebox_footer_text' ) ) :
 function whitebox_footer_text( $echo = false ) {
 	$copyright_year = Whitebox_Utils::copyright_year();
-	$copyright_link = Whitebox_Settings::get( 'copyright_link' ) != '' ? Whitebox_Settings::get( 'copyright_link' ) : home_url();
-	$copyright_text = Whitebox_Settings::get( 'copyright_text' ) != '' ? Whitebox_Settings::get( 'copyright_text' ) : get_bloginfo( 'name' );
+	$copyright_link = Settings::get( 'copyright_link' ) != '' ? Settings::get( 'copyright_link' ) : home_url();
+	$copyright_text = Settings::get( 'copyright_text' ) != '' ? Settings::get( 'copyright_text' ) : get_bloginfo( 'name' );
 
 	$footer_text = '<span class="copy">&copy; ' . $copyright_year . ' <a href="' . $copyright_link .'">' . $copyright_text . '</a></span>';
 
