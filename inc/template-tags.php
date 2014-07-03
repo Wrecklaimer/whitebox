@@ -83,21 +83,27 @@ if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
 	// Post author
 	if ( Settings::get( 'show_post_author' ) ) {
-		echo '<span class="post-author">' . __( 'By ', THEME_DOMAIN);
+		$author_before = apply_filters('whitebox_post_author_before', 'By ');
+		echo '<span class="post-author">' . __( $author_before, THEME_DOMAIN);
 		the_author_posts_link();
 		echo '</span>';
 	}
 	// Post date
 	if ( Settings::get( 'show_post_date' ) ) {
-		echo '<span class="post-date">' . __( ' on ', THEME_DOMAIN );
-		the_date();
+		$date_before = apply_filters('whitebox_post_date_before', ' on ');
+		$datetime = get_the_date( 'Y-m-d H:i:s' );
+		echo '<span class="post-date">' . __( $date_before, THEME_DOMAIN );
+		echo '<time datetime="'.$datetime.'">';
+		echo get_the_date();
 		echo ' ';
 		the_time();
+		echo '</time>';
 		echo '</span>';
 	}
 	// Post categories
 	if ( is_single() && Settings::get( 'show_post_category' ) ) {
-		echo '<span class="post-categories">' . __(' on ', THEME_DOMAIN );
+		$cat_before = apply_filters('whitebox_post_category_before', ' on ');
+		echo '<span class="post-categories">' . __( $cat_before, THEME_DOMAIN );
 		the_category( ', ' );
 		echo '</span>';
 	}
@@ -117,8 +123,9 @@ endif;
  */
 if ( !function_exists( 'whitebox_entry_pagination' ) ) :
 function whitebox_entry_pagination() {
+	$pages_label = apply_filters('whitebox_post_pages_label', 'Pages');
 	$args = array(
-		'before'         => '<p class="post-pagination"><span class="pagination-label">' . __( 'Pages', THEME_DOMAIN ) . ':</span> ',
+		'before'         => '<p class="post-pagination"><span class="pagination-label">' . __( $pages_label, THEME_DOMAIN ) . ':</span> ',
 		'after'          => '</p>',
 		'next_or_number' => 'number'
 	);
@@ -136,7 +143,8 @@ endif;
  */
 if ( !function_exists( 'whitebox_entry_tags' ) ) :
 function whitebox_entry_tags() {
-	$before = '<p class="tags"><span class="tags-label">' . __( 'Tags', THEME_DOMAIN ) . ':</span> ';
+	$tags_label = apply_filters('whitebox_post_tags_label', 'Tags:');
+	$before = '<p class="tags"><span class="tags-label">' . __( $tags_label, THEME_DOMAIN ) . '</span> ';
 	$sep    = ', ';
 	$after  = '</p>';
 
