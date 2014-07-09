@@ -615,6 +615,38 @@ fieldset {
 	margin: 5px 0;
 }
 
+/* Author Page */
+
+.author-info {
+	margin-bottom: 1em;
+}
+
+.author-image {
+	float: left;
+	margin-right: 2%;
+}
+
+.author-links {
+	float: left;
+	clear: left;
+	margin-top: .5em;
+}
+
+.author-links ul {
+	margin: 0;
+	padding: 0;
+}
+
+.author-links li {
+	float: left;
+	list-style: none;
+	margin-left: .5em;
+}
+
+.author-links li:first-child {
+	margin-left: 0;
+}
+
 
 /**
  * Comments

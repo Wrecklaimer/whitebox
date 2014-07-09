@@ -7,17 +7,24 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php
-	if ( !is_search() ) :
+	if ( !is_search() && !is_archive() && !is_author() ) :
 	whitebox_post_thumbnail();
 	endif;
 
-	if ( is_singular() ) : ?>
-	<h1 class="entry-title"><?php the_title(); ?></h1><?php
-	else: ?>
-	<h2 class="entry-title">
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-	</h2><?php
+	$heading_level = 2;
+	if ( is_singular() ) : // single post/page
+		$heading_level = 1;
+	elseif ( is_author() ) : // author posts list
+		$heading_level = 3;
 	endif; ?>
+
+	<h<?php echo $heading_level ?> class="entry-title"><?php
+		if ( is_singular() ) :
+			the_title();
+		else : ?>
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+		<?php endif; ?>
+	</h<?php echo $heading_level ?>>
 
 	<span class="entry-meta">
 		<?php whitebox_post_meta(); ?>

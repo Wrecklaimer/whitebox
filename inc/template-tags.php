@@ -82,7 +82,7 @@ endif;
 if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
 	// Post author
-	if ( Settings::get( 'show_post_author' ) ) {
+	if ( !is_author() && Settings::get( 'show_post_author' ) ) {
 		$author_before = apply_filters('whitebox_post_author_before', 'By ');
 		echo '<span class="post-author">' . __( $author_before, THEME_DOMAIN);
 		the_author_posts_link();
