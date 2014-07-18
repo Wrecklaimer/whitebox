@@ -42,9 +42,14 @@ function min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 /* Include jQuery and dependent scripts */
 function whitebox_jquery_enqueue() {
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'responsive-menu', THEME_JS . '/jquery.responsive-menu.min.js', false, null );
+	wp_enqueue_script( 'responsive-menu', THEME_JS . '/jquery.responsive-menu.min.js', false, null, true );
 }
 if ( !is_admin() ) add_action( 'wp_enqueue_scripts', 'whitebox_jquery_enqueue', 10 );
+
+function whitebox_menu_init() {
+    echo '<script type="text/javascript">jQuery(function ($) { $("#primary-nav").responsivemenu(); });</script>';
+}
+add_action('wp_footer', 'whitebox_menu_init', 20);
 
 
 /* Set content width */

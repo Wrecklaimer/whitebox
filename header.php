@@ -53,11 +53,6 @@
 				<a id="primary-nav-button" href="#">Menu</a>
 				<div id="menu-wrap">
 					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'primary-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'primary' ) ); ?>
-					<script>
-						jQuery(function ($) {
-							$('#primary-nav').responsivemenu();
-						});
-					</script>
 				</div><!-- / #menu-wrap -->
 
 			</div><!-- / #header -->
