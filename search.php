@@ -24,7 +24,7 @@
 							get_template_part( 'partials/content', get_post_format() );
 						endwhile; ?>
 					</div> <!-- / .posts -->
-					<?php get_template_part( 'partials/pagination' ); ?>
+					<?php whitebox_pagination(); ?>
 				</div> <!-- / .entry-content -->
 
 				<?php

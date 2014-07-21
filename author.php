@@ -18,7 +18,7 @@
 
 				<div class="entry-content">
 
-					<div class="author-info cf">
+					<div id="<?php echo 'author-'.get_the_author_meta( 'ID' ); ?>" class="author-info cf">
 						<div class="author-image">
 						<?php echo get_avatar( get_the_author_meta( 'ID' ), 64 ); ?>
 						</div>
@@ -36,7 +36,7 @@
 							</ul>
 						</div>
 
-					</div>
+					</div><!-- / #author-## -->
 
 					<?php
 					if ( have_posts() ) : ?>
@@ -47,10 +47,11 @@
 							get_template_part( 'partials/content', get_post_format() );
 						endwhile;
 
-						get_template_part( 'partials/pagination' );
+						whitebox_pagination();
 						?>
 						</div>
 					<?php endif; ?>
+
 				</div><!-- / .entry-content -->
 			</div><!-- / .page-author -->
 

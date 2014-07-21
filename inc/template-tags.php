@@ -116,8 +116,37 @@ endif;
 
 
 /**
+ * Whitebox Pagination
+ * Display posts pagination.
+ *
+ * @see paginate_links()
+ */
+if ( !function_exists( 'whitebox_pagination' ) ) :
+function whitebox_pagination() {
+	global $wp_query;
+
+	$big = 999999999;
+	?>
+	<div class="pagination">
+	<?php
+		echo paginate_links( array(
+			'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+			'format'    => '?paged=%#%',
+			'current'   => max( 1, get_query_var('paged') ),
+			'total'     => $wp_query->max_num_pages,
+			'prev_text' => __( 'Previous', THEME_DOMAIN ),
+			'next_text' => __( 'Next', THEME_DOMAIN )
+		 ) );
+	?>
+	</div>
+	<?php
+}
+endif;
+
+
+/**
  * Whitebox Entry Pagination
- * Display post page navigation.
+ * Display single post pagination.
  *
  * @see wp_link_pages()
  */
@@ -125,8 +154,8 @@ if ( !function_exists( 'whitebox_entry_pagination' ) ) :
 function whitebox_entry_pagination() {
 	$pages_label = apply_filters('whitebox_post_pages_label', 'Pages');
 	$args = array(
-		'before'         => '<p class="post-pagination"><span class="pagination-label">' . __( $pages_label, THEME_DOMAIN ) . ':</span> ',
-		'after'          => '</p>',
+		'before'         => '<div class="post-pagination"><span class="pagination-label">' . __( $pages_label, THEME_DOMAIN ) . ':</span> ',
+		'after'          => '</div>',
 		'next_or_number' => 'number'
 	);
 
