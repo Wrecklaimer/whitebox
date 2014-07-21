@@ -6,12 +6,12 @@
 
 <?php get_header(); ?>
 
-	<?php get_template_part( 'content', 'start' ); ?>
+	<?php get_template_part( 'partials/content', 'start' ); ?>
 
 		<div id="main" class="wide" role="main">
-			<?php get_template_part( 'content', '404' ); ?>
+			<?php get_template_part( 'partials/content', '404' ); ?>
 		</div> <!-- / #main.wide -->
 
-	<?php get_template_part( 'content', 'end' ); ?>
+	<?php get_template_part( 'partials/content', 'end' ); ?>
 
 <?php get_footer(); ?>

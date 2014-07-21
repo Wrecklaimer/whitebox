@@ -15,14 +15,14 @@
 	</div><!-- / #pre-content-wrap -->
 	<?php endif; ?>
 
-	<?php get_template_part( 'content', 'start' ); ?>
+	<?php get_template_part( 'partials/content', 'start' ); ?>
 
 		<div id="main" <?php echo ( Whitebox_Settings::get( 'show_homepage_sidebar' ) ) ? '' : 'class="wide"' ?> role="main">
-			<?php if ( Whitebox_Settings::get( 'show_recent_posts' ) ) get_template_part('loop'); ?>
+			<?php if ( Whitebox_Settings::get( 'show_recent_posts' ) ) get_template_part( 'partials/loop' ); ?>
 		</div><!-- end #main -->
 
 		<?php if ( Whitebox_Settings::get( 'show_homepage_sidebar' ) ) get_sidebar(); ?>
 
-	<?php get_template_part( 'content', 'end' ); ?>
+	<?php get_template_part( 'partials/content', 'end' ); ?>
 
 <?php get_footer(); ?>

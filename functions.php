@@ -42,7 +42,7 @@ function min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 /* Include jQuery and dependent scripts */
 function whitebox_jquery_enqueue() {
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'responsive-menu', THEME_JS . '/jquery.responsive-menu.min.js', false, null, true );
+	wp_enqueue_script( 'responsive-menu', THEME_JS . '/lib/jquery.responsive-menu.min.js', false, null, true );
 }
 if ( !is_admin() ) add_action( 'wp_enqueue_scripts', 'whitebox_jquery_enqueue', 10 );
 

@@ -7,7 +7,7 @@
 
 <?php get_header(); ?>
 
-	<?php get_template_part( 'content', 'start' ); ?>
+	<?php get_template_part( 'partials/content', 'start' ); ?>
 
 		<div id="main" role="main">
 			<div class="page-author">
@@ -44,10 +44,10 @@
 							<h2>Posts by this Author</h2>
 						<?php
 						while ( have_posts() ) : the_post();
-							get_template_part( 'content', get_post_format() );
+							get_template_part( 'partials/content', get_post_format() );
 						endwhile;
 
-						get_template_part( 'pagination' );
+						get_template_part( 'partials/pagination' );
 						?>
 						</div>
 					<?php endif; ?>
@@ -58,6 +58,6 @@
 
 		<?php get_sidebar(); ?>
 
-	<?php get_template_part( 'content', 'end' ); ?>
+	<?php get_template_part( 'partials/content', 'end' ); ?>
 
 <?php get_footer(); ?>
