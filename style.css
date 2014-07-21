@@ -617,11 +617,11 @@ fieldset {
 
 /* Author Page */
 
-.author-info {
+.author-card {
 	margin-bottom: 1em;
 }
 
-.author-image {
+.author-avatar {
 	float: left;
 	margin-right: 2%;
 }
