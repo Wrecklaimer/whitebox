@@ -61,9 +61,9 @@ class Whitebox_Settings {
 	 * @return array Merged theme and framework options.
 	 */
 	function load_options() {
-		if ( file_exists( INC . '/options.php' ) )
-			$themeOptions = include(INC . '/options.php');
-		$frameworkOptions = include(FRAMEWORK_INC . '/options.php');
+		if ( file_exists( INC_DIR . '/options.php' ) )
+			$themeOptions = include(INC_DIR . '/options.php');
+		$frameworkOptions = include(FRAMEWORK_DIR . '/options.php');
 
 		return ( $themeOptions ) ? array_merge_recursive( $themeOptions, $frameworkOptions ) : $frameworkOptions;
 	}
