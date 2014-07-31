@@ -29,7 +29,7 @@ class Whitebox_Admin {
 	 * Output the framework admin page.
 	 */
 	function admin_page() {
-		require_once(FRAMEWORK_DIR . '/pages/admin.php');
+		get_template_part( FRAMEWORK . '/pages/admin' );
 	}
 
 }
