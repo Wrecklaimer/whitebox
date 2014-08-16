@@ -20,17 +20,17 @@ define( 'THEME_DOMAIN', strtolower( wp_get_theme( get_template() )->Name ) );
 
 /* Theme Components */
 // Widget sidebars
-require_once get_template_directory() . '/inc/sidebars.php';
+include_once 'inc/sidebars.php';
 // Custom menus
-require_once get_template_directory() . '/inc/menus.php';
+include_once 'inc/menus.php';
 // Custom template tags
-require get_template_directory() . '/inc/template-tags.php';
+include_once 'inc/template-tags.php';
 
 
 /* Use minified theme stylesheet instead */
 add_filter( 'stylesheet_uri', 'min_stylesheet_uri', 10, 2 );
 function min_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
-	$min_stylesheet_uri = $stylesheet_dir_uri.'/style.min.css';
+	$min_stylesheet_uri = $stylesheet_dir_uri . '/style.min.css';
 
 	if ( file_exists( get_template_directory() . '/style.min.css' ) )
 		return $min_stylesheet_uri;

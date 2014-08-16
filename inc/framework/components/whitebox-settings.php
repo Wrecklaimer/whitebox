@@ -62,8 +62,8 @@ class Whitebox_Settings {
 	 */
 	function load_options() {
 		if ( file_exists( INC_DIR . '/options.php' ) )
-			$themeOptions = include(INC_DIR . '/options.php');
-		$frameworkOptions = include(FRAMEWORK_DIR . '/options.php');
+			$themeOptions = include INC_DIR . '/options.php';
+		$frameworkOptions = include FRAMEWORK_DIR . '/options.php';
 
 		return ( $themeOptions ) ? array_merge_recursive( $themeOptions, $frameworkOptions ) : $frameworkOptions;
 	}

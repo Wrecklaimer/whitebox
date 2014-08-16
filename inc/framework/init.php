@@ -30,15 +30,15 @@ define( 'FRAMEWORK_ASSETS', FRAMEWORK_URI . '/assets' );
 define( 'FRAMEWORK_JS', FRAMEWORK_ASSETS . '/js' );
 
 /* Add framework components */
-require_once FRAMEWORK_DIR . '/whitebox.php';
-require_once FRAMEWORK_DIR . '/components/whitebox-settings.php';
-require_once FRAMEWORK_DIR . '/components/whitebox-utils.php';
+require_once 'whitebox.php';
+require_once 'components/whitebox-settings.php';
+require_once 'components/whitebox-utils.php';
 
 /* Initialize framework */
 Whitebox::init();
 
 /* Initialize framework admin */
 if ( is_admin() ) {
-	require_once FRAMEWORK_DIR . '/components/whitebox-admin.php';
+	require_once 'components/whitebox-admin.php';
 	Whitebox_Admin::init();
 }
