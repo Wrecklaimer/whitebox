@@ -180,6 +180,7 @@ input,
 button,
 textarea,
 select,
+button,
 .button {
 	font-family: inherit;
 	-webkit-border-radius: 0;
@@ -188,6 +189,7 @@ select,
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
+	line-height: inherit;
 }
 
 /* Buttons */
@@ -211,6 +213,10 @@ button:hover,
 .button:hover {
 	background: #128fed;
 	text-decoration: none;
+}
+
+.button {
+	display: inline-block;
 }
 
 /* Text Inputs */
@@ -280,7 +286,7 @@ fieldset {
 	min-height: 200px;
 	margin: 0 auto;
 	color: #333;
-	font: 0.875em/1.25 Arial, Helvetica, sans-serif; /* 14px */
+	font: 0.875em/1.25 Arial, Helvetica, sans-serif; /* 0.875 x 16px = 14px */
 	text-align: left;
 	letter-spacing: 0;
 }
@@ -539,6 +545,7 @@ fieldset {
 
 .entry-title a {
 	display: block;
+	overflow: hidden;
 }
 
 .entry-title a:hover {
@@ -671,7 +678,7 @@ fieldset {
 }
 
 .bypostauthor .comment-content {
-	padding: 0 5px 5px;
+	padding: 0 1% 1%;
 }
 
 .comment .children {
