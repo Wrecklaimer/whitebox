@@ -663,7 +663,7 @@ fieldset {
 	margin-bottom: 10px;
 }
 
-.bypostauthor .comment-body {
+.bypostauthor > .comment-body {
 	background: #f8f8f8;
 }
 
@@ -677,7 +677,7 @@ fieldset {
 	color: #363636;
 }
 
-.bypostauthor .comment-content {
+.bypostauthor > .comment-body .comment-content {
 	padding: 0 1% 1%;
 }
 
