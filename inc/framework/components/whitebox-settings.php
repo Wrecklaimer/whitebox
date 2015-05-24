@@ -60,7 +60,7 @@ class Whitebox_Settings {
 	 *
 	 * @return array Merged theme and framework options.
 	 */
-	function load_options() {
+	static function load_options() {
 		if ( file_exists( INC_DIR . '/options.php' ) )
 			$themeOptions = include INC_DIR . '/options.php';
 		$frameworkOptions = include FRAMEWORK_DIR . '/options.php';
@@ -187,7 +187,7 @@ class Whitebox_Settings {
 	 *
 	 * @param string $page The slug name of the page whos settings sections you want to output.
 	 */
-	function display_settings_sections( $page ) {
+	static function display_settings_sections( $page ) {
 		global $wp_settings_sections, $wp_settings_fields;
 
 		if ( ! isset( $wp_settings_sections[$page] ) )
@@ -260,7 +260,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $section Settings section.
 	 */
-	function display_section( $section ) { }
+	static function display_section( $section ) { }
 
 
 	/**
@@ -277,7 +277,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $args Settings field args.
 	 */
-	function display_field( $args ) {
+	static function display_field( $args ) {
 		$args['name'] = self::$settings_name.'['.$args['id'].']';
 
 		switch ( $args['type'] ) {
@@ -310,7 +310,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $args Settings field args.
 	 */
-	function text_field( $args ) {
+	static function text_field( $args ) {
 		extract( $args );
 		$val = self::get( $id );
 
@@ -328,7 +328,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $args Settings field args.
 	 */
-	function textarea_field( $args ) {
+	static function textarea_field( $args ) {
 		extract( $args );
 		$val = self::get( $id );
 
@@ -346,7 +346,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $args Settings field args.
 	 */
-	function checkbox_field( $args ) {
+	static function checkbox_field( $args ) {
 		extract( $args );
 		$val = self::get( $id );
 
@@ -370,7 +370,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $args Settings field args.
 	 */
-	function select_field( $args ) {
+	static function select_field( $args ) {
 		extract( $args );
 		$val = self::get( $id );
 
@@ -392,7 +392,7 @@ class Whitebox_Settings {
 	 *
 	 * @param array $args Settings field args.
 	 */
-	function upload_field( $args ) {
+	static function upload_field( $args ) {
 		extract( $args );
 		$val = self::get( $id );
 
@@ -411,7 +411,7 @@ class Whitebox_Settings {
 	 * Load Scripts
 	 * Add scripts used in settings page.
 	 */
-	function load_scripts() {
+	static function load_scripts() {
 		wp_enqueue_style( 'thickbox' );
 		wp_enqueue_script( 'thickbox' );
 		wp_enqueue_script( 'media-upload' );
@@ -423,7 +423,7 @@ class Whitebox_Settings {
 	 * Set Upload Text
 	 * Filter media uploader button text.
 	 */
-	function set_upload_text() {
+	static function set_upload_text() {
 		global $pagenow;
 
 		if ( $pagenow == 'media-upload.php' || $pagenow == 'async-upload.php' ) {

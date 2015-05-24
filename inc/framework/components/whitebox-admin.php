@@ -19,7 +19,7 @@ class Whitebox_Admin {
 	 * Register Admin Pages
 	 * Register custom menus for wp-admin.
 	 */
-	function register_admin_pages() {
+	static function register_admin_pages() {
 		add_theme_page( Whitebox::$themeName.' Settings', 'Theme Settings', 'edit_theme_options', Whitebox::$themeDomain.'-settings', array(__CLASS__, 'admin_page') );
 	}
 
@@ -28,7 +28,7 @@ class Whitebox_Admin {
 	 * Admin Page
 	 * Output the framework admin page.
 	 */
-	function admin_page() {
+	static function admin_page() {
 		get_template_part( FRAMEWORK . '/pages/admin' );
 	}
 
