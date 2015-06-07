@@ -1,0 +1,17 @@
+{
+  "name": "whitebox",
+  "version": "1.0.0",
+  "description": "Whitebox for WordPress",
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^1.1.0",
+    "jit-grunt": "^0.9.1"
+  },
+  "author": "Wrecklaimer",
+  "license": "GPL-2.0"
+}
