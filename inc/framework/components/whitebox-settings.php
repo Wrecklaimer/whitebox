@@ -161,7 +161,7 @@ class Whitebox_Settings {
 	 * @param string $setting_id Id of the setting to get the type for.
 	 * @return string Setting type.
 	 */
-	function get_setting_type( $setting_id ) {
+	static function get_setting_type( $setting_id ) {
 		$evoOptions = self::load_options();
 		$type = '';
 
@@ -224,7 +224,7 @@ class Whitebox_Settings {
 	 * @param array $input Settings to validate.
 	 * @return array Validated settings.
 	 */
-	function validate_settings( $input ) {
+	static function validate_settings( $input ) {
 		$output = array();
 
 		// Reset settings to defaults
@@ -442,7 +442,7 @@ class Whitebox_Settings {
 	 *
 	 * @return string Modified Thickbox text.
 	 */
-	function replace_thickbox_text( $translated_text, $text, $domain ) {
+	static function replace_thickbox_text( $translated_text, $text, $domain ) {
 		$replacement_text = 'Use This Image';
 
 		if ( $text == 'Insert into Post' ) {
