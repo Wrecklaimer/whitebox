@@ -9,7 +9,7 @@
 	<?php
 	if ( is_active_sidebar( 'sidebar-pre-content' ) && is_home() && $paged < 2 ) : ?>
 	<div id="pre-content-wrap" class="wrap">
-		<div id="pre-content" class="row">
+		<div id="pre-content" class="row cf">
 		<?php if ( function_exists( 'dynamic_sidebar' ) ) dynamic_sidebar( 'sidebar-pre-content' ); ?>
 		</div><!-- / #pre-content -->
 	</div><!-- / #pre-content-wrap -->
