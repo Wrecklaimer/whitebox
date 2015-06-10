@@ -21,15 +21,22 @@ module.exports = function(grunt) {
 				expand: true,
 				cwd: 'assets/css/',
 				src: ['*.css', '!*.min.css'],
-				dest: 'css/',
+				dest: 'assets/css/',
 				ext: '.min.css'
-			},
-			style: {
-				expand: true,
-				cwd: '',
-				src: ['style.css', '!style.min.css'],
-				dest: '',
-				ext: '.min.css'
+			}
+		},
+
+		// Build LESS files
+		less: {
+			development: {
+				options: {
+					compress: true,
+					yuicompress: true,
+					optimization: 2
+				},
+				files: {
+					"style.min.css" : "style.less"
+				}
 			}
 		},
 
@@ -50,8 +57,8 @@ module.exports = function(grunt) {
 				}
 			},
 			style: {
-				files: ['style.css', '!style.min.css'],
-				tasks: ['newer:cssmin:style'],
+				files: ['style.less', '!style.min.css'],
+				tasks: ['newer:less'],
 				options: {
 					spawn: false
 				}
@@ -60,6 +67,6 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask('default', ['newer:uglify', 'newer:cssmin']);
+	grunt.registerTask('default', ['newer:uglify', 'newer:cssmin', 'newer:less']);
 	grunt.registerTask('dev', ['watch']);
 };
