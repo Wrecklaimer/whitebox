@@ -46,7 +46,7 @@
 					endif; ?>
 					<?php
 					if ( Whitebox_Settings::get( 'show_site_description' ) ) : ?>
-					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
+					<span id="site-description"><?php bloginfo('description'); ?></span>
 					<?php endif; ?>
 				</div><!-- / #logo -->
 

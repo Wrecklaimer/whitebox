@@ -20,6 +20,13 @@
  * Elements
  */
 
+body {
+	color: @gray-darker;
+	font: 1em/1.25 Arial, Helvetica, sans-serif;
+	text-align: left;
+	letter-spacing: 0;
+}
+
 a {
 	text-decoration: none;
 	color: @brand-primary;
@@ -52,9 +59,17 @@ a img {
 
 ul,
 ol {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	padding: 0 0 0 1.5em;
+	margin: .5em 0;
+}
+
+nav {
+	ul,
+	ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;	
+	}
 }
 
 h1,
@@ -70,32 +85,32 @@ h6 {
 }
 
 h1 {
-	font-size: 28px;
+	font-size: 2.25em; //28px;
 	line-height: 1.15;
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 1.75em; //24px;
 	line-height: 1.17;
 }
 
 h3 {
-	font-size: 20px;
+	font-size: 1.25em; //20px;
 	line-height: 1.2;
 }
 
 h4 {
-	font-size: 16px;
+	font-size: 1.125em; //16px;
 	line-height: 1.25;
 }
 
 h5 {
-	font-size: 14px;
+	font-size: 1em; //14px;
 	line-height: 1.29;
 }
 
 h6 {
-	font-size: 12px;
+	font-size: .875em; //12px;
 	line-height: 1.33;
 }
 
@@ -153,7 +168,6 @@ button,
 	color: #fff;
 	border: none;
 	padding: 5px 8px;
-	font-weight: bold;
 	width: auto;
 
 	&:hover {
@@ -277,10 +291,6 @@ fieldset {
 	width: 100%;
 	min-height: 200px;
 	margin: 0 auto;
-	color: @gray-darker;
-	font: .875em/1.25 Arial, Helvetica, sans-serif; /* 0.875 x 16px = 14px */
-	text-align: left;
-	letter-spacing: 0;
 }
 
 .wrap {
@@ -291,7 +301,7 @@ fieldset {
 	margin: 0 auto;
 	width: 96%;
 	max-width: 960px;
-	padding: 10px 0;
+	padding: .75em 0;
 }
 
 
@@ -309,11 +319,10 @@ fieldset {
 
 #logo {
 	text-align: center;
-	padding: 5px 0;
+	padding: .45em 0;
 }
 
 #site-title {
-	font-size: 48px;
 	margin: 0;
 
 	a {
@@ -327,7 +336,7 @@ fieldset {
 }
 
 #site-description {
-	font-size: 16px;
+	font-weight: bold;
 	color: @gray-light;
 	display: block;
 	margin: 0;
@@ -380,7 +389,7 @@ fieldset {
 	display: none;
 	position: relative;
 	left: 0;
-	min-width: 150px;
+	min-width: 10em;
 	z-index: 200;
 
 	.menu-item {
@@ -406,9 +415,9 @@ fieldset {
 	vertical-align: top;
 	position: relative;
 	width: auto;
+	font-size: 1.15em;
 
 	.menu-item {
-		font-size: 16px;
 		font-weight: bold;
 		float: left;
 
@@ -532,7 +541,7 @@ fieldset {
 	padding: 0;
 }
 
-#main .posts-list .post {
+#main .posts .post {
 	margin-bottom: 1em;
 }
 
@@ -557,7 +566,7 @@ fieldset {
 .entry-meta {
 	margin: 0 0 .8em;
 	color: @gray;
-	font-size: 12px;
+	font-size: .875em;
 	display: block;
 }
 
@@ -566,31 +575,9 @@ fieldset {
 		line-height: 1.45;
 	}
 
-	ul,
-	ol {
-		padding: 0 0 0 1.5em;
-		margin: .5em 0;
-	}
-
-	ul {
-		list-style-type: disc;
-
-		ul {
-			list-style-type: circle;
-
-			ul {
-				list-style-type: square;
-			}
-		}
-	}
-
-	ol {
-		list-style-type: decimal;
-	}
-
 	blockquote {
 		font-style: italic;
-		font-size: 16px;
+		font-size: 1.15em;
 		margin: 1em;
 		color: @gray;
 	}
@@ -618,10 +605,10 @@ fieldset {
 	.wp-caption-text,
 	.gallery-caption {
 		color: @gray;
-		font-size: 12px;
+		font-size: .875em;
 		line-height: 1.2;
 		text-align: center;
-		margin: 5px 0;
+		margin: .45em 0;
 	}
 }
 
@@ -662,8 +649,15 @@ fieldset {
  * Comments
  */
 
+.comment-list,
+.comment .children {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 .comment-body {
-	margin-bottom: 10px;
+	margin-bottom: .75em;
 }
 
 .bypostauthor > .comment-body {
@@ -680,8 +674,13 @@ fieldset {
 	color: @gray-dark;
 }
 
+.comment-meta,
+.comment .reply {
+	font-size: .875em;
+}
+
 .bypostauthor > .comment-body .comment-content {
-	padding: 0 1% 1%;
+	padding: .45em;
 }
 
 .comment .children {
@@ -695,7 +694,7 @@ fieldset {
 }
 
 .comment-navigation {
-	margin-bottom: 5px;
+	margin-bottom: .45em;
 }
 
 .comment-navigation .nav-previous {
@@ -738,6 +737,22 @@ fieldset {
 
 
 /*
+ * Widgets
+ */
+
+.widget {
+	&> ul {
+		padding: 0;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+	}
+}
+
+
+/*
  * Search form
  */
 
@@ -765,7 +780,7 @@ fieldset {
 	}
 
 	.search-submit {
-		margin-left: 5px;
+		margin-left: .45em;
 	}
 }
 
@@ -854,7 +869,7 @@ fieldset {
 	margin-top: 4%;
 }
 
-#main .posts-list li .entry-image {
+#main .posts .post .entry-image {
 	float: left;
 	margin-right: 2%;
 	margin-bottom: 0;
@@ -875,7 +890,7 @@ fieldset {
 	width: 100%;
 }
 
-#main.wide .posts-list li .entry-image {
+#main.wide .posts .post .entry-image {
 	max-width: 31.25%;
 }
 

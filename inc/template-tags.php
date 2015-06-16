@@ -139,7 +139,7 @@ if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
 	// Post author
 	if ( !is_author() && Settings::get( 'show_post_author' ) ) {
-		$author_before = apply_filters('whitebox_post_author_before', __( 'By ', THEME_DOMAIN) );
+		$author_before = apply_filters('whitebox_post_author_before', __( 'by ', THEME_DOMAIN) );
 		echo '<span class="post-author">' . $author_before;
 		the_author_posts_link();
 		echo '</span>';
@@ -158,7 +158,7 @@ function whitebox_post_meta() {
 	}
 	// Post categories
 	if ( is_single() && Settings::get( 'show_post_category' ) ) {
-		$cat_before = apply_filters('whitebox_post_category_before', __( ' on ', THEME_DOMAIN ));
+		$cat_before = apply_filters('whitebox_post_category_before', __( ' in ', THEME_DOMAIN ));
 		echo '<span class="post-categories">' . $cat_before;
 		the_category( ', ' );
 		echo '</span>';

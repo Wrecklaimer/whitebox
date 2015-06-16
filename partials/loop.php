@@ -7,7 +7,7 @@
 <?php wp_reset_query();
 
 if ( have_posts() ) : ?>
-	<ul class="posts posts-list">
+	<ul class="posts">
 		<?php
 		while ( have_posts() ) : the_post(); ?>
 
