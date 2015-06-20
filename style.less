@@ -128,8 +128,7 @@ dt {
 }
 
 dd {
-	margin-left: 10px;
-	font-style: italic;
+	margin-left: .5em;
 }
 
 pre {
@@ -254,6 +253,27 @@ label {
 fieldset {
 	border-color: @gray-lighter;
 	margin-bottom: .5em;
+}
+
+
+/*
+ * Tables
+ */
+
+table {
+	th, tr, td {
+		padding: .45em;
+	}
+
+	thead {
+		background: @gray-lightest;
+	}
+
+	tbody {
+		tr {
+			border-top: 1px solid @gray-lighter;
+		}
+	}
 }
 
 
