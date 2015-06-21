@@ -3,8 +3,6 @@
  * Custom template tags for Whitebox
  */
 
-class_alias('Whitebox_Settings', 'Settings');
-
 
 /**
  * Title
@@ -68,8 +66,8 @@ endif;
  */
 if ( !function_exists( 'whitebox_favicon' ) ) :
 function whitebox_favicon() {
-	if ( Settings::get( 'favicon' ) ) : ?>
-	<link rel="shortcut icon" href="<?php Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
+	if ( Whitebox_Settings::get( 'favicon' ) ) : ?>
+	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
 	<?php endif;
 }
 endif;
@@ -83,7 +81,7 @@ if ( !function_exists( 'whitebox_header_logo' ) ) :
 function whitebox_header_logo() {
 	?>
 	<a href="<?php echo home_url(); ?>" >
-		<img src="<?php esc_url( Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
+		<img src="<?php esc_url( Whitebox_Settings::get( 'header_logo', true ) ); ?>" alt="<?php bloginfo('name'); ?>" />
 	</a>
 	<?php
 }
@@ -113,7 +111,7 @@ endif;
  */
 if ( !function_exists( 'whitebox_post_thumbnail' ) ) :
 function whitebox_post_thumbnail( $size = null ) {
-	if ( !has_post_thumbnail() || !Settings::get( 'show_post_thumbnails' ) )
+	if ( !has_post_thumbnail() || !Whitebox_Settings::get( 'show_post_thumbnails' ) )
 		return;
 
 	?>
@@ -138,14 +136,14 @@ endif;
 if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
 	// Post author
-	if ( !is_author() && Settings::get( 'show_post_author' ) ) {
+	if ( !is_author() && Whitebox_Settings::get( 'show_post_author' ) ) {
 		$author_before = apply_filters('whitebox_post_author_before', __( 'by ', THEME_DOMAIN) );
 		echo '<span class="post-author">' . $author_before;
 		the_author_posts_link();
 		echo '</span>';
 	}
 	// Post date
-	if ( Settings::get( 'show_post_date' ) ) {
+	if ( Whitebox_Settings::get( 'show_post_date' ) ) {
 		$date_before = apply_filters('whitebox_post_date_before', __( ' on ', THEME_DOMAIN ));
 		$datetime = get_the_date( 'Y-m-d H:i:s' );
 		echo '<span class="post-date">' . $date_before;
@@ -157,7 +155,7 @@ function whitebox_post_meta() {
 		echo '</span>';
 	}
 	// Post categories
-	if ( is_single() && Settings::get( 'show_post_category' ) ) {
+	if ( is_single() && Whitebox_Settings::get( 'show_post_category' ) ) {
 		$cat_before = apply_filters('whitebox_post_category_before', __( ' in ', THEME_DOMAIN ));
 		echo '<span class="post-categories">' . $cat_before;
 		the_category( ', ' );
@@ -233,7 +231,7 @@ function whitebox_entry_tags() {
 	$sep    = ', ';
 	$after  = '</p>';
 
-	if ( is_single() && Settings::get( 'show_post_tags' ) )
+	if ( is_single() && Whitebox_Settings::get( 'show_post_tags' ) )
 		the_tags( $before, $sep, $after );
 }
 endif;
@@ -318,8 +316,8 @@ endif;
 if ( !function_exists( 'whitebox_footer_text' ) ) :
 function whitebox_footer_text( $echo = false ) {
 	$copyright_year = Whitebox_Utils::copyright_year();
-	$copyright_link = Settings::get( 'copyright_link' ) != '' ? Settings::get( 'copyright_link' ) : home_url();
-	$copyright_text = Settings::get( 'copyright_text' ) != '' ? Settings::get( 'copyright_text' ) : get_bloginfo( 'name' );
+	$copyright_link = Whitebox_Settings::get( 'copyright_link' ) != '' ? Whitebox_Settings::get( 'copyright_link' ) : home_url();
+	$copyright_text = Whitebox_Settings::get( 'copyright_text' ) != '' ? Whitebox_Settings::get( 'copyright_text' ) : get_bloginfo( 'name' );
 
 	$footer_text = '<span class="copy">&copy; ' . $copyright_year . ' <a href="' . $copyright_link .'">' . $copyright_text . '</a></span>';
 
