@@ -107,5 +107,6 @@ function wb_theme_wrapper_start() {
 function wb_theme_wrapper_end() { ?>
 		</div> <!-- / #post-## -->
 	</div> <!-- / #main -->
+	<?php get_sidebar(); ?>
 	<?php get_template_part( 'partials/content', 'end' );
 }
