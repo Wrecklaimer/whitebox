@@ -88,3 +88,24 @@ function add_comment_reply_js() {
 		wp_enqueue_script( 'comment-reply' );
 }
 add_action( 'wp_print_scripts', 'add_comment_reply_js' );
+
+
+/* Add basic WooCommerce support */
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'wb_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'wb_theme_wrapper_end', 10);
+
+function wb_theme_wrapper_start() { 
+	get_template_part( 'partials/content', 'start' ); ?>
+	<div id="main">
+		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+}
+
+function wb_theme_wrapper_end() { ?>
+		</div> <!-- / #post-## -->
+	</div> <!-- / #main -->
+	<?php get_template_part( 'partials/content', 'end' );
+}
