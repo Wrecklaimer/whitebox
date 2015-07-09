@@ -13,6 +13,6 @@ $submit_text = apply_filters('whitebox_searchform_submit_text', 'Search');
 		<input type="search" class="search-field" placeholder="<?php echo $placeholder; ?>" value="" name="s" />
 	</span>
 	<span class="search-right">
-		<input type="submit" class="search-submit" value="<?php echo $submit_text; ?>" />
+		<button type="submit" class="search-submit" ><span class="button-text"><?php echo $submit_text; ?></span></button>
 	</span>
 </form>
