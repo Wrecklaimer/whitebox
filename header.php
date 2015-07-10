@@ -50,7 +50,7 @@
 					<?php endif; ?>
 				</div><!-- / #logo -->
 
-				<a id="primary-nav-button" href="#">Menu</a>
+				<button id="primary-nav-button" name="primary-nav-button" type="button"><span class="button-text">Menu</span></button>
 				<div id="menu-wrap">
 					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'primary-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'primary' ) ); ?>
 				</div><!-- / #menu-wrap -->

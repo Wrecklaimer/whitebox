@@ -375,7 +375,7 @@ table {
 }
 
 #logo {
-	text-align: center;
+	float: left;
 	padding: .45em 0;
 }
 
@@ -405,17 +405,12 @@ table {
  */
 
 #primary-nav-button {
-	text-align: center;
-	clear: left;
 	display: none;
-	text-decoration: none;
-	color: @gray-dark;
-	font-size: 0;
+	float: right;
 
 	&:before {
 		content: '\2261';
-		font-size: 40px;
-		line-height: 1;
+		margin-right: .25em;
 	}
 
 	&.mobile {
@@ -465,6 +460,7 @@ table {
 
 #menu-wrap {
 	position: relative;
+	clear: both;
 }
 
 #primary-nav {
@@ -877,14 +873,12 @@ table {
 @media screen and (min-width: 481px) {
 
 #logo {
-	float: left;
-	display: inline;
-	text-align: left;
 	margin-right: 1em;
 }
 
 #menu-wrap {
 	float: left;
+	clear: none;
 }
 
 #footer .footer-text {
