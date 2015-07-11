@@ -29,11 +29,11 @@
 	<div id="page">
 
 		<div id="header-wrap" class="wrap">
-			<div id="header" class="row cf">
+			<div id="header" class="row">
 
 				<?php if ( has_nav_menu( 'top' ) ) : ?>
 				<div id="pre-menu-wrap">
-					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'top-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'top', 'fallback_cb' => 'false' ) ); ?>
+					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'top-nav', 'container_class' => 'dropdown nav', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'top', 'fallback_cb' => 'false' ) ); ?>
 				</div><!-- / #pre-menu-wrap -->
 				<?php endif; ?>
 
@@ -52,7 +52,7 @@
 
 				<button id="primary-nav-button" name="primary-nav-button" type="button"><span class="button-text">Menu</span></button>
 				<div id="menu-wrap">
-					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'primary-nav', 'container_class' => 'dropdown nav cf', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'primary' ) ); ?>
+					<?php wp_nav_menu( array( 'container' => 'nav', 'container_id' => 'primary-nav', 'container_class' => 'dropdown nav', 'menu_class' => 'dropdown menu', 'sort_column' => 'menu_order', 'theme_location' => 'primary' ) ); ?>
 				</div><!-- / #menu-wrap -->
 
 			</div><!-- / #header -->

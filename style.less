@@ -273,9 +273,7 @@ table {
  */
 
 /* Micro Clearfix */
-.cf {
-	*zoom: 1; /* IE */
-
+.cf() {
 	&:before,
 	&:after {
 		content: '';
@@ -293,11 +291,11 @@ table {
 	position: absolute;
 	width: 1px;
 	height: 1px;
-	padding: 0px;
+	padding: 0;
 	margin: -1px;
 	overflow: hidden;
-	clip: rect(0px, 0px, 0px, 0px);
-	border: 0px none;
+	clip: rect(0, 0, 0, 0);
+	border: 0 none;
 }
 
 .alignleft,
@@ -340,6 +338,8 @@ table {
 }
 
 .row {
+	.cf();
+
 	margin: 0 auto;
 	width: 96%;
 	max-width: 960px;
@@ -400,37 +400,37 @@ table {
 	}
 }
 
-.menu {
-	text-align: left;
-}
-
-.menu .menu-item {
-	position: relative;
-
-	a {
-		display: block;
-		line-height: 1;
-	}
-}
-
-.menu > .menu-item {
-	float: left;
-	margin-right: 1em;
-
-	&:last-child {
-		margin-right: 0;
-	}
-}
-
-.menu .sub-menu {
-	display: none;
-	position: relative;
-	left: 0;
-	min-width: 10em;
-	z-index: 200;
+.nav .menu {
+	.cf();
 
 	.menu-item {
-		width: 100%;
+		position: relative;
+
+		a {
+			display: block;
+			line-height: 1;
+		}
+	}
+
+	& > .menu-item {
+		float: left;
+		margin-right: 1em;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.sub-menu {
+		display: none;
+		position: relative;
+		left: 0;
+		min-width: 10em;
+		z-index: 200;
+
+		.menu-item {
+			width: 100%;
+		}
 	}
 }
 
@@ -561,14 +561,14 @@ table {
 .entry-title {
 	line-height: 1.1;
 	margin-bottom: .25em;
-}
 
-.entry-title a {
-	display: block;
-	overflow: hidden;
+	a {
+		display: block;
+		overflow: hidden;
 
-	&:hover {
-		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
@@ -633,6 +633,8 @@ table {
 /* Author Page */
 
 .author-card {
+	.cf();
+
 	margin-bottom: 1em;
 }
 
@@ -706,6 +708,8 @@ table {
 }
 
 .comment-navigation {
+	.cf();
+
 	margin-bottom: .45em;
 
 	.nav-previous {
@@ -886,11 +890,15 @@ table {
 	margin-top: 4%;
 }
 
-#main .posts .post .entry-image {
-	float: left;
-	margin-right: 2%;
-	margin-bottom: 0;
-	max-width: 48%;
+#main .posts .post {
+	.cf();
+
+	.entry-image {
+		float: left;
+		margin-right: 2%;
+		margin-bottom: 0;
+		max-width: 48%;
+	}
 }
 
 }

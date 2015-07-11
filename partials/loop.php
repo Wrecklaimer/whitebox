@@ -11,7 +11,7 @@ if ( have_posts() ) : ?>
 		<?php
 		while ( have_posts() ) : the_post(); ?>
 
-			<li id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?>>
+			<li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php whitebox_post_thumbnail( 'whitebox-homepage-thumb' ); ?>
 

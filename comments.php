@@ -18,7 +18,7 @@ if ( post_password_required() ) { ?>
 	</h2>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-	<nav id="comment-nav-above" class="navigation comment-navigation cf" role="navigation">
+	<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
 		<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', THEME_DOMAIN ) ); ?></div>
 		<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', THEME_DOMAIN ) ); ?></div>
 	</nav><!-- / #comment-nav-above -->
@@ -36,7 +36,7 @@ if ( post_password_required() ) { ?>
 	</ol><!-- / .comment-list -->
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-	<nav id="comment-nav-below" class="navigation comment-navigation cf" role="navigation">
+	<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
 		<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', THEME_DOMAIN ) ); ?></div>
 		<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', THEME_DOMAIN ) ); ?></div>
 	</nav><!-- / #comment-nav-below -->
