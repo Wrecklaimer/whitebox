@@ -20,6 +20,27 @@
 @font-size-normal:  1em;
 @font-size-smaller: .875em;
 
+// Mixins
+.cf() {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		visibility: hidden;
+		line-height: 0;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+.list-unstyled() {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 
 /**
  * Elements
@@ -70,9 +91,7 @@ ol {
 nav {
 	ul,
 	ol {
-		list-style: none;
-		padding: 0;
-		margin: 0;	
+		.list-unstyled();	
 	}
 }
 
@@ -271,21 +290,6 @@ table {
 /*
  * Utility Classes
  */
-
-/* Micro Clearfix */
-.cf() {
-	&:before,
-	&:after {
-		content: '';
-		display: table;
-		visibility: hidden;
-		line-height: 0;
-	}
-
-	&:after {
-		clear: both;
-	}
-}
 
 .screen-reader-text {
 	position: absolute;
@@ -543,15 +547,14 @@ table {
 /*
  * Posts and Pages
  */
+#main {
+	ul.posts {
+		.list-unstyled();
+	}
 
-#main ul.posts {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#main .posts .post {
-	margin-bottom: 1em;
+	.posts .post {
+		margin-bottom: 1em;
+	}
 }
 
 .entry-image {
@@ -588,26 +591,26 @@ table {
 		font-size: 1.15em;
 		margin: 1em;
 		color: @gray;
-	}
 
-	blockquote cite {
-		font-size: @font-size-smaller;
-		font-style: normal;
-		display: inline-block;
-	}
+		cite {
+			font-size: @font-size-smaller;
+			font-style: normal;
+			display: inline-block;
+		}
 
-	blockquote p {
-		line-height: 1.25;
-	}
+		p {
+			line-height: 1.25;
+		}
 
-	blockquote.pullquote {
-		float: right;
-		width: 33%;
-		margin: .25em .25em .25em 1em;
-	}
+		&.pullquote {
+			float: right;
+			width: 33%;
+			margin: .25em .25em .25em 1em;
+		}
 
-	blockquote.pullquote p {
-		margin: .5em 0;
+		&.pullquote p {
+			margin: .5em 0;
+		}
 	}
 
 	.wp-caption-text,
@@ -647,20 +650,19 @@ table {
 	float: left;
 	clear: left;
 	margin-top: .5em;
-}
 
-.author-links ul {
-	margin: 0;
-	padding: 0;
-}
+	ul {
+		.cf();
+		.list-unstyled();
+	}
 
-.author-links li {
-	float: left;
-	list-style: none;
-	margin-left: .5em;
+	li {
+		float: left;
+		margin-left: .5em;
 
-	&:first-child {
-		margin-left: 0;
+		&:first-child {
+			margin-left: 0;
+		}
 	}
 }
 
@@ -671,9 +673,7 @@ table {
 
 .comment-list,
 .comment .children {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+	.list-unstyled();
 }
 
 .comment-body {
