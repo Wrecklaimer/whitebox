@@ -15,6 +15,11 @@
 @gray-lighter:  #cfcfcf;
 @gray-lightest: #f0f0f0;
 
+// Text
+@font-size-larger:  1.125em;
+@font-size-normal:  1em;
+@font-size-smaller: .875em;
+
 
 /**
  * Elements
@@ -24,8 +29,6 @@ body {
 	background: #fff;
 	color: @gray-darker;
 	font: 1em/1.25 Arial, Helvetica, sans-serif;
-	text-align: left;
-	letter-spacing: 0;
 }
 
 a {
@@ -79,49 +82,39 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: bold;
 	margin: 0 0 .5em;
-	padding: 0;
 	color: @gray-dark;
 }
 
 h1 {
-	font-size: 2.25em; //28px;
-	line-height: 1.15;
+	font-size: 2.25em;
 }
 
 h2 {
-	font-size: 1.75em; //24px;
-	line-height: 1.17;
+	font-size: 1.75em;
 }
 
 h3 {
-	font-size: 1.25em; //20px;
-	line-height: 1.2;
+	font-size: 1.25em;
 }
 
 h4 {
-	font-size: 1.125em; //16px;
-	line-height: 1.25;
+	font-size: 1.125em;
 }
 
 h5 {
-	font-size: 1em; //14px;
-	line-height: 1.29;
+	font-size: 1em;
 }
 
 h6 {
-	font-size: .875em; //12px;
-	line-height: 1.33;
+	font-size: .875em;
 }
 
 hr {
-	display: block;
 	height: 1px;
 	border: none;
 	background: @gray-lighter;
 	margin: 1em 0;
-	padding: 0;
 }
 
 dt {
@@ -135,7 +128,7 @@ dd {
 pre {
 	background: @gray-lightest;
 	border: 1px solid @gray-lighter;
-	padding: 10px;
+	padding: .5em;
 }
 
 
@@ -144,18 +137,17 @@ pre {
  */
 
 input,
+input[type=search], // normalize decided this should be content-box... ¯\_(ツ)_/¯
 button,
 textarea,
 select,
 .button {
-	font-family: inherit;
 	-webkit-border-radius: 0;
 	-moz-border-radius:    0;
 	border-radius:         0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
-	line-height: inherit;
 }
 
 /* Buttons */
@@ -168,7 +160,6 @@ button,
 	color: #fff;
 	border: none;
 	padding: 6px 8px;
-	width: auto;
 
 	&:hover {
 		background: @brand-primary;
@@ -209,7 +200,6 @@ select {
 	background-color: #fff;
 	color: @gray;
 	border: 1px solid @gray-lighter;
-	line-height: inherit;
 	padding: 5px;
 	margin-bottom: .5em;
 	max-width: 100%;
@@ -313,21 +303,22 @@ table {
 .alignleft,
 .alignright {
 	max-width: 47.5%;
+	margin: .25em 0;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 2.5%;
+}
+
+.alignright {
+	float: right;
+	margin-left: 2.5%;
 }
 
 .aligncenter {
 	display: block;
 	margin: .25em auto;
-}
-
-.alignleft {
-	float: left;
-	margin: .25em 2.5% .25em 0;
-}
-
-.alignright {
-	float: right;
-	margin: .25em 0 .25em 2.5%;
 }
 
 .floatleft,
@@ -343,12 +334,6 @@ table {
 /*
  * Page Structure
  */
-
-#page {
-	width: 100%;
-	min-height: 200px;
-	margin: 0 auto;
-}
 
 .wrap {
 	overflow: hidden;
@@ -393,10 +378,7 @@ table {
 }
 
 #site-description {
-	font-weight: bold;
 	color: @gray-light;
-	display: block;
-	margin: 0;
 }
 
 
@@ -424,16 +406,19 @@ table {
 
 .menu .menu-item {
 	position: relative;
+
+	a {
+		display: block;
+		line-height: 1;
+	}
+}
+
+.menu > .menu-item {
 	float: left;
 	margin-right: 1em;
 
 	&:last-child {
 		margin-right: 0;
-	}
-
-	a {
-		display: block;
-		line-height: 1;
 	}
 }
 
@@ -464,11 +449,6 @@ table {
 }
 
 #primary-nav {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	width: auto;
-
 	.menu-item a {
 		padding: .5em 0;
 	}
@@ -561,16 +541,6 @@ table {
 
 
 /*
- * Content
- */
-
-
-/*
- * Main
- */
-
-
-/*
  * Posts and Pages
  */
 
@@ -603,10 +573,9 @@ table {
 }
 
 .entry-meta {
-	margin: 0 0 .8em;
+	margin-bottom: .8em;
 	color: @gray;
-	font-size: .875em;
-	display: block;
+	font-size: @font-size-smaller;
 }
 
 .entry-content {
@@ -622,7 +591,7 @@ table {
 	}
 
 	blockquote cite {
-		font-size: 85%;
+		font-size: @font-size-smaller;
 		font-style: normal;
 		display: inline-block;
 	}
@@ -634,17 +603,17 @@ table {
 	blockquote.pullquote {
 		float: right;
 		width: 33%;
-		margin: 0.25em 0.25em 0.25em 1em;
+		margin: .25em .25em .25em 1em;
 	}
 
 	blockquote.pullquote p {
-		margin: 0.5em 0;
+		margin: .5em 0;
 	}
 
 	.wp-caption-text,
 	.gallery-caption {
 		color: @gray;
-		font-size: .875em;
+		font-size: @font-size-smaller;
 		line-height: 1.2;
 		text-align: center;
 		margin: .45em 0;
@@ -725,7 +694,7 @@ table {
 
 .comment-meta,
 .comment .reply {
-	font-size: .875em;
+	font-size: @font-size-smaller;
 }
 
 .bypostauthor > .comment-body .comment-content {
@@ -736,35 +705,35 @@ table {
 	margin-left: 5%;
 }
 
-.comment-navigation .nav-previous > a,
-.comment-navigation .nav-next > a {
-	display: inline-block;
-	padding: 5px 0;
-}
-
 .comment-navigation {
 	margin-bottom: .45em;
+
+	.nav-previous {
+		float: left;
+	}
+
+	.nav-next {
+		float: right;
+	}
+
+	.nav-previous > a,
+	.nav-next > a {
+		display: block;
+		padding: .25em 0;
+	}
 }
 
-.comment-navigation .nav-previous {
-	float: left;
-}
+.comment-form {
+	label {
+		display: block;
+		margin-bottom: .25em;
+		color: @gray-dark;
+	}
 
-.comment-navigation .nav-next {
-	float: right;
-}
-
-.comment-form label {
-	display: block;
-	margin-bottom: .25em;
-	font-weight: bold;
-	color: @gray-dark;
-}
-
-.comment-form .required {
-	color: @gray;
-	font-size: 90%;
-	font-weight: normal;
+	.required {
+		color: @gray;
+		font-size: @font-size-smaller;
+	}
 }
 
 
@@ -774,13 +743,13 @@ table {
 
 #sidebar {
 	padding-top: 1.5em;
-}
 
-#sidebar .widget {
-	margin-top: 1.5em;
+	.widget {
+		margin-top: 1.5em;
 
-	&:first-child {
-		margin-top: 0;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 
@@ -814,22 +783,20 @@ table {
 	width: 100%;
 
 	& > span {
-	  display: table-cell;
+		display: table-cell;
 	}
 
 	& > span:last-child {
-	  width: 1px;
+		width: 1px;
 	}
 
 	.search-label {
-		display: none;
+		display: none; // Should probably use sr-only style
 	}
 
 	.search-field {
-	  width: 100%;
-	  margin: 0;
-	  -moz-box-sizing: border-box;
-	  box-sizing: border-box;
+		width: 100%;
+		margin: 0;
 	}
 
 	.search-submit {
@@ -887,7 +854,6 @@ table {
 }
 
 #footer-menu-wrap {
-	margin: 0;
 	float: right;
 	text-align: left;
 }
