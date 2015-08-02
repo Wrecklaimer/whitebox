@@ -63,10 +63,76 @@ module.exports = function(grunt) {
 					spawn: false
 				}
 			}
-		}
+		},
+
+		copy: {
+			readme: {
+				src: 'README.md',
+				dest: 'dist/<%= pkg.name %>/README.txt'
+			},
+			license: {
+				src: 'license.txt',
+				dest: 'dist/<%= pkg.name %>/'
+			},
+			php: {
+				src: [ '*.php' ],
+				dest: 'dist/<%= pkg.name %>/',
+				filter: 'isFile',
+				expand: true
+			},
+			style: {
+				src: [ 'style.*css' ],
+				dest: 'dist/<%= pkg.name %>/',
+				filter: 'isFile',
+				expand: true
+			},
+			css: {
+				cwd: 'assets/css',
+				src: [ '**' ],
+				dest: 'dist/<%= pkg.name %>/assets/css',
+				expand: true
+			},
+			js: {
+				cwd: 'assets/js',
+				src: [ '**' ],
+				dest: 'dist/<%= pkg.name %>/assets/js',
+				expand: true
+			},
+			inc: {
+				cwd: 'inc',
+				src: [ '**' ],
+				dest: 'dist/<%= pkg.name %>/inc',
+				expand: true
+			},
+			partials: {
+				cwd: 'partials',
+				src: [ '**' ],
+				dest: 'dist/<%= pkg.name %>/partials',
+				expand: true
+			},
+		},
+
+		compress: {
+			build: {
+				options: {
+					archive: 'dist/<%= pkg.name %>.zip'
+				},
+				expand: true,
+				cwd: 'dist/<%= pkg.name %>',
+				src: '**/*'
+			}
+		},
+
+		clean: {
+			build: {
+				src: [ 'dist/*' ]
+			},
+		},
 
 	});
 
-	grunt.registerTask('default', ['newer:uglify', 'newer:cssmin', 'newer:less']);
+	grunt.registerTask('default', 'build');
+	grunt.registerTask('build', ['newer:uglify', 'newer:cssmin', 'newer:less']);
 	grunt.registerTask('dev', ['watch']);
+	grunt.registerTask('dist', [ 'build', 'clean', 'copy', 'compress' ]);
 };
