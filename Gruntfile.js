@@ -110,6 +110,12 @@ module.exports = function(grunt) {
 				dest: 'dist/<%= pkg.name %>/partials',
 				expand: true
 			},
+			templates: {
+				cwd: 'page-templates',
+				src: [ '**' ],
+				dest: 'dist/<%= pkg.name %>/page-templates',
+				expand: true
+			},
 		},
 
 		compress: {
