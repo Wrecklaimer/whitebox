@@ -412,7 +412,6 @@ table {
 
 		a {
 			display: block;
-			line-height: 1;
 		}
 	}
 
@@ -443,7 +442,7 @@ table {
 	background: #f8f8f8;
 }
 
-#top-nav .menu-item {
+#top-nav .menu-item > a {
 	padding: .25em 0;
 }
 
@@ -467,11 +466,11 @@ table {
 
 	.menu .downarrow {
 		display: inline-block;
-		line-height: 1;
 		font-size: inherit;
 		font-style: normal;
 		font-weight: normal;
 		font-family: sans-serif;
+		text-align: center;
 		color: inherit;
 
 		&:before {
@@ -536,9 +535,6 @@ table {
 		.menu .downarrow {
 			padding: 5%;
 			cursor: default;
-			font-size: 1.33333em;
-			line-height: .75;
-			vertical-align: -15%;
 		}
 	}
 }
@@ -832,11 +828,13 @@ table {
 
 #footer-menu-wrap {
 	text-align: center;
+	margin-top: .5em;
 }
 
 #footer-nav {
 	display: inline-block;
 	margin: 0 auto;
+	vertical-align: top;
 }
 
 
@@ -853,13 +851,14 @@ table {
 }
 
 #footer .footer-text {
-	display: inline-block;
+	float: left;
 	text-align: left;
 }
 
 #footer-menu-wrap {
 	float: right;
 	text-align: left;
+	margin-top: 0;
 }
 
 }
