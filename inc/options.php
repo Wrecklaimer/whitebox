@@ -9,13 +9,6 @@
 			'std'  => ''
 		),
 		array(
-			'name' => 'Favicon',
-			'desc' => 'Upload a favicon image (16&times;16px).',
-			'id'   => 'favicon',
-			'type' => 'upload',
-			'std'  => ''
-		),
-		array(
 			'name' => 'Site Description',
 			'id'   => 'show_site_description',
 			'type' => 'checkbox',

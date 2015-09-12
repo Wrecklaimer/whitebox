@@ -18,8 +18,6 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<?php whitebox_favicon(); ?>
-
 	<?php wp_head(); ?>
 
 </head>

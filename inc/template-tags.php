@@ -61,19 +61,6 @@ endif;
 
 
 /**
- * Whitebox Favicon
- * Output favicon link.
- */
-if ( !function_exists( 'whitebox_favicon' ) ) :
-function whitebox_favicon() {
-	if ( Whitebox_Settings::get( 'favicon' ) ) : ?>
-	<link rel="shortcut icon" href="<?php Whitebox_Settings::get( 'favicon', true ); ?>" type="image/x-icon" />
-	<?php endif;
-}
-endif;
-
-
-/**
  * Whitebox Header Logo
  * Output header logo image.
  */
