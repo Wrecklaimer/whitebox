@@ -258,6 +258,7 @@ input[type=radio] {
 /* Misc */
 label {
 	margin-right: .45em;
+	font-weight: bold;
 }
 
 fieldset {
@@ -682,7 +683,10 @@ table {
 
 .comment-avatar {
 	float: left;
-	margin-right: 2%;
+}
+
+.comment-content {
+	margin-left: 4.75em;
 }
 
 .comment-author {
@@ -697,6 +701,7 @@ table {
 
 .bypostauthor > .comment-body .comment-content {
 	padding: .45em;
+	padding-left: 0;
 }
 
 .comment .children {
@@ -728,11 +733,13 @@ table {
 		display: block;
 		margin-bottom: .25em;
 		color: @gray-dark;
-	}
 
-	.required {
-		color: @gray;
-		font-size: @font-size-smaller;
+		&.required:after {
+			content: '*';
+			color: @gray;
+			font-size: @font-size-smaller;
+			margin-left: .25em;
+		}
 	}
 }
 

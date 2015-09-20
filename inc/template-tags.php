@@ -62,7 +62,7 @@ endif;
 
 /**
  * Whitebox Header Logo
- * Output header logo image.
+ * Outputs the header logo image.
  */
 if ( !function_exists( 'whitebox_header_logo' ) ) :
 function whitebox_header_logo() {
@@ -77,7 +77,7 @@ endif;
 
 /**
  * Whitebox Header Title
- * Output header logo image.
+ * Outputs the header title.
  */
 if ( !function_exists( 'whitebox_header_title' ) ) :
 function whitebox_header_title() {
@@ -92,7 +92,7 @@ endif;
 
 /**
  * Whitebox Post Thumbnail
- * Display post thumbnail (featured image).
+ * Displays the post thumbnail (featured image).
  *
  * @param string $size Optional. Image size.
  */
@@ -118,7 +118,7 @@ endif;
 
 /**
  * Whitebox Post Meta
- * Display post meta.
+ * Displays the post meta (author, date, categories, etc).
  */
 if ( !function_exists( 'whitebox_post_meta' ) ) :
 function whitebox_post_meta() {
@@ -158,7 +158,7 @@ endif;
 
 /**
  * Whitebox Pagination
- * Display posts pagination.
+ * Displays the posts pagination.
  *
  * @see paginate_links()
  */
@@ -187,7 +187,7 @@ endif;
 
 /**
  * Whitebox Entry Pagination
- * Display single post pagination.
+ * Displays the single post pagination.
  *
  * @see wp_link_pages()
  */
@@ -207,7 +207,7 @@ endif;
 
 /**
  * Whitebox Entry Tags
- * Display post tags.
+ * Displays the post tags.
  *
  * @see the_tags()
  */
@@ -225,8 +225,58 @@ endif;
 
 
 /**
+ * Whitebox Comment Form
+ * Displays the comment form.
+ */
+if ( !function_exists( 'whitebox_comment_form' ) ) :
+function whitebox_comment_form() {
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$req_class = 'required';
+	$aria_req = ( $req ? " aria-required='true' required" : '' );
+	$size = 35;
+
+	$comments_args = array(
+		'title_reply'         => __( 'Leave a Comment', THEME_DOMAIN ),
+		'title_reply_to'      => __( 'Leave a Reply to %s', THEME_DOMAIN ),
+		'cancel_reply_link'   => __( 'cancel reply', THEME_DOMAIN ),
+		'label_submit'        => __( 'Add Comment', THEME_DOMAIN ),
+		'fields'              => apply_filters( 'comment_form_default_fields', array(
+			'author' =>
+				'<div class="comment-form-author">' .
+				'<label for="author"' . ( $req ? ' class="' . $req_class . '"' : '' ) . '>' . __( 'Name', THEME_DOMAIN ) . '</label>' .
+				'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+				'" size="' . $size . '" tabindex="1"' . $aria_req . ' />' .
+				'</div>',
+			'email'  =>
+				'<div class="comment-form-email">
+				<label for="email"' . ( $req ? ' class="' . $req_class . '"' : '' ) . '>' . __( 'Email', THEME_DOMAIN ) . '</label>' .
+				'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+				'" size="' . $size . '" tabindex="2"' . $aria_req . ' />' .
+				'</div>',
+			'url'    =>
+				'<div class="comment-form-url">' .
+				'<label for="url">' . __( 'Website', THEME_DOMAIN ) . '</label>' .
+				'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+				'" size="' . $size . '" tabindex="3" />' .
+				'</div>'
+			)
+		),
+		'comment_field'       =>
+			'<div class="comment-form-comment"><label for="comment">' . __( 'Comment', THEME_DOMAIN ) . '</label>' .
+			'<textarea id="comment" name="comment" tabindex="4" cols="80" rows="4" aria-required="true"></textarea>' .
+			'</div>',
+		'comment_notes_after' => '',0
+	);
+
+	comment_form( $comments_args );
+}
+endif;
+
+
+/**
  * Whitebox Comment
- * Display a single comment.
+ * Displays a single comment.
  * Custom comment callback for wp_list_comments().
  *
  * @see wp-includes/comment-template.php comment()
@@ -294,8 +344,25 @@ endif;
 
 
 /**
+ * Whitebox Comments Nav
+ * Displays the comments navigation.
+ */
+if ( !function_exists( 'whitebox_comments_nav' ) ) :
+function whitebox_comments_nav() {
+	echo '<nav class="navigation comment-navigation" role="navigation">';
+	echo '<div class="nav-previous">';
+	previous_comments_link( __( '<span>&larr;</span> Older', THEME_DOMAIN ) );
+	echo '</div>';
+	echo '<div class="nav-next">';
+	next_comments_link( __( 'Newer <span>&rarr;</span>', THEME_DOMAIN ) );
+	echo '</div>';
+	echo '</nav>';
+}
+endif;
+
+/**
  * Whitebox Footer Text
- * Output footer text.
+ * Outputs the footer text.
  *
  * @param bool $echo Optional.
  * @return string The footer text/markup.

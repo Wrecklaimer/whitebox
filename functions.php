@@ -87,7 +87,7 @@ function add_comment_reply_js() {
 	if ( !is_admin() && is_singular() && comments_open() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
 }
-add_action( 'wp_print_scripts', 'add_comment_reply_js' );
+add_action( 'wp_enqueue_scripts', 'add_comment_reply_js' );
 
 
 /* Add basic WooCommerce support */
