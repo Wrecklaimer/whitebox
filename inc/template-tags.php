@@ -168,10 +168,11 @@ function whitebox_pagination() {
 
 	$big = 999999999;
 	?>
-	<div class="pagination">
+	<nav class="pagination">
 	<?php
 		echo paginate_links( array(
 			'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+			'type'      => 'list',
 			'format'    => '?paged=%#%',
 			'current'   => max( 1, get_query_var('paged') ),
 			'total'     => $wp_query->max_num_pages,
@@ -179,7 +180,7 @@ function whitebox_pagination() {
 			'next_text' => __( 'Next', THEME_DOMAIN )
 		 ) );
 	?>
-	</div>
+	</nav>
 	<?php
 }
 endif;
@@ -195,8 +196,11 @@ if ( !function_exists( 'whitebox_entry_pagination' ) ) :
 function whitebox_entry_pagination() {
 	$pages_label = apply_filters('whitebox_post_pages_label', __( 'Pages', THEME_DOMAIN ));
 	$args = array(
-		'before'         => '<div class="post-pagination"><span class="pagination-label">' . $pages_label . ':</span> ',
-		'after'          => '</div>',
+		'before'         => '<nav class="post-pagination"><span class="pagination-label">' . $pages_label . ':</span> ',
+		'after'          => '</nav>',
+		'link_before'    => '<span class="page">',
+		'link_after'     => '</span>',
+		'separator'      => '',
 		'next_or_number' => 'number'
 	);
 
@@ -350,12 +354,14 @@ endif;
 if ( !function_exists( 'whitebox_comments_nav' ) ) :
 function whitebox_comments_nav() {
 	echo '<nav class="navigation comment-navigation" role="navigation">';
-	echo '<div class="nav-previous">';
+	echo '<ul class="pager">';
+	echo '<li class="previous">';
 	previous_comments_link( __( '<span>&larr;</span> Older', THEME_DOMAIN ) );
-	echo '</div>';
-	echo '<div class="nav-next">';
+	echo '</li>';
+	echo '<li class="next">';
 	next_comments_link( __( 'Newer <span>&rarr;</span>', THEME_DOMAIN ) );
-	echo '</div>';
+	echo '</li>';
+	echo '</ul>';
 	echo '</nav>';
 }
 endif;

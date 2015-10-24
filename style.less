@@ -624,8 +624,32 @@ table {
 /* Pagination */
 
 .pagination {
-	.page-numbers + .page-numbers {
-		margin-left: .25em;
+	margin: .45em 0;
+
+	ul { 
+		.cf();
+
+		& > li {
+			float: left;
+
+			& > a,
+			& > span {
+				display: block;
+				padding: .25em .45em;
+			}
+		}
+	}
+}
+
+.post-pagination {
+	margin: .45em 0;
+
+	.pagination-label {
+		padding: .25em 0;
+	}
+
+	.page {
+		padding: .25em .45em;
 	}
 }
 
@@ -709,20 +733,22 @@ table {
 }
 
 .comment-navigation {
+	margin: .45em 0;
+}
+
+.pager {
 	.cf();
 
-	margin-bottom: .45em;
-
-	.nav-previous {
+	.previous {
 		float: left;
 	}
 
-	.nav-next {
+	.next {
 		float: right;
 	}
 
-	.nav-previous > a,
-	.nav-next > a {
+	.previous > a,
+	.next > a {
 		display: block;
 		padding: .25em 0;
 	}
