@@ -55,15 +55,25 @@ add_action('wp_footer', 'whitebox_menu_init', 20);
 /* Set content width */
 if ( !isset( $content_width ) ) $content_width = 960;
 
-
-/* Add featured images to posts and pages */
-add_theme_support( 'post-thumbnails' );
-
+/* Add homepage thumbnail image size */
 add_image_size( 'whitebox-homepage-thumb', 540, 999 );
 
 
-/* Add RSS feed links for posts and comments */
-add_theme_support( 'automatic-feed-links' );
+/* Add theme support */
+function whitebox_setup_theme() {
+	// Add featured images to posts and pages
+	add_theme_support( 'post-thumbnails' );
+
+	// Add RSS feed links for posts and comments
+	add_theme_support( 'automatic-feed-links' );
+}
+add_action( 'after_setup_theme', 'whitebox_setup_theme' );
+
+
+/* Title filter */
+if ( Whitebox_Settings::get( 'enable_seo' ) ) :
+	add_filter( 'wp_title', 'whitebox_wp_title', 10, 2 );
+endif;
 
 
 /* WP Caption Width Fix */

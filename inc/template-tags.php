@@ -5,57 +5,99 @@
 
 
 /**
- * Title
- * Prints the formatted site title.
+ * Whitebox WP Title
+ * Filters wp_title() output.
+ *
+ * @see wp_title()
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep   Optional separator.
+ * @return string The filtered title.
  */
-if ( !function_exists( 'whitebox_title' ) ) :
-function whitebox_title() {
-	if ( !Whitebox_Settings::get( 'enable_seo' ) ) {
-		echo get_bloginfo('name').wp_title('-', false, '');
-		return;
+if ( !function_exists( 'whitebox_wp_title' ) ) :
+function whitebox_wp_title( $title, $sep ) {
+	if ( is_feed() ) {
+			return $title;
 	}
-
+	 
+	global $page, $paged;
+	
+	// Set the separator
 	$sep = Whitebox_Settings::get( 'seo_title_separator' );
 
-	if ( is_home() ) {
+	// Add the blog name
+	$site_name = get_bloginfo( 'name', 'display' );
+
+	$page_num = "";
+	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+			$page_num = " (" . sprintf( __( 'Page %s', THEME_DOMAIN ), max( $paged, $page ) ) . ")";
+	}
+
+	if ( is_home() || is_front_page() ) {
+		$site_description = get_bloginfo( 'description', 'display' );
+
 		switch ( Whitebox_Settings::get( 'seo_homepage_title' ) ) {
-			case 'Site Title - Site Description':
-				echo get_bloginfo('name').' '.$sep.' '.get_bloginfo('description');
+			case 'Site Title':
+				$title = "$site_name";
 				break;
 			case 'Site Description - Site Title':
-				echo get_bloginfo('description').' '.$sep.' '.get_bloginfo('name');
+				$title = "$site_description $sep $site_name";
 				break;
-			case 'Site Title':
+			case 'Site Title - Site Description':
 			default:
-				echo get_bloginfo('name');
+				$title = "$site_name $sep $site_description";
 		}
 	} else if ( is_single() || is_page() ) {
+		$post_title = single_post_title( '', false );
+
 		switch ( Whitebox_Settings::get( 'seo_post_title' ) ) {
+			case 'Page Title':
+				$title = "$post_title $page_num";
+				break;
 			case 'Site Title - Page Title':
-				echo get_bloginfo('name').wp_title($sep, false, '');
+				$title = "$site_name $sep $post_title $page_num";
 				break;
 			case 'Page Title - Site Title':
-				echo wp_title($sep, false, 'right').get_bloginfo('name');
-				break;
-			case 'Page Title':
 			default:
-				echo wp_title('', false, '');
+				$title = "$post_title $page_num $sep $site_name";
 		}
-	} else if ( is_category() || is_archive() || is_search() || is_404() ) {
+	} else if ( is_archive() || is_category() || is_tag() || is_search()) {
+		$page_title = "Archives";
+		if ( is_author() )
+			$page_title = get_the_author();
+		else if ( is_category() || is_tag() )
+			$page_title = single_term_title( '', false );
+		else if ( is_search() )
+			$page_title = __( 'Search for', THEME_DOMAIN ) . ': "' . get_search_query() . '"';
+
 		switch ( Whitebox_Settings::get( 'seo_index_title' ) ) {
+			case 'Page Title':
+				$title = "$page_title $page_num";
+				break;
 			case 'Site Title - Page Title':
-				echo get_bloginfo('name').wp_title($sep, false, '');
+				$title = "$site_name $sep $page_title $page_num";
 				break;
 			case 'Page Title - Site Title':
-				echo wp_title($sep, false, 'right').get_bloginfo('name');
-				break;
-			case 'Page Title':
 			default:
-				echo wp_title('', false, '');
+				$title = "$page_title $page_num $sep $site_name";
 		}
-	} else {
-		echo wp_title('', false, '');
+	} else if ( is_404() ) {
+		$page_title = "Page Not Found";
+
+		switch ( Whitebox_Settings::get( 'seo_index_title' ) ) {
+			case 'Page Title':
+				$title = "$page_title";
+				break;
+			case 'Site Title - Page Title':
+				$title = "$site_name $sep $page_title";
+				break;
+			case 'Page Title - Site Title':
+			default:
+				$title = "$page_title $sep $site_name";
+		}
 	}
+
+	return $title;
 }
 endif;
 
