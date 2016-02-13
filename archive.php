@@ -17,6 +17,10 @@
 					echo ' archive-month';
 				elseif ( is_year() ) :
 					echo ' archive-year';
+				elseif ( is_tag() ) :
+					echo ' archive-tag';
+				elseif ( is_category() ) :
+					echo ' archive-category';
 				endif;
 			?>">
 
@@ -28,11 +32,21 @@
 						printf( __( 'Archives: %s', THEME_DOMAIN ), get_the_date( _x( 'F Y', 'monthly archives date format', THEME_DOMAIN ) ) );
 					elseif ( is_year() ) :
 						printf( __( 'Archives: %s', THEME_DOMAIN ), get_the_date( _x( 'Y', 'yearly archives date format', THEME_DOMAIN ) ) );
+					elseif ( is_tag() ) :
+						printf( __( 'Tag: %s', THEME_DOMAIN ), single_tag_title( '', false ) );
+					elseif ( is_category() ) :
+						printf( __( 'Category: %s', THEME_DOMAIN ), single_tag_title( '', false ) );
 					else :
 						_e( 'Archives', THEME_DOMAIN );
 					endif;
 				?>
 				</h1>
+
+				<?php 
+				$term_desc = term_description();
+				if ( ( is_tag() || is_category() ) && ( isset($term_desc) && $term_desc !== "" ) ) : ?>
+				<div class="taxonomy-description"><?php echo term_description() ?></div><?php
+				endif; ?>
 
 				<div class="entry-content">
 				<?php
