@@ -357,27 +357,26 @@ function whitebox_comment( $comment, $args, $depth ) {
 		</div>
 
 		<div class="comment-content">
-			<div class="comment-author vcard">
-			<?php comment_author_link(); ?>
-			</div>
+			<div class="comment-header">
+				<div class="comment-author vcard">
+				<?php comment_author_link(); ?>
+				</div>
 
-			<?php
-			if ( $comment->comment_approved == '0' ) : ?>
-			<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', THEME_DOMAIN ) ?></em>
-			<br /><?php
-			endif;
-			?>
-
-			<div class="comment-meta commentmetadata">
-				<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( __( '%1$s at %2$s', THEME_DOMAIN ), get_comment_date(),  get_comment_time()) ?></a>
-				<?php edit_comment_link(__( '(Edit)', THEME_DOMAIN ),'  ','' ); ?>
+				<div class="comment-meta commentmetadata">
+					<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( __( '%1$s at %2$s', THEME_DOMAIN ), get_comment_date(),  get_comment_time()) ?></a>
+				</div>
 			</div>
 
 			<div class="comment-text">
-				<?php comment_text() ?>
+				<?php if ( $comment->comment_approved == '0' ) : ?>
+				<p class="comment-awaiting-moderation"><em><?php _e( '(Your comment is awaiting moderation)', THEME_DOMAIN ) ?></em></p>
+				<?php endif;
+
+				comment_text() ?>
 			</div>
 
-			<div class="reply">
+			<div class="comment-footer">
+				<?php edit_comment_link( __( 'Edit', THEME_DOMAIN ), '', ' | ' ); ?>
 				<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
 			</div>
 		</div><!-- / comment-content -->
