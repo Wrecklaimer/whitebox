@@ -296,6 +296,9 @@ class Whitebox_Settings {
 			case 'upload':
 				self::upload_field( $args );
 				break;
+			case 'group':
+				self::group_field( $args );
+				break;
 			default:
 				return;
 		}
@@ -316,7 +319,7 @@ class Whitebox_Settings {
 
 		echo '<input type="text" id="'.$id.'" class="regular-text" autocomplete="off" name="'.$name.'" value="'.$val.'" />';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
-			echo '<br /><span class="description">'.$desc.'</span>';
+			echo '<br /><p class="description">'.$desc.'</p>';
 	}
 
 
@@ -334,7 +337,7 @@ class Whitebox_Settings {
 
 		echo '<textarea type="textarea" id="'.$id.'" class="large-text" name="'.$name.'" >'.$val.'</textarea>';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
-			echo '<br /><span class="description">'.$desc.'</span>';
+			echo '<br /><p class="description">'.$desc.'</p>';
 	}
 
 
@@ -358,7 +361,7 @@ class Whitebox_Settings {
 			echo $label;
 		echo '</label>';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
-			echo '<br /><span class="description">'.$desc.'</span>';
+			echo '<br /><p class="description">'.$desc.'</p>';
 	}
 
 
@@ -380,7 +383,7 @@ class Whitebox_Settings {
 		}
 		echo '</select>';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
-			echo '<br /><span class="description">'.$desc.'</span>';
+			echo '<br /><p class="description">'.$desc.'</p>';
 	}
 
 
@@ -400,10 +403,41 @@ class Whitebox_Settings {
 		echo '<input type="text" id="'.$id.'" class="regular-text text-upload" autocomplete="off" name="'.$name.'" value="'.esc_url( $val ).'" />';
 		echo '<input type="button" class="button button-upload" value="Upload" />';
 		if ( isset( $desc ) && !is_null( $desc ) && $desc != '' )
-			echo '<br /><span class="description">'.$desc.'</span>';
+			echo '<br /><p class="description">'.$desc.'</p>';
 		if ( isset( $val ) && !is_null( $val ) && $val != '' )
 			echo '<br /><img src="'.esc_url( $val ).'" class="preview-upload" />';
 		echo '</span>';
+	}
+
+
+	/**
+	 * Group Field
+	 * Output a settings group field.
+	 *
+	 * @see get()
+	 *
+	 * @param array $args Settings field args.
+	 */
+	static function group_field( $args ) {
+		extract( $args );
+		$val = self::get( $id );
+
+		if ( !isset( $items ) || is_null( $items ) )
+
+		
+		$idx = 0;
+		$len = count( $items );
+		foreach ( $items as $key => $item ) {
+			if ( $key == 0 ) {
+        echo '<fieldset>';
+				echo '<legend class="screen-reader-text"></legend>';
+    	} 
+			self::display_field( $item );
+			echo '<br/>';
+			if ( $key == $len - 1 ) {
+				echo '</fieldset>';
+    	}
+		}
 	}
 
 

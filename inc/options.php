@@ -56,33 +56,41 @@
 		),
 		array(
 			'name'  => 'Post Meta',
-			'id'    => 'show_post_author',
-			'type'  => 'checkbox',
-			'label' => 'Show post author',
-			'std'   => '1'
+			'id'    => 'post_meta_group',
+			'type'  => 'group',
+			'std'   => '',
+			'items' => array(
+				array(
+					'name'  => 'Post Meta',
+					'id'    => 'show_post_author',
+					'type'  => 'checkbox',
+					'label' => 'Show post author',
+					'std'   => '1'
+				),
+				array(
+					'name'  => '',
+					'desc'  => '<strong>Date/Time format</strong> can be changed <a href="options-general.php" target="_blank">here</a>.',
+					'id'    => 'show_post_date',
+					'type'  => 'checkbox',
+					'label' => 'Show post date',
+					'std'   => '1'
+				),
+				array(
+					'name'  => '',
+					'id'    => 'show_post_category',
+					'type'  => 'checkbox',
+					'label' => 'Show post category',
+					'std'   => '1'
+				),
+				array(
+					'name'  => '',
+					'id'    => 'show_post_tags',
+					'type'  => 'checkbox',
+					'label' => 'Show post tags',
+					'std'   => '0'
+				)
+			)
 		),
-		array(
-			'name'  => '',
-			'desc'  => '<strong>Date/Time format</strong> can be changed <a href="options-general.php" target="_blank">here</a>.',
-			'id'    => 'show_post_date',
-			'type'  => 'checkbox',
-			'label' => 'Show post date',
-			'std'   => '1'
-		),
-		array(
-			'name'  => '',
-			'id'    => 'show_post_category',
-			'type'  => 'checkbox',
-			'label' => 'Show post category',
-			'std'   => '1'
-		),
-		array(
-			'name'  => '',
-			'id'    => 'show_post_tags',
-			'type'  => 'checkbox',
-			'label' => 'Show post tags',
-			'std'   => '0'
-		)
 	),
 		"SEO" => array(
 		array(
