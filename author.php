@@ -13,7 +13,7 @@
 			<div class="page-author">
 
 				<h1 class="entry-title">
-					<?php _e( get_the_author_meta( 'display_name' ), THEME_DOMAIN ); ?>
+					<?php echo get_the_author_meta( 'display_name' ); ?>
 				</h1>
 
 				<div class="entry-content">

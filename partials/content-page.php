@@ -11,7 +11,7 @@
 	<h1 class="entry-title"><?php the_title(); ?></h1>
 
 	<span class="entry-meta">
-		<?php edit_post_link( __( 'Edit', THEME_DOMAIN ), '', '' ); ?>
+		<?php edit_post_link( __( 'Edit', 'whitebox' ), '', '' ); ?>
 	</span>
 
 	<div class="entry-content">

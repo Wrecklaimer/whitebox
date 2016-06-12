@@ -5,7 +5,7 @@
 
 
 if ( post_password_required() ) { ?>
-<p class="no-comments"><?php _e( 'This post is password protected. Enter the password to view comments.', THEME_DOMAIN ); ?></p>
+<p class="no-comments"><?php _e( 'This post is password protected. Enter the password to view comments.', 'whitebox' ); ?></p>
 <?php return;
 } ?>
 
@@ -14,7 +14,7 @@ if ( post_password_required() ) { ?>
 <?php if ( have_comments() ) : ?>
 
 	<h2 class="comments-title">
-		<?php printf( _n( '1 Comment', '%1$s Comments', get_comments_number(), THEME_DOMAIN ), number_format_i18n( get_comments_number() ) ); ?>
+		<?php printf( _n( '1 Comment', '%1$s Comments', get_comments_number(), 'whitebox' ), number_format_i18n( get_comments_number() ) ); ?>
 	</h2>
 
 	<ol class="comment-list">
@@ -33,7 +33,7 @@ if ( post_password_required() ) { ?>
 	endif; // Check for comment navigation. ?>
 
 	<?php if ( !comments_open() ) : ?>
-	<p class="no-comments"><?php _e( 'Comments are closed.', THEME_DOMAIN ); ?></p>
+	<p class="no-comments"><?php _e( 'Comments are closed.', 'whitebox' ); ?></p>
 	<?php endif; ?>
 
 <?php endif; // have_comments() ?>

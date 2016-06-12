@@ -37,6 +37,6 @@ if ( have_posts() ) : ?>
 	</ul>
 	<?php whitebox_pagination();
 else : ?>
-	<p class="title"><?php _e( 'There are no posts to display', THEME_DOMAIN ); ?></p>
+	<p class="title"><?php _e( 'There are no posts to display', 'whitebox' ); ?></p>
 <?php
 endif; ?>

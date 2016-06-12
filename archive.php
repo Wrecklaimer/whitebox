@@ -27,17 +27,17 @@
 				<h1 class="entry-title">
 				<?php
 					if ( is_day() ) :
-						printf( __( 'Archives: %s', THEME_DOMAIN ), get_the_date() );
+						printf( __( 'Archives: %s', 'whitebox' ), get_the_date() );
 					elseif ( is_month() ) :
-						printf( __( 'Archives: %s', THEME_DOMAIN ), get_the_date( _x( 'F Y', 'monthly archives date format', THEME_DOMAIN ) ) );
+						printf( __( 'Archives: %s', 'whitebox' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'whitebox' ) ) );
 					elseif ( is_year() ) :
-						printf( __( 'Archives: %s', THEME_DOMAIN ), get_the_date( _x( 'Y', 'yearly archives date format', THEME_DOMAIN ) ) );
+						printf( __( 'Archives: %s', 'whitebox' ), get_the_date( _x( 'Y', 'yearly archives date format', 'whitebox' ) ) );
 					elseif ( is_tag() ) :
-						printf( __( 'Tag: %s', THEME_DOMAIN ), single_tag_title( '', false ) );
+						printf( __( 'Tag: %s', 'whitebox' ), single_tag_title( '', false ) );
 					elseif ( is_category() ) :
-						printf( __( 'Category: %s', THEME_DOMAIN ), single_tag_title( '', false ) );
+						printf( __( 'Category: %s', 'whitebox' ), single_tag_title( '', false ) );
 					else :
-						_e( 'Archives', THEME_DOMAIN );
+						_e( 'Archives', 'whitebox' );
 					endif;
 				?>
 				</h1>
@@ -60,7 +60,7 @@
 					</div> <!-- / .posts -->
 				<?php whitebox_pagination(); ?>
 				<?php	else : ?>
-					<p class="title"><?php _e( 'There are no posts to display', THEME_DOMAIN ); ?></p>
+					<p class="title"><?php _e( 'There are no posts to display', 'whitebox' ); ?></p>
 				<?php endif; ?>
 				</div> <!-- / .entry-content -->
 

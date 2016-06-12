@@ -16,7 +16,7 @@
 				get_template_part( 'partials/content', 'page' );
 			endwhile;
 		else: ?>
-			<p><?php _e( 'Sorry, no pages matched your criteria.', THEME_DOMAIN ); ?></p>
+			<p><?php _e( 'Sorry, no pages matched your criteria.', 'whitebox' ); ?></p>
 		<?php
 		endif; ?>
 		</div> <!-- / #main -->

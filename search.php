@@ -15,7 +15,7 @@
 				<?php
 				if ( have_posts() ) : ?>
 
-				<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', THEME_DOMAIN ), get_search_query() ); ?></h1>
+				<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'whitebox' ), get_search_query() ); ?></h1>
 
 				<div class="entry-content">
 					<div class="posts">
@@ -29,9 +29,9 @@
 
 				<?php
 				else : ?>
-					<h1 class="entry-title"><?php printf( __( 'No Results for: %s', THEME_DOMAIN ), get_search_query() ); ?></h1>
+					<h1 class="entry-title"><?php printf( __( 'No Results for: %s', 'whitebox' ), get_search_query() ); ?></h1>
 					<div class="entry-content">
-						<p class="title"><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', THEME_DOMAIN ); ?></p>
+						<p class="title"><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'whitebox' ); ?></p>
 						<?php get_search_form(); ?>
 					</div> <!-- / .entry-content --><?php
 				endif;?>

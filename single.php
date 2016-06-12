@@ -16,7 +16,7 @@
 				get_template_part( 'partials/content', get_post_format() );
 			endwhile;
 		else: ?>
-			<p><?php _e( 'Sorry, no posts matched your criteria.', THEME_DOMAIN ); ?></p>
+			<p><?php _e( 'Sorry, no posts matched your criteria.', 'whitebox' ); ?></p>
 		<?php
 		endif; ?>
 		</div> <!-- / #main -->
