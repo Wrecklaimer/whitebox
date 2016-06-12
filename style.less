@@ -544,6 +544,7 @@ table {
 /*
  * Posts and Pages
  */
+
 #main {
 	ul.posts {
 		.list-unstyled();
@@ -916,6 +917,11 @@ table {
 
 #main .posts .post {
 	.cf();
+
+	&.sticky .content {
+		background: #f0f0f0;
+		padding: .45em;
+	}
 
 	.entry-image {
 		float: left;
