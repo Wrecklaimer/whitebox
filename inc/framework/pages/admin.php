@@ -8,7 +8,6 @@ if ( !current_user_can( 'edit_theme_options' ) ) {
 
 	<div id="admin-header">
 		<div id="admin-theme">
-			<?php screen_icon( 'options-general' ); ?>
 			<h2><?php echo Whitebox::$themeName ?> Settings</h2>
 			<?php settings_errors(); ?>
 		</div>
